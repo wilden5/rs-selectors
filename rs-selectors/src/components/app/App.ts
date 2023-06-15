@@ -9,8 +9,7 @@ class App {
     }
 
     public start(): void {
-        this.levelLayout.buildLayout();
-        this.levelLayout.populateLevelData();
+        this.levelLayout.init();
     }
 }
 
