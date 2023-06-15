@@ -1,5 +1,5 @@
 import DOMHelpers from '../utils/DOMHelpers';
-import { LevelInfo } from '../../types';
+import { LevelInfo } from '../../types/Interfaces';
 
 class Layout {
     private levels: LevelInfo[];
