@@ -1,5 +1,71 @@
 @import "var";
 
-.test {
-  font-size: 55px;
+html {
+  font-size: 10px;
+}
+
+.navigator-wrapper {
+  display: flex;
+}
+
+.level__nav-elements {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: $text-color-whiter;
+
+  & .nav-elements__nextLevel,
+  .nav-elements__prevLevel {
+    cursor: pointer;
+    font-size: 5rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: $text-color;
+  }
+
+  & .nav-elements__level-number {
+    font-size: 3rem;
+  }
+}
+
+.nav-elements__burger {
+  cursor: pointer;
+}
+
+.burger__burger-line {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 0.2rem;
+  background-color: $text-color;
+  margin: 0.6rem 0;
+  border: none;
+  line-height: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    background-color: $text-color;
+  }
+
+  &::before {
+    top: -0.760rem;
+  }
+
+  &::after {
+    bottom: -0.760rem;
+  }
+}
+
+.nav-elements__level-progress {
+  width: 23.5rem;
+  height: 0.2rem;
+  background-color: $text-color;
+  margin: 0.6rem 0;
+  border: none;
+  line-height: 0;
 }
