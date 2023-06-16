@@ -4,8 +4,10 @@ html {
   font-size: 10px;
 }
 
-.navigator-wrapper {
+.level-wrapper {
   display: flex;
+  flex-direction: column;
+  max-width: 35rem;
 }
 
 .level__nav-elements {
@@ -62,10 +64,37 @@ html {
 }
 
 .nav-elements__level-progress {
-  width: 23.5rem;
+  width: 34rem;
   height: 0.2rem;
   background-color: $text-color;
   margin: 0.6rem 0;
   border: none;
   line-height: 0;
+}
+
+.nav-elements__selector-name,
+.nav-elements__selector-title {
+  font-size: 1.8rem;
+  color: $text-color-whiter;
+  font-weight: 600;
+}
+
+.nav-elements__selector-title {
+  font-weight: 300;
+}
+
+.nav-elements__selector-syntax {
+  font-size: 2.4rem;
+  color: $text-color;
+}
+
+.nav-elements__selector-hint,
+.nav-elements__example-title,
+.nav-elements__example-case {
+  font-size: 1.5rem;
+  color: $text-color-whiter;
+}
+
+.nav-elements__example-title {
+  font-weight: 600;
 }
