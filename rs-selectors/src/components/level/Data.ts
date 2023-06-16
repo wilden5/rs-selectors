@@ -16,6 +16,18 @@ const gameLevels: LevelInfo[] = [
         },
     },
     {
+        levelIndicator: 'Level 2',
+        selectorType: 'ID Selector',
+        selectorTitle: 'Select elements with an ID',
+        selectorSyntax: '#id',
+        hint: 'Selects the element with a specific id. You can also combine the ID selector with the type selector.',
+        example: {
+            title: 'Examples',
+            case1: '#cool selects any element with id="cool"',
+            case2: 'ul#long selects ul id="long"',
+        },
+    },
+    {
         levelIndicator: 'Level 3',
         selectorType: 'Descendant Selector',
         selectorTitle: 'Select an element inside another element',

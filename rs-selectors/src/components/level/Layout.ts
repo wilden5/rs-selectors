@@ -36,6 +36,8 @@ class Layout {
 
     private exampleCase: HTMLElement = DOMHelpers.createElement('div', ['nav-elements__example-case']);
 
+    private checkMark: HTMLElement = DOMHelpers.createElement('span', ['nav-elements__checkmark']);
+
     constructor(levels: LevelInfo[]) {
         this.levels = levels;
         this.currentLevelIndex = 0;
@@ -47,6 +49,7 @@ class Layout {
         this.levelWrapper.appendChild(this.levelProgress);
         this.levelWrapper.appendChild(this.levelBlock);
         this.navElements.appendChild(this.levelNumber);
+        this.navElements.appendChild(this.checkMark);
         this.navElements.appendChild(this.prevLevel);
         this.navElements.appendChild(this.nextLevel);
         this.navElements.appendChild(this.burger);
@@ -79,7 +82,7 @@ class Layout {
     };
 
     private populateLevelData = (): void => {
-        this.levelNumber.innerText = this.levels[this.currentLevelIndex].levelIndicator;
+        this.levelNumber.innerText = `${this.levels[this.currentLevelIndex].levelIndicator} of ${this.levels.length}`;
         this.selectorType.innerText = this.levels[this.currentLevelIndex].selectorType;
         this.selectorTitle.innerText = this.levels[this.currentLevelIndex].selectorTitle;
         this.selectorSyntax.innerText = this.levels[this.currentLevelIndex].selectorSyntax;
