@@ -63,7 +63,7 @@ body {
   position: relative;
   display: block;
   width: 3rem;
-  height: 0.2rem;
+  height: 0.25rem;
   background-color: $text-color;
   margin: 0.6rem 0;
   border: none;
@@ -74,26 +74,27 @@ body {
     content: '';
     position: absolute;
     width: 100%;
-    height: 0.2rem;
+    height: 0.25rem;
     background-color: $text-color;
   }
 
   &::before {
-    top: -0.760rem;
+    top: -1rem;
   }
 
   &::after {
-    bottom: -0.760rem;
+    bottom: -1rem;
   }
 }
 
 .nav-elements__level-progress {
   width: 35rem;
   height: 0.2rem;
-  background-color: $text-color;
+  background-color: $level-progress-color;
   margin: 0.6rem 0;
   border: none;
   line-height: 0;
+  position: relative;
 }
 
 .nav-elements__selector-name,
@@ -139,4 +140,25 @@ body {
   border-style: solid;
   border-color: white;
   opacity: 0.2;
+}
+
+.level-progress__state {
+  background-color: white;
+  width: 10%;
+  height: 0.2rem;
+  position: relative;
+  z-index: 2;
+
+  &:after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: -3px;
+    height: 4px;
+    width: 4px;
+    border: solid 2px #2a231d;
+    background-color: red;
+    border-radius: 50%;
+    z-index: -1;
+  }
 }

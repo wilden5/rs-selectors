@@ -22,6 +22,8 @@ class Layout {
 
     private levelProgress: HTMLElement = DOMHelpers.createElement('div', ['nav-elements__level-progress']);
 
+    private levelProgressState: HTMLElement = DOMHelpers.createElement('div', ['level-progress__state']);
+
     private levelBlock: HTMLElement = DOMHelpers.createElement('div', ['nav-elements__block']);
 
     private selectorType: HTMLElement = DOMHelpers.createElement('h3', ['nav-elements__selector-name']);
@@ -47,6 +49,7 @@ class Layout {
         document.body.appendChild(this.levelWrapper);
         this.levelWrapper.appendChild(this.navElements);
         this.levelWrapper.appendChild(this.levelProgress);
+        this.levelProgress.appendChild(this.levelProgressState);
         this.levelWrapper.appendChild(this.levelBlock);
         this.navElements.appendChild(this.levelNumber);
         this.navElements.appendChild(this.checkMark);
