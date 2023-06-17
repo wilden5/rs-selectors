@@ -1,6 +1,8 @@
 import DOMHelpers from '../utils/DOMHelpers';
 
 class Elements {
+    private static instance: Elements;
+
     public levelWrapper: HTMLElement;
 
     public navElements: HTMLElement;
@@ -35,7 +37,7 @@ class Elements {
 
     public checkMark: HTMLElement;
 
-    constructor() {
+    private constructor() {
         this.levelWrapper = DOMHelpers.createElement('div', ['level-wrapper']);
         this.navElements = DOMHelpers.createElement('div', ['level__nav-elements']);
         this.nextLevel = DOMHelpers.createElement('button', ['nav-elements__nextLevel'], '>');
@@ -53,6 +55,13 @@ class Elements {
         this.exampleTitle = DOMHelpers.createElement('h4', ['nav-elements__example-title']);
         this.exampleCase = DOMHelpers.createElement('div', ['nav-elements__example-case']);
         this.checkMark = DOMHelpers.createElement('span', ['nav-elements__checkmark']);
+    }
+
+    public static getInstance(): Elements {
+        if (!Elements.instance) {
+            Elements.instance = new Elements();
+        }
+        return Elements.instance;
     }
 }
 

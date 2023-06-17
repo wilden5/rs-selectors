@@ -1,13 +1,15 @@
-class Menu {
-    private readonly burger: HTMLElement;
+import Elements from './Elements';
 
-    constructor(burger: HTMLElement) {
-        this.burger = burger;
+class Menu {
+    private elements: Elements;
+
+    constructor() {
+        this.elements = Elements.getInstance();
     }
 
     public activateBurger(): void {
-        this.burger.addEventListener('click', () => {
-            this.burger.classList.toggle('burger-opened');
+        this.elements.burger.addEventListener('click', () => {
+            this.elements.burger.classList.toggle('burger-opened');
         });
     }
 

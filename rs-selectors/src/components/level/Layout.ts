@@ -14,8 +14,8 @@ class Layout {
     constructor(levels: LevelInfo[]) {
         this.levels = levels;
         this.currentLevelIndex = 0;
-        this.levelElements = new Elements();
-        this.menu = new Menu(this.levelElements.burger);
+        this.levelElements = Elements.getInstance();
+        this.menu = new Menu();
     }
 
     private appendElements = (): void => {
