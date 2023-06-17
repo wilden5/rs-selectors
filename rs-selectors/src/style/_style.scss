@@ -42,6 +42,10 @@ body {
     outline: none;
     color: $text-color;
     transition: transform 0.2s;
+
+    &:hover {
+      color: white;
+    }
   }
 
   & .nav-elements__nextLevel:active,
@@ -57,6 +61,7 @@ body {
 
 .nav-elements__burger {
   cursor: pointer;
+  transition: ease all 1s;
 }
 
 .burger__burger-line {
@@ -84,6 +89,12 @@ body {
 
   &::after {
     bottom: -1rem;
+  }
+
+  &:hover,
+  &:hover:before,
+  &:hover:after,{
+    background-color: white;
   }
 }
 
@@ -161,4 +172,11 @@ body {
     border-radius: 50%;
     z-index: -1;
   }
+}
+
+/*burger*/
+
+.burger-opened {
+  transform: rotate(90deg);
+  transition: ease all 1s;
 }
