@@ -70,9 +70,21 @@ class Layout {
         this.prevLevel.addEventListener('click', this.handlePrevLevel);
     };
 
+    private changeProgressState = (option: string): void => {
+        let currentWidth = parseFloat(getComputedStyle(this.levelProgressState).getPropertyValue('width'));
+        if (option === 'increase') {
+            currentWidth += 35;
+            this.levelProgressState.style.setProperty('width', `${currentWidth}px`);
+        } else {
+            currentWidth -= 35;
+            this.levelProgressState.style.setProperty('width', `${currentWidth}px`);
+        }
+    };
+
     private handleNextLevel = (): void => {
         if (this.currentLevelIndex < this.levels.length - 1) {
             this.currentLevelIndex += 1;
+            this.changeProgressState('increase');
             this.populateLevelData();
         }
     };
@@ -80,6 +92,7 @@ class Layout {
     private handlePrevLevel = (): void => {
         if (this.currentLevelIndex > 0) {
             this.currentLevelIndex -= 1;
+            this.changeProgressState('decrease');
             this.populateLevelData();
         }
     };
