@@ -1,4 +1,5 @@
 @import "style/var";
 @import "style/style";
-@import "style/code-editor";
+@import "components/code-editor/code-editor";
+@import "src/components/level-selector/level-selector";
 @import "src/components/level-selector/burger-menu/burger-menu";

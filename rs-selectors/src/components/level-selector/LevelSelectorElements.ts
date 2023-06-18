@@ -1,7 +1,7 @@
 import DOMHelpers from '../utils/DOMHelpers';
 
-class Elements {
-    private static instance: Elements;
+class LevelSelectorElements {
+    private static instance: LevelSelectorElements;
 
     public levelWrapper: HTMLElement;
 
@@ -66,12 +66,12 @@ class Elements {
         this.burgerLevels = DOMHelpers.createElement('div', ['burger-levels']);
     }
 
-    public static getInstance(): Elements {
-        if (!Elements.instance) {
-            Elements.instance = new Elements();
+    public static getInstance(): LevelSelectorElements {
+        if (!LevelSelectorElements.instance) {
+            LevelSelectorElements.instance = new LevelSelectorElements();
         }
-        return Elements.instance;
+        return LevelSelectorElements.instance;
     }
 }
 
-export default Elements;
+export default LevelSelectorElements;

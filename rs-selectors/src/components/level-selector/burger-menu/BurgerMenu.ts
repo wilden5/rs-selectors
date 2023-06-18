@@ -1,10 +1,10 @@
-import Elements from '../Elements';
+import LevelSelectorElements from '../LevelSelectorElements';
 
 class BurgerMenu {
-    private elements: Elements;
+    private elements: LevelSelectorElements;
 
     constructor() {
-        this.elements = Elements.getInstance();
+        this.elements = LevelSelectorElements.getInstance();
     }
 
     private assignBurgerMenuEventListeners(): void {
