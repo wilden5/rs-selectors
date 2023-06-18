@@ -1,7 +1,6 @@
 import { LevelInfo } from '../../types/Interfaces';
-import BurgerMenu from './burger-menu/BurgerMenu';
+import BurgerMenuLayout from './burger-menu/BurgerMenuLayout';
 import LevelSelectorElements from './LevelSelectorElements';
-import DOMHelpers from '../utils/DOMHelpers';
 
 class Layout {
     private levels: LevelInfo[];
@@ -10,13 +9,13 @@ class Layout {
 
     private levelElements: LevelSelectorElements;
 
-    private menu: BurgerMenu;
+    private menu: BurgerMenuLayout;
 
     constructor(levels: LevelInfo[]) {
         this.levels = levels;
         this.currentLevelIndex = 0;
         this.levelElements = LevelSelectorElements.getInstance();
-        this.menu = new BurgerMenu();
+        this.menu = new BurgerMenuLayout(levels);
     }
 
     private appendElements = (): void => {
@@ -25,21 +24,16 @@ class Layout {
         this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelProgress);
         this.levelElements.levelProgress.appendChild(this.levelElements.levelProgressState);
         this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelInformationContainer);
-        this.levelElements.levelSelectorContainer.appendChild(this.levelElements.burgerMenu);
         this.levelElements.levelSelectorNav.appendChild(this.levelElements.navLevelNumber);
         this.levelElements.levelSelectorNav.appendChild(this.levelElements.navCheckmark);
         this.levelElements.levelSelectorNav.appendChild(this.levelElements.navPrevLevel);
         this.levelElements.levelSelectorNav.appendChild(this.levelElements.navNextLevel);
-        this.levelElements.levelSelectorNav.appendChild(this.levelElements.burger);
-        this.levelElements.burger.appendChild(this.levelElements.burgerLine);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorType);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorTitle);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorSyntax);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorHint);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleTitle);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleCase);
-        this.levelElements.burgerMenu.appendChild(this.levelElements.burgerHeader);
-        this.levelElements.burgerMenu.appendChild(this.levelElements.burgerLevels);
     };
 
     private assignEventListeners = (): void => {
@@ -90,29 +84,11 @@ class Layout {
         }`;
     };
 
-    private drawLevels = (): void => {
-        this.levels.forEach((level) => {
-            const div = DOMHelpers.createElement('div', ['div-wrapper']);
-            const number = DOMHelpers.createElement('span', ['number'], `${level.levelIndicator.split(' ')[1]}`);
-            const checkmark = DOMHelpers.createElement('span', ['checkmark-s']);
-            const element = DOMHelpers.createElement(
-                'span',
-                ['level', `level-${level.levelIndicator.split(' ')[1]}`],
-                `${level.selectorSyntax}`
-            );
-            this.levelElements.burgerLevels.appendChild(div);
-            div.appendChild(checkmark);
-            div.appendChild(number);
-            div.appendChild(element);
-        });
-    };
-
     public init = (): void => {
         this.appendElements();
         this.assignEventListeners();
         this.populateLevelData();
         this.menu.init();
-        this.drawLevels();
     };
 }
 
