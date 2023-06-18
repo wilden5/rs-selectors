@@ -10,6 +10,7 @@ class Menu {
     public activateBurger(): void {
         this.elements.burger.addEventListener('click', () => {
             this.elements.burger.classList.toggle('burger-opened');
+            this.elements.burgerMenu.classList.toggle('burger-menu--open');
         });
     }
 

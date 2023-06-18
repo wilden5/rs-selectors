@@ -11,6 +11,7 @@ body {
   display: flex;
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 .code-wrapper,
@@ -24,6 +25,8 @@ body {
   flex-direction: column;
   max-width: 35rem;
   padding: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .level__nav-elements {
@@ -62,6 +65,7 @@ body {
 .nav-elements__burger {
   cursor: pointer;
   transition: ease all 1s;
+  z-index: 3;
 }
 
 .burger__burger-line {
@@ -179,4 +183,28 @@ body {
 .burger-opened {
   transform: rotate(90deg);
   transition: ease all 1s;
+}
+
+.burger-menu {
+  background: rgb(31, 29, 24);
+  position: absolute;
+  padding: 2rem;
+  top: 0;
+  right: 0;
+  width: 35rem;
+  height: 100%;
+  display: none;
+  z-index: 2;
+}
+
+.burger-menu--open {
+  display: block;
+}
+
+.burger-header {
+  padding-top: 1.5rem;
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: $text-color-whiter;
 }

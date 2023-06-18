@@ -37,6 +37,10 @@ class Elements {
 
     public checkMark: HTMLElement;
 
+    public burgerMenu: HTMLElement;
+
+    public burgerHeader: HTMLElement;
+
     private constructor() {
         this.levelWrapper = DOMHelpers.createElement('div', ['level-wrapper']);
         this.navElements = DOMHelpers.createElement('div', ['level__nav-elements']);
@@ -55,6 +59,8 @@ class Elements {
         this.exampleTitle = DOMHelpers.createElement('h4', ['nav-elements__example-title']);
         this.exampleCase = DOMHelpers.createElement('div', ['nav-elements__example-case']);
         this.checkMark = DOMHelpers.createElement('span', ['nav-elements__checkmark']);
+        this.burgerMenu = DOMHelpers.createElement('div', ['burger-menu']);
+        this.burgerHeader = DOMHelpers.createElement('h2', ['burger-header'], 'Choose a level');
     }
 
     public static getInstance(): Elements {

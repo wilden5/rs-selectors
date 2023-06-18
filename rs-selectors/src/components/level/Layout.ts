@@ -24,6 +24,7 @@ class Layout {
         this.levelElements.levelWrapper.appendChild(this.levelElements.levelProgress);
         this.levelElements.levelProgress.appendChild(this.levelElements.levelProgressState);
         this.levelElements.levelWrapper.appendChild(this.levelElements.levelBlock);
+        this.levelElements.levelWrapper.appendChild(this.levelElements.burgerMenu);
         this.levelElements.navElements.appendChild(this.levelElements.levelNumber);
         this.levelElements.navElements.appendChild(this.levelElements.checkMark);
         this.levelElements.navElements.appendChild(this.levelElements.prevLevel);
@@ -36,6 +37,7 @@ class Layout {
         this.levelElements.levelBlock.appendChild(this.levelElements.selectorHint);
         this.levelElements.levelBlock.appendChild(this.levelElements.exampleTitle);
         this.levelElements.levelBlock.appendChild(this.levelElements.exampleCase);
+        this.levelElements.burgerMenu.appendChild(this.levelElements.burgerHeader);
     };
 
     private assignEventListeners = (): void => {
