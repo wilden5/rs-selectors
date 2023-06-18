@@ -94,12 +94,14 @@ class Layout {
         this.levels.forEach((level) => {
             const div = DOMHelpers.createElement('div', ['div-wrapper']);
             const number = DOMHelpers.createElement('span', ['number'], `${level.levelIndicator.split(' ')[1]}`);
+            const checkmark = DOMHelpers.createElement('span', ['checkmark-s']);
             const element = DOMHelpers.createElement(
-                'a',
+                'span',
                 ['level', `level-${level.levelIndicator.split(' ')[1]}`],
                 `${level.selectorSyntax}`
             );
             this.levelElements.burgerLevels.appendChild(div);
+            div.appendChild(checkmark);
             div.appendChild(number);
             div.appendChild(element);
         });

@@ -143,6 +143,7 @@ body {
   font-weight: 600;
 }
 
+.checkmark-s,
 .nav-elements__checkmark {
   margin-right: 3rem;
   position: relative;
@@ -155,6 +156,13 @@ body {
   border-style: solid;
   border-color: white;
   opacity: 0.2;
+}
+
+.checkmark-s {
+  margin-left: 0.5rem;
+  margin-right: 2rem;
+  width: 0.6rem;
+  height: 1rem;
 }
 
 .level-progress__state {
@@ -203,6 +211,7 @@ body {
 
 .burger-header {
   padding-top: 1.5rem;
+  padding-left: 0.5rem;
   margin: 0;
   font-size: 2.2rem;
   font-weight: 600;
@@ -216,9 +225,15 @@ body {
 }
 
 .level {
-  position: relative;
   font-size: 1.8rem;
   color: $text-color-whiter;
+}
+
+.div-wrapper {
+  position: relative;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   transition: border-color 0.3s ease;
 
@@ -239,14 +254,10 @@ body {
   }
 }
 
-.div-wrapper {
-  padding-bottom: 1rem;
-  display: flex;
-}
-
 .number {
+  opacity: 0.5;
   font-size: 1.8rem;
   color: $text-color-whiter;
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
