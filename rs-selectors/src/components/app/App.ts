@@ -1,19 +1,19 @@
-import LevelLayout from '../level/Layout';
-import CodeLayout from '../code/Layout';
-import gameLevels from '../level/Data';
+import LevelLayout from '../level-selector/Layout';
+import CodeEditorLayout from '../code-editor/CodeEditorLayout';
+import GAME_LEVELS from '../level-selector/Data';
 
 class App {
-    private codeLayout: CodeLayout;
+    private codeEditorLayout: CodeEditorLayout;
 
     private levelLayout: LevelLayout;
 
     constructor() {
-        this.codeLayout = new CodeLayout();
-        this.levelLayout = new LevelLayout(gameLevels);
+        this.codeEditorLayout = new CodeEditorLayout();
+        this.levelLayout = new LevelLayout(GAME_LEVELS);
     }
 
     public start(): void {
-        this.codeLayout.init();
+        this.codeEditorLayout.init();
         this.levelLayout.init();
     }
 }

@@ -1,6 +1,6 @@
 import { LevelInfo } from '../../types/Interfaces';
 
-const gameLevels: LevelInfo[] = [
+const GAME_LEVELS: LevelInfo[] = [
     {
         levelIndicator: 'Level 1',
         selectorType: 'Type Selector',
@@ -138,4 +138,4 @@ const gameLevels: LevelInfo[] = [
     },
 ];
 
-export default gameLevels;
+export default GAME_LEVELS;
