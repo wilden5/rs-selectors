@@ -1,4 +1,5 @@
 import DOMHelpers from '../utils/DOMHelpers';
+import Singleton from '../utils/Singleton';
 
 class LevelSelectorElements {
     private static instance: LevelSelectorElements;
@@ -33,7 +34,7 @@ class LevelSelectorElements {
 
     public navCheckmark: HTMLElement;
 
-    private constructor() {
+    public constructor() {
         this.levelSelectorContainer = DOMHelpers.createElement('div', ['level-selector-container']);
         this.levelSelectorNav = DOMHelpers.createElement('div', ['level-selector__nav']);
         this.navNextLevel = DOMHelpers.createElement('button', ['nav__next-level'], '>');
@@ -52,10 +53,7 @@ class LevelSelectorElements {
     }
 
     public static getInstance(): LevelSelectorElements {
-        if (!LevelSelectorElements.instance) {
-            LevelSelectorElements.instance = new LevelSelectorElements();
-        }
-        return LevelSelectorElements.instance;
+        return Singleton.getInstance<LevelSelectorElements>(LevelSelectorElements);
     }
 }
 

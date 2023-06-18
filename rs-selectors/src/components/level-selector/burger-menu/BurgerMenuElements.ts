@@ -1,4 +1,5 @@
 import DOMHelpers from '../../utils/DOMHelpers';
+import Singleton from '../../utils/Singleton';
 
 class BurgerMenuElements {
     private static instance: BurgerMenuElements;
@@ -13,7 +14,7 @@ class BurgerMenuElements {
 
     public burgerLevels: HTMLElement;
 
-    private constructor() {
+    public constructor() {
         this.burger = DOMHelpers.createElement('div', ['nav-elements__burger']);
         this.burgerLine = DOMHelpers.createElement('span', ['burger__burger-line']);
         this.burgerMenu = DOMHelpers.createElement('div', ['burger-menu']);
@@ -22,10 +23,7 @@ class BurgerMenuElements {
     }
 
     public static getInstance(): BurgerMenuElements {
-        if (!BurgerMenuElements.instance) {
-            BurgerMenuElements.instance = new BurgerMenuElements();
-        }
-        return BurgerMenuElements.instance;
+        return Singleton.getInstance<BurgerMenuElements>(BurgerMenuElements);
     }
 }
 
