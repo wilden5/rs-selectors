@@ -1,13 +1,13 @@
-import Elements from './Elements';
+import Elements from '../Elements';
 
-class Menu {
+class BurgerMenu {
     private elements: Elements;
 
     constructor() {
         this.elements = Elements.getInstance();
     }
 
-    private activateBurger(): void {
+    private assignBurgerMenuEventListeners(): void {
         this.elements.burger.addEventListener('click', () => {
             this.elements.burger.classList.toggle('burger-opened');
             this.elements.burgerMenu.classList.toggle('burger-menu--open');
@@ -15,8 +15,8 @@ class Menu {
     }
 
     public init = (): void => {
-        this.activateBurger();
+        this.assignBurgerMenuEventListeners();
     };
 }
 
-export default Menu;
+export default BurgerMenu;

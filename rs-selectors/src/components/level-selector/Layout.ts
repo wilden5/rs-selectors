@@ -1,5 +1,5 @@
 import { LevelInfo } from '../../types/Interfaces';
-import Menu from './Menu';
+import BurgerMenu from './burger-menu/BurgerMenu';
 import Elements from './Elements';
 import DOMHelpers from '../utils/DOMHelpers';
 
@@ -10,13 +10,13 @@ class Layout {
 
     private levelElements: Elements;
 
-    private menu: Menu;
+    private menu: BurgerMenu;
 
     constructor(levels: LevelInfo[]) {
         this.levels = levels;
         this.currentLevelIndex = 0;
         this.levelElements = Elements.getInstance();
-        this.menu = new Menu();
+        this.menu = new BurgerMenu();
     }
 
     private appendElements = (): void => {

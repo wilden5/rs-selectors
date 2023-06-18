@@ -1,0 +1,150 @@
+@import "../../../style/_var.scss";
+
+.nav-elements__burger {
+  cursor: pointer;
+  transition: ease all 1s;
+  z-index: 3;
+}
+
+.burger__burger-line {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 0.25rem;
+  background-color: $text-color;
+  margin: 0.6rem 0;
+  border: none;
+  line-height: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.25rem;
+    background-color: $text-color;
+  }
+
+  &::before {
+    top: -1rem;
+  }
+
+  &::after {
+    bottom: -1rem;
+  }
+
+  &:hover,
+  &:hover:before,
+  &:hover:after,{
+    background-color: white;
+  }
+}
+
+.burger-opened {
+  transform: rotate(90deg);
+  transition: ease all 1s;
+}
+
+.burger-menu {
+  background: rgb(31, 29, 24);
+  position: absolute;
+  padding: 2rem;
+  top: 0;
+  right: 0;
+  width: 35rem;
+  height: 100%;
+  display: none;
+  z-index: 2;
+}
+
+.burger-menu--open {
+  display: block;
+}
+
+.burger-header {
+  padding-top: 1.5rem;
+  padding-left: 0.5rem;
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: $text-color-whiter;
+}
+
+.burger-levels {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkmark-s {
+  margin-left: 0.5rem;
+  margin-right: 2rem;
+  width: 0.6rem;
+  height: 1rem;
+  position: relative;
+  display: inline-block;
+  top: -3px;
+  transform: rotate(40deg);
+  border-width: 0 0.4rem 0.4rem 0;
+  border-style: solid;
+  border-color: white;
+  opacity: 0.2;
+}
+
+.level-progress__state {
+  background-color: white;
+  width: 35px;
+  height: 0.2rem;
+  position: relative;
+  z-index: 2;
+
+  &:after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: -3px;
+    height: 4px;
+    width: 4px;
+    border: solid 2px #2a231d;
+    background-color: red;
+    border-radius: 50%;
+    z-index: -1;
+  }
+}
+
+.level {
+  font-size: 1.8rem;
+  color: $text-color-whiter;
+}
+
+.div-wrapper {
+  position: relative;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(141, 130, 130, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.number {
+  opacity: 0.5;
+  font-size: 1.8rem;
+  color: $text-color-whiter;
+  margin-right: 2rem;
+}
