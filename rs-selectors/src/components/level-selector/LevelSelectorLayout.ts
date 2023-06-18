@@ -2,7 +2,7 @@ import { LevelInfo } from '../../types/Interfaces';
 import BurgerMenuLayout from './burger-menu/BurgerMenuLayout';
 import LevelSelectorElements from './LevelSelectorElements';
 
-class Layout {
+class LevelSelectorLayout {
     private levels: LevelInfo[];
 
     private currentLevelIndex: number;
@@ -92,4 +92,4 @@ class Layout {
     };
 }
 
-export default Layout;
+export default LevelSelectorLayout;

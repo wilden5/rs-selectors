@@ -1,6 +1,6 @@
-import LevelLayout from '../level-selector/Layout';
+import LevelLayout from '../level-selector/LevelSelectorLayout';
 import CodeEditorLayout from '../code-editor/CodeEditorLayout';
-import GAME_LEVELS from '../level-selector/LevelSelectorData';
+import GAME_LEVELS from './AppLevels';
 
 class App {
     private codeEditorLayout: CodeEditorLayout;
