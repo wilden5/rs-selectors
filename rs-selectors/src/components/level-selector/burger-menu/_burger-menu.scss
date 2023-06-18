@@ -91,27 +91,6 @@
   opacity: 0.2;
 }
 
-.level-progress__state {
-  background-color: white;
-  width: 35px;
-  height: 0.2rem;
-  position: relative;
-  z-index: 2;
-
-  &:after {
-    content: "";
-    position: absolute;
-    right: -6px;
-    top: -3px;
-    height: 4px;
-    width: 4px;
-    border: solid 2px #2a231d;
-    background-color: red;
-    border-radius: 50%;
-    z-index: -1;
-  }
-}
-
 .level {
   font-size: 1.8rem;
   color: $text-color-whiter;

@@ -20,31 +20,31 @@ class Layout {
     }
 
     private appendElements = (): void => {
-        document.body.appendChild(this.levelElements.levelWrapper);
-        this.levelElements.levelWrapper.appendChild(this.levelElements.navElements);
-        this.levelElements.levelWrapper.appendChild(this.levelElements.levelProgress);
+        document.body.appendChild(this.levelElements.levelSelectorContainer);
+        this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelSelectorNav);
+        this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelProgress);
         this.levelElements.levelProgress.appendChild(this.levelElements.levelProgressState);
-        this.levelElements.levelWrapper.appendChild(this.levelElements.levelBlock);
-        this.levelElements.levelWrapper.appendChild(this.levelElements.burgerMenu);
-        this.levelElements.navElements.appendChild(this.levelElements.levelNumber);
-        this.levelElements.navElements.appendChild(this.levelElements.checkMark);
-        this.levelElements.navElements.appendChild(this.levelElements.prevLevel);
-        this.levelElements.navElements.appendChild(this.levelElements.nextLevel);
-        this.levelElements.navElements.appendChild(this.levelElements.burger);
+        this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelInformationContainer);
+        this.levelElements.levelSelectorContainer.appendChild(this.levelElements.burgerMenu);
+        this.levelElements.levelSelectorNav.appendChild(this.levelElements.navLevelNumber);
+        this.levelElements.levelSelectorNav.appendChild(this.levelElements.navCheckmark);
+        this.levelElements.levelSelectorNav.appendChild(this.levelElements.navPrevLevel);
+        this.levelElements.levelSelectorNav.appendChild(this.levelElements.navNextLevel);
+        this.levelElements.levelSelectorNav.appendChild(this.levelElements.burger);
         this.levelElements.burger.appendChild(this.levelElements.burgerLine);
-        this.levelElements.levelBlock.appendChild(this.levelElements.selectorType);
-        this.levelElements.levelBlock.appendChild(this.levelElements.selectorTitle);
-        this.levelElements.levelBlock.appendChild(this.levelElements.selectorSyntax);
-        this.levelElements.levelBlock.appendChild(this.levelElements.selectorHint);
-        this.levelElements.levelBlock.appendChild(this.levelElements.exampleTitle);
-        this.levelElements.levelBlock.appendChild(this.levelElements.exampleCase);
+        this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorType);
+        this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorTitle);
+        this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorSyntax);
+        this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorHint);
+        this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleTitle);
+        this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleCase);
         this.levelElements.burgerMenu.appendChild(this.levelElements.burgerHeader);
         this.levelElements.burgerMenu.appendChild(this.levelElements.burgerLevels);
     };
 
     private assignEventListeners = (): void => {
-        this.levelElements.nextLevel.addEventListener('click', this.handleNextLevel);
-        this.levelElements.prevLevel.addEventListener('click', this.handlePrevLevel);
+        this.levelElements.navNextLevel.addEventListener('click', this.handleNextLevel);
+        this.levelElements.navPrevLevel.addEventListener('click', this.handlePrevLevel);
     };
 
     private changeProgressState = (option: string): void => {
@@ -77,7 +77,7 @@ class Layout {
     };
 
     private populateLevelData = (): void => {
-        this.levelElements.levelNumber.innerText = `${this.levels[this.currentLevelIndex].levelIndicator} of ${
+        this.levelElements.navLevelNumber.innerText = `${this.levels[this.currentLevelIndex].levelIndicator} of ${
             this.levels.length
         }`;
         this.levelElements.selectorType.innerText = this.levels[this.currentLevelIndex].selectorType;
