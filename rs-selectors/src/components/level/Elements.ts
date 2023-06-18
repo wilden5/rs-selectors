@@ -41,6 +41,8 @@ class Elements {
 
     public burgerHeader: HTMLElement;
 
+    public burgerLevels: HTMLElement;
+
     private constructor() {
         this.levelWrapper = DOMHelpers.createElement('div', ['level-wrapper']);
         this.navElements = DOMHelpers.createElement('div', ['level__nav-elements']);
@@ -61,6 +63,7 @@ class Elements {
         this.checkMark = DOMHelpers.createElement('span', ['nav-elements__checkmark']);
         this.burgerMenu = DOMHelpers.createElement('div', ['burger-menu']);
         this.burgerHeader = DOMHelpers.createElement('h2', ['burger-header'], 'Choose a level');
+        this.burgerLevels = DOMHelpers.createElement('div', ['burger-levels']);
     }
 
     public static getInstance(): Elements {

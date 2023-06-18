@@ -208,3 +208,45 @@ body {
   font-weight: 600;
   color: $text-color-whiter;
 }
+
+.burger-levels {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.level {
+  position: relative;
+  font-size: 1.8rem;
+  color: $text-color-whiter;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(141, 130, 130, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.div-wrapper {
+  padding-bottom: 1rem;
+  display: flex;
+}
+
+.number {
+  font-size: 1.8rem;
+  color: $text-color-whiter;
+  margin-right: 1rem;
+}
+

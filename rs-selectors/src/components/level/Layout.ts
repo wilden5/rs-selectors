@@ -1,6 +1,7 @@
 import { LevelInfo } from '../../types/Interfaces';
 import Menu from './Menu';
 import Elements from './Elements';
+import DOMHelpers from '../utils/DOMHelpers';
 
 class Layout {
     private levels: LevelInfo[];
@@ -38,6 +39,7 @@ class Layout {
         this.levelElements.levelBlock.appendChild(this.levelElements.exampleTitle);
         this.levelElements.levelBlock.appendChild(this.levelElements.exampleCase);
         this.levelElements.burgerMenu.appendChild(this.levelElements.burgerHeader);
+        this.levelElements.burgerMenu.appendChild(this.levelElements.burgerLevels);
     };
 
     private assignEventListeners = (): void => {
@@ -88,11 +90,27 @@ class Layout {
         }`;
     };
 
+    private drawLevels = (): void => {
+        this.levels.forEach((level) => {
+            const div = DOMHelpers.createElement('div', ['div-wrapper']);
+            const number = DOMHelpers.createElement('span', ['number'], `${level.levelIndicator.split(' ')[1]}`);
+            const element = DOMHelpers.createElement(
+                'a',
+                ['level', `level-${level.levelIndicator.split(' ')[1]}`],
+                `${level.selectorSyntax}`
+            );
+            this.levelElements.burgerLevels.appendChild(div);
+            div.appendChild(number);
+            div.appendChild(element);
+        });
+    };
+
     public init = (): void => {
         this.appendElements();
         this.assignEventListeners();
         this.populateLevelData();
         this.menu.init();
+        this.drawLevels();
     };
 }
 
