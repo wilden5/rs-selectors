@@ -2,8 +2,6 @@ import DOMHelpers from '../utils/DOMHelpers';
 import Singleton from '../utils/Singleton';
 
 class LevelSelectorElements {
-    private static instance: LevelSelectorElements;
-
     public levelSelectorContainer: HTMLElement;
 
     public levelSelectorNav: HTMLElement;

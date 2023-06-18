@@ -18,7 +18,7 @@ class LevelSelectorLayout {
         this.menu = new BurgerMenuLayout(levels);
     }
 
-    private appendElements = (): void => {
+    private appendElements(): void {
         document.body.appendChild(this.levelElements.levelSelectorContainer);
         this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelSelectorNav);
         this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelProgress);
@@ -34,14 +34,14 @@ class LevelSelectorLayout {
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorHint);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleTitle);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleCase);
-    };
+    }
 
-    private assignEventListeners = (): void => {
+    private assignEventListeners(): void {
         this.levelElements.navNextLevel.addEventListener('click', this.handleNextLevel);
         this.levelElements.navPrevLevel.addEventListener('click', this.handlePrevLevel);
-    };
+    }
 
-    private changeProgressState = (option: string): void => {
+    private changeProgressState(option: string): void {
         let currentWidth = parseFloat(
             getComputedStyle(this.levelElements.levelProgressState).getPropertyValue('width')
         );
@@ -52,7 +52,7 @@ class LevelSelectorLayout {
             currentWidth -= 35;
             this.levelElements.levelProgressState.style.setProperty('width', `${currentWidth}px`);
         }
-    };
+    }
 
     private handleNextLevel = (): void => {
         if (this.currentLevelIndex < this.levels.length - 1) {
@@ -70,7 +70,7 @@ class LevelSelectorLayout {
         }
     };
 
-    private populateLevelData = (): void => {
+    private populateLevelData(): void {
         this.levelElements.navLevelNumber.innerText = `${this.levels[this.currentLevelIndex].levelIndicator} of ${
             this.levels.length
         }`;
@@ -82,14 +82,14 @@ class LevelSelectorLayout {
         this.levelElements.exampleCase.innerText = `${this.levels[this.currentLevelIndex].example.case1} \n ${
             this.levels[this.currentLevelIndex].example.case2
         }`;
-    };
+    }
 
-    public init = (): void => {
+    public init(): void {
         this.appendElements();
         this.assignEventListeners();
         this.populateLevelData();
         this.menu.init();
-    };
+    }
 }
 
 export default LevelSelectorLayout;

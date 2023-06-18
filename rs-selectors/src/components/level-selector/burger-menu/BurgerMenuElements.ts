@@ -2,8 +2,6 @@ import DOMHelpers from '../../utils/DOMHelpers';
 import Singleton from '../../utils/Singleton';
 
 class BurgerMenuElements {
-    private static instance: BurgerMenuElements;
-
     public burger: HTMLElement;
 
     public burgerLine: HTMLElement;
