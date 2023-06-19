@@ -9,13 +9,13 @@ class LevelSelectorLayout {
 
     private levelElements: LevelSelectorElements;
 
-    private menu: BurgerMenuLayout;
+    private burgerMenuLayout: BurgerMenuLayout;
 
     constructor(levels: LevelInfo[]) {
         this.levels = levels;
         this.currentLevelIndex = 0;
         this.levelElements = LevelSelectorElements.getInstance();
-        this.menu = new BurgerMenuLayout(levels);
+        this.burgerMenuLayout = new BurgerMenuLayout(levels);
     }
 
     private appendElements(): void {
@@ -88,7 +88,10 @@ class LevelSelectorLayout {
         this.appendElements();
         this.assignEventListeners();
         this.populateLevelData();
-        this.menu.init();
+        this.burgerMenuLayout.init((levelIndex: number) => {
+            this.currentLevelIndex = levelIndex; // updating the currentLevelIndex with index from clickBurgerMenuLevel
+            this.populateLevelData(); // recall populateLevelData to update the level info
+        });
     }
 }
 
