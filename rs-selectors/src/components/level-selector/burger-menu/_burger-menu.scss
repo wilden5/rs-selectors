@@ -1,6 +1,6 @@
 @import "../../../style/_var.scss";
 
-.nav-elements__burger {
+.nav__burger {
   cursor: pointer;
   transition: ease all 1s;
   z-index: 3;
@@ -40,12 +40,12 @@
   }
 }
 
-.burger-opened {
+.burger--open {
   transform: rotate(90deg);
   transition: ease all 1s;
 }
 
-.burger-menu {
+.level-selector__burger-menu {
   background: rgb(31, 29, 24);
   position: absolute;
   padding: 2rem;
@@ -61,7 +61,7 @@
   display: block;
 }
 
-.burger-header {
+.burger-menu__burger-header {
   padding-top: 1.5rem;
   padding-left: 0.5rem;
   margin: 0;
@@ -70,20 +70,27 @@
   color: $text-color-whiter;
 }
 
-.burger-levels {
+.burger-menu__burger-content {
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
 }
 
-.checkmark-s {
+.level__number {
+  opacity: 0.5;
+  font-size: 1.8rem;
+  color: $text-color-whiter;
+  margin-right: 2rem;
+}
+
+.level__checkmark-s {
   margin-left: 0.5rem;
   margin-right: 2rem;
   width: 0.6rem;
   height: 1rem;
   position: relative;
   display: inline-block;
-  top: -3px;
+  top: -0.3rem;
   transform: rotate(40deg);
   border-width: 0 0.4rem 0.4rem 0;
   border-style: solid;
@@ -91,12 +98,12 @@
   opacity: 0.2;
 }
 
-.level {
+.level__syntax {
   font-size: 1.8rem;
   color: $text-color-whiter;
 }
 
-.div-wrapper {
+.burger-content__level {
   position: relative;
   padding: 0.5rem;
   display: flex;
@@ -119,11 +126,4 @@
   &:hover::before {
     opacity: 1;
   }
-}
-
-.number {
-  opacity: 0.5;
-  font-size: 1.8rem;
-  color: $text-color-whiter;
-  margin-right: 2rem;
 }
