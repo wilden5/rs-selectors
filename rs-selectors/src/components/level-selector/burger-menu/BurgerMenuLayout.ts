@@ -1,12 +1,11 @@
 import BurgerMenuElements from './BurgerMenuElements';
 import LevelSelectorElements from '../LevelSelectorElements';
-import DOMHelpers from '../../utils/DOMHelpers';
 import { LevelInfo } from '../../../types/Interfaces';
 
 class BurgerMenuLayout {
     private levels: LevelInfo[];
 
-    private burgerMenuElements: BurgerMenuElements;
+    private readonly burgerMenuElements: BurgerMenuElements;
 
     private levelSelectorElements: LevelSelectorElements;
 
@@ -33,20 +32,25 @@ class BurgerMenuLayout {
 
     private populateBurgerMenu(): void {
         this.levels.forEach((level) => {
-            const div = DOMHelpers.createElement('div', ['burger-content__level']);
-            const number = DOMHelpers.createElement('span', ['level__number'], `${level.levelIndicator.split(' ')[1]}`);
-            const checkmark = DOMHelpers.createElement('span', ['level__checkmark-s']);
-            const element = DOMHelpers.createElement(
-                'span',
-                ['level__syntax', `level__syntax-${level.levelIndicator.split(' ')[1]}`],
-                `${level.selectorSyntax}`
-            );
-            this.burgerMenuElements.burgerLevels.appendChild(div);
-            div.appendChild(checkmark);
-            div.appendChild(number);
-            div.appendChild(element);
+            const [clonedContent, clonedCheckmark, clonedNumber, clonedSyntax] = [
+                this.burgerMenuElements.burgerLevelContent,
+                this.burgerMenuElements.burgerLevelCheckmark,
+                this.burgerMenuElements.burgerLevelNumber,
+                this.burgerMenuElements.burgerLevelSyntax,
+            ].map((element) => element.cloneNode(true) as HTMLElement);
+
+            this.burgerMenuElements.burgerLevels.appendChild(clonedContent);
+            clonedContent.appendChild(clonedCheckmark);
+            clonedContent.appendChild(clonedNumber);
+            clonedContent.appendChild(clonedSyntax);
+
+            clonedNumber.innerText = `${level.levelIndicator.split(' ')[1]}`;
+            clonedSyntax.classList.add(`level__syntax-${level.levelIndicator.split(' ')[1]}`);
+            clonedSyntax.innerText = `${level.selectorSyntax}`;
         });
     }
+
+    private openBurgerMenuLevel(): void {}
 
     public init = (): void => {
         this.appendBurgerMenuElements();
