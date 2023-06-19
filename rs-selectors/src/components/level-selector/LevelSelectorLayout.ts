@@ -1,6 +1,7 @@
 import { LevelInfo } from '../../types/Interfaces';
 import BurgerMenuLayout from './burger-menu/BurgerMenuLayout';
 import LevelSelectorElements from './LevelSelectorElements';
+import { barProgressStateMap } from '../../types/Types';
 
 class LevelSelectorLayout {
     private levels: LevelInfo[];
@@ -41,23 +42,17 @@ class LevelSelectorLayout {
         this.levelElements.navPrevLevel.addEventListener('click', this.handlePrevLevel);
     }
 
-    private changeProgressState(option: string): void {
-        let currentWidth = parseFloat(
-            getComputedStyle(this.levelElements.levelProgressState).getPropertyValue('width')
+    private changeProgressState(): void {
+        this.levelElements.levelProgressState.style.setProperty(
+            'width',
+            `${barProgressStateMap[this.currentLevelIndex]}px`
         );
-        if (option === 'increase') {
-            currentWidth += 35;
-            this.levelElements.levelProgressState.style.setProperty('width', `${currentWidth}px`);
-        } else {
-            currentWidth -= 35;
-            this.levelElements.levelProgressState.style.setProperty('width', `${currentWidth}px`);
-        }
     }
 
     private handleNextLevel = (): void => {
         if (this.currentLevelIndex < this.levels.length - 1) {
             this.currentLevelIndex += 1;
-            this.changeProgressState('increase');
+            this.changeProgressState();
             this.populateLevelData();
         }
     };
@@ -65,7 +60,7 @@ class LevelSelectorLayout {
     private handlePrevLevel = (): void => {
         if (this.currentLevelIndex > 0) {
             this.currentLevelIndex -= 1;
-            this.changeProgressState('decrease');
+            this.changeProgressState();
             this.populateLevelData();
         }
     };
@@ -91,6 +86,7 @@ class LevelSelectorLayout {
         this.burgerMenuLayout.init((levelIndex: number) => {
             this.currentLevelIndex = levelIndex; // updating the currentLevelIndex with index from clickBurgerMenuLevel
             this.populateLevelData(); // recall populateLevelData to update the level info
+            this.changeProgressState();
         });
     }
 }
