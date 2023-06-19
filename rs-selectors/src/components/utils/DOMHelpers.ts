@@ -15,6 +15,14 @@ class DOMHelpers {
         }
         return element as T;
     }
+
+    static getElements<T extends HTMLElement>(selector: string): T[] {
+        const elements = Array.from(document.querySelectorAll(selector)) as T[];
+        if (elements.length === 0) {
+            throw new Error(`No elements found with selector '${selector}'.`);
+        }
+        return elements;
+    }
 }
 
 export default DOMHelpers;
