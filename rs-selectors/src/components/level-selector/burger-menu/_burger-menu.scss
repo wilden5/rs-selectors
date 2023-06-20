@@ -127,3 +127,9 @@
     opacity: 1;
   }
 }
+
+.level--selected {
+  &:before {
+    opacity: 1;
+  }
+}

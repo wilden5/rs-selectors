@@ -2,6 +2,7 @@ import { LevelInfo } from '../../types/Interfaces';
 import BurgerMenuLayout from './burger-menu/BurgerMenuLayout';
 import LevelSelectorElements from './LevelSelectorElements';
 import { barProgressStateMap } from '../../types/Types';
+import DOMHelpers from '../utils/DOMHelpers';
 
 class LevelSelectorLayout {
     private levels: LevelInfo[];
@@ -77,17 +78,30 @@ class LevelSelectorLayout {
         this.levelElements.exampleCase.innerText = `${this.levels[this.currentLevelIndex].example.case1} \n ${
             this.levels[this.currentLevelIndex].example.case2
         }`;
+        this.highlightSelectedLevelInBurgerMenu();
+    }
+
+    private highlightSelectedLevelInBurgerMenu(): void {
+        DOMHelpers.getElements('.burger-content__level').forEach((item) => {
+            const secondClass = Number(item.classList[1].split('-')[1]);
+            if (this.currentLevelIndex === secondClass - 1) {
+                item.classList.add('level--selected');
+            } else {
+                item.classList.remove('level--selected');
+            }
+        });
     }
 
     public init(): void {
         this.appendElements();
         this.assignEventListeners();
-        this.populateLevelData();
         this.burgerMenuLayout.init((levelIndex: number) => {
             this.currentLevelIndex = levelIndex; // updating the currentLevelIndex with index from clickBurgerMenuLevel
             this.populateLevelData(); // recall populateLevelData to update the level info
             this.changeProgressState();
+            this.highlightSelectedLevelInBurgerMenu();
         });
+        this.populateLevelData();
     }
 }
 
