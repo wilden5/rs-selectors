@@ -20,6 +20,8 @@ class BurgerMenuElements {
 
     public burgerLevelSyntax: HTMLElement;
 
+    public burgerResetLevelButton: HTMLElement;
+
     public constructor() {
         this.navBurger = DOMHelpers.createElement('div', ['nav__burger']);
         this.burgerLine = DOMHelpers.createElement('span', ['burger__burger-line']);
@@ -30,6 +32,11 @@ class BurgerMenuElements {
         this.burgerLevelNumber = DOMHelpers.createElement('span', ['level__number']);
         this.burgerLevelCheckmark = DOMHelpers.createElement('span', ['level__checkmark-s']);
         this.burgerLevelSyntax = DOMHelpers.createElement('span', ['level__syntax']);
+        this.burgerResetLevelButton = DOMHelpers.createElement(
+            'button',
+            ['burger-menu__reset-button'],
+            'Reset Progress'
+        );
     }
 
     public static getInstance(): BurgerMenuElements {

@@ -49,6 +49,7 @@ class BurgerMenuLayout {
             clonedNumber.innerText = `${level.levelIndicator.split(' ')[1]}`;
             clonedSyntax.classList.add(`level__syntax-${level.levelIndicator.split(' ')[1]}`);
             clonedSyntax.innerText = `${level.selectorSyntax}`;
+            this.burgerMenuElements.burgerLevels.appendChild(this.burgerMenuElements.burgerResetLevelButton);
         });
     }
 

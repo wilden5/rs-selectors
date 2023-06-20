@@ -133,3 +133,18 @@
     opacity: 1;
   }
 }
+
+.burger-menu__reset-button {
+  font-family: "Exo 2", serif;
+  font-size: 2rem;
+  cursor: pointer;
+  height: 4rem;
+  margin-top: 2rem;
+  background-color: transparent;
+  color: $text-color-whiter;
+  border: 1px solid #c4bcbc;
+
+  &:hover {
+    background-color: rgba(141, 130, 130, 0.2);
+  }
+}
