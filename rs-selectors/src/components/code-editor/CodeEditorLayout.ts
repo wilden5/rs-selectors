@@ -1,10 +1,19 @@
-import DOMHelpers from '../utils/DOMHelpers';
+import CodeEditorElements from './CodeEditorElements';
 
 class CodeEditorLayout {
-    private codeEditorContainer: HTMLElement = DOMHelpers.createElement('div', ['code-editor-container']);
+    private codeEditorElements: CodeEditorElements;
+
+    constructor() {
+        this.codeEditorElements = new CodeEditorElements();
+    }
 
     private appendCodeEditorElements(): void {
-        document.body.appendChild(this.codeEditorContainer);
+        document.body.appendChild(this.codeEditorElements.codeEditorContainer);
+        this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.header);
+        this.codeEditorElements.header.appendChild(this.codeEditorElements.socials);
+        this.codeEditorElements.socials.appendChild(this.codeEditorElements.emailLink);
+        this.codeEditorElements.socials.appendChild(this.codeEditorElements.facebookLink);
+        this.codeEditorElements.socials.appendChild(this.codeEditorElements.twitterLink);
     }
 
     private assignCodeEditorEventListeners(): void {}

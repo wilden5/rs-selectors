@@ -3,3 +3,18 @@
 .code-editor-container {
   flex: 1;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+.header__socials {
+  display: flex;
+  gap: 1rem;
+}
+
+/*.socials__email {
+  background-image: url("../../assets/img/email.png");
+}*/
