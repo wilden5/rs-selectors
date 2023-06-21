@@ -23,6 +23,12 @@ class DOMHelpers {
         }
         return elements;
     }
+
+    static appendImage(element: HTMLElement, path: string): void {
+        const image = new Image();
+        image.src = path;
+        element.appendChild(image);
+    }
 }
 
 export default DOMHelpers;

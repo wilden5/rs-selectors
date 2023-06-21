@@ -12,9 +12,14 @@
 
 .header__socials {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
-/*.socials__email {
-  background-image: url("../../assets/img/email.png");
-}*/
+.socials__email img,
+.socials__facebook img,
+.socials__twitter img {
+  width: 20px;
+  height: 20px;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+}

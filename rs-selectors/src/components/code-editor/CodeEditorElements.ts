@@ -18,9 +18,9 @@ class CodeEditorElements {
         this.codeEditorContainer = DOMHelpers.createElement('div', ['code-editor-container']);
         this.header = DOMHelpers.createElement('div', ['header'], "Wilden's CSS Diner");
         this.socials = DOMHelpers.createElement('div', ['header__socials'], 'Share');
-        this.emailLink = DOMHelpers.createElement('a', ['socials__email'], 'Email');
-        this.facebookLink = DOMHelpers.createElement('a', ['socials__facebook'], 'Facebook');
-        this.twitterLink = DOMHelpers.createElement('a', ['socials__twitter'], 'Twitter');
+        this.emailLink = DOMHelpers.createElement('a', ['socials__email']);
+        this.facebookLink = DOMHelpers.createElement('a', ['socials__facebook']);
+        this.twitterLink = DOMHelpers.createElement('a', ['socials__twitter']);
     }
 
     public static getInstance(): CodeEditorElements {
