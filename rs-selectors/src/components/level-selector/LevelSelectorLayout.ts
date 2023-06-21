@@ -3,6 +3,7 @@ import BurgerMenuLayout from './burger-menu/BurgerMenuLayout';
 import LevelSelectorElements from './LevelSelectorElements';
 import { barProgressStateMap } from '../../types/Types';
 import DOMHelpers from '../utils/DOMHelpers';
+import BurgerMenuElements from './burger-menu/BurgerMenuElements';
 
 class LevelSelectorLayout {
     private levels: LevelInfo[];
@@ -13,11 +14,14 @@ class LevelSelectorLayout {
 
     private burgerMenuLayout: BurgerMenuLayout;
 
+    private burgerMenuElements: BurgerMenuElements;
+
     constructor(levels: LevelInfo[]) {
         this.levels = levels;
         this.currentLevelIndex = 0;
         this.levelElements = LevelSelectorElements.getInstance();
         this.burgerMenuLayout = new BurgerMenuLayout(levels);
+        this.burgerMenuElements = BurgerMenuElements.getInstance();
     }
 
     private appendElements(): void {
@@ -92,6 +96,14 @@ class LevelSelectorLayout {
         });
     }
 
+    private resetButtonClick(): void {
+        this.burgerMenuElements.burgerResetLevelButton.addEventListener('click', () => {
+            this.currentLevelIndex = 0;
+            this.burgerMenuElements.navBurger.classList.remove('burger--open');
+            this.burgerMenuElements.burgerMenu.classList.remove('burger-menu--open');
+        });
+    }
+
     public init(): void {
         this.appendElements();
         this.assignEventListeners();
@@ -102,6 +114,7 @@ class LevelSelectorLayout {
             this.highlightSelectedLevelInBurgerMenu();
         });
         this.populateLevelData();
+        this.resetButtonClick();
     }
 }
 
