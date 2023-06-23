@@ -20,7 +20,7 @@ class CodeEditorElements {
 
     public editorInput: HTMLElement;
 
-    public inputHeader: HTMLElement;
+    public htmlViewHeader: HTMLElement;
 
     public htmlFileName: HTMLElement;
 
@@ -32,6 +32,24 @@ class CodeEditorElements {
 
     public markupCodeWrapper: HTMLElement;
 
+    public editorHeader: HTMLElement;
+
+    public editorFileName: HTMLElement;
+
+    public inputFileWindow: HTMLElement;
+
+    public inputLineNumbers: HTMLElement;
+
+    public userInputField: HTMLElement;
+
+    public userInputHint: HTMLElement;
+
+    public userInputSkipLevel: HTMLElement;
+
+    public inputMarkup: HTMLElement;
+
+    public enterButton: HTMLElement;
+
     public constructor() {
         this.codeEditorContainer = DOMHelpers.createElement('div', ['code-editor-container']);
         this.header = DOMHelpers.createElement('div', ['header'], "Wilden's CSS Diner");
@@ -42,12 +60,21 @@ class CodeEditorElements {
         this.editor = DOMHelpers.createElement('div', ['editor']);
         this.editorHtmlView = DOMHelpers.createElement('div', ['editor__table', 'editor__view']);
         this.editorInput = DOMHelpers.createElement('div', ['editor__table', 'editor__input']);
-        this.inputHeader = DOMHelpers.createElement('div', ['table__input-header'], 'HTML Viewer');
+        this.htmlViewHeader = DOMHelpers.createElement('div', ['table__input-header'], 'HTML Viewer');
         this.htmlFileName = DOMHelpers.createElement('div', ['view__file-name'], 'table.html');
         this.htmlFileWindow = DOMHelpers.createElement('div', ['view__file-window']);
         this.htmlLineNumbers = DOMHelpers.createElement('div', ['table__line-numbers']);
         this.htmlLineMarkup = DOMHelpers.createElement('div', ['view__markup']);
         this.markupCodeWrapper = DOMHelpers.createElement('div', ['view__markup-code-wrapper'], '<div class="table">');
+        this.editorHeader = DOMHelpers.createElement('div', ['input__header'], 'CSS Editor');
+        this.editorFileName = DOMHelpers.createElement('div', ['input__file-name'], 'style.css');
+        this.inputFileWindow = DOMHelpers.createElement('div', ['input__file-window']);
+        this.inputLineNumbers = DOMHelpers.createElement('div', ['input__line-numbers']);
+        this.userInputField = DOMHelpers.createElement('input', ['input__user-input']);
+        this.userInputHint = DOMHelpers.createElement('div', ['input__hint']);
+        this.inputMarkup = DOMHelpers.createElement('div', ['input__markup']);
+        this.userInputSkipLevel = DOMHelpers.createElement('div', ['input__skipLevel']);
+        this.enterButton = DOMHelpers.createElement('div', ['input__enter-button'], 'enter');
     }
 
     public static getInstance(): CodeEditorElements {

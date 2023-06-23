@@ -1,7 +1,17 @@
 @import "src/style/var";
+@import "src/style/animation";
 
 .code-editor-container {
   flex: 1;
+}
+
+.editor {
+  display: flex;
+}
+
+.editor__table {
+  flex-grow: 1;
+  flex-basis: 50%;
 }
 
 .header {
@@ -24,6 +34,7 @@
   padding-top: 0.5rem;
 }
 
+.input__header,
 .table__input-header{
   display: flex;
   justify-content: space-between;
@@ -31,18 +42,73 @@
   padding: 1rem;
 }
 
+.input__file-window,
 .view__file-window {
   display: flex;
 }
 
+.input__line-numbers,
 .table__line-numbers {
   display: flex;
   padding: 1rem;
   font-size: 1.4rem;
 }
 
+.input__skipLevel,
+.input__hint,
 .div,
 .view__markup-code-wrapper {
   padding: 1rem;
   font-size: 1.4rem;
+}
+
+.input__user-input {
+  margin-right: 0.5rem;
+  margin-top: 1.1rem;
+  flex-grow: 1;
+  max-height: 0;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  background: rgba(62,203,255,.3);
+  animation: flashBackground 1s infinite;
+}
+
+.input__enter-button {
+  top: 0.5rem;
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background-color: #f2f2f2;
+  color: #333;
+  border: 0.1rem solid #999;
+  border-radius: 0.3rem;
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: #a29b9b;
+    transform-origin: bottom center;
+    transform: perspective(5rem) rotateX(30deg);
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    transform: perspective(5rem) rotateX(0);
+  }
+
+  &:active {
+    transform: perspective(5rem) rotateX(-10deg);
+    animation: shake 0.3s ease-in-out;  }
 }
