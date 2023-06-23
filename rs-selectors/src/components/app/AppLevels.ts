@@ -14,6 +14,8 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: 'div selects all div elements.',
             case2: 'p selects all p elements.',
         },
+        boardMarkup: `<plate />
+<plate />`,
     },
     {
         levelIndicator: 'Level 2',
@@ -26,6 +28,9 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: '#cool selects any element with id="cool"',
             case2: 'ul#long selects ul id="long"',
         },
+        boardMarkup: `<plate id="fancy" />
+<plate />
+<bento />`,
     },
     {
         levelIndicator: 'Level 3',
@@ -38,6 +43,11 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: 'p strong selects all strong elements that are inside of any p',
             case2: '#fancy span selects any span elements that are inside of the element with id="fancy"',
         },
+        boardMarkup: `<bento />
+<plate>
+    <apple />
+</plate>
+<apple />`,
     },
     {
         levelIndicator: 'Level 4',
@@ -52,6 +62,12 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: '.neato selects all elements with class="neato"',
             case2: '',
         },
+        boardMarkup: `<apple />
+<apple class="small" />
+<plate>
+    <apple class="small" />
+</plate>
+<plate />`,
     },
     {
         levelIndicator: 'Level 5',
@@ -66,6 +82,19 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: 'p, .fun selects all p elements as well as all elements with class="fun"',
             case2: 'a, p, div selects all a, p and div elements',
         },
+        boardMarkup: `<pickle class="small" />
+<pickle />
+<plate>
+    <pickle />
+</plate>
+<bento>
+    <pickle />
+</bento>
+<plate>
+    <pickle />
+</plate>
+<pickle />
+<pickle class="small" />`,
     },
     {
         levelIndicator: 'Level 6',
@@ -78,6 +107,15 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: 'p * selects any element inside all p elements.',
             case2: '',
         },
+        boardMarkup: `<apple />
+<plate>
+    <orange class="small" />
+</plate>
+<bento />
+<bento>
+    <orange />
+</bento>
+<plate id="fancy" />`,
     },
     {
         levelIndicator: 'Level 7',
@@ -92,6 +130,18 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: 'A ~ B selects all B that follow a A',
             case2: '',
         },
+        boardMarkup: `<pickle />
+<bento>
+    <orange class="small" />
+</bento>
+<pickle class="small" />
+<pickle />
+<plate>
+    <pickle />
+</plate>
+<plate>
+    <pickle class="small" />
+</plate>`,
     },
     {
         levelIndicator: 'Level 8',
@@ -107,6 +157,17 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: 'A > B selects all B that are a direct children A',
             case2: '',
         },
+        boardMarkup: `<plate>
+    <bento>
+        <apple />
+    </bento>
+</plate>
+<plate>
+    <apple />
+</plate>
+<plate />
+<apple />
+<apple class="small" />`,
     },
     {
         levelIndicator: 'Level 9',
@@ -121,6 +182,14 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: 'p:first-child selects all first child p elements.',
             case2: 'div p:first-child selects all first child p elements that are in a div.',
         },
+        boardMarkup: `<bento />
+<plate />
+<plate>
+    <orange />
+    <orange />
+    <orange />
+</plate>
+<pickle class="small" />`,
     },
     {
         levelIndicator: 'Level 10',
@@ -135,6 +204,15 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: 'span:last-child selects all last-child span elements.',
             case2: 'ul li:last-child selects the last li elements inside of any ul',
         },
+        boardMarkup: `<plate id="fancy">
+    <apple class="small" />
+</plate>
+<plate />
+<plate>
+    <orange class="small" />
+    <orange>
+</plate>
+<pickle class="small" />`,
     },
 ];
 

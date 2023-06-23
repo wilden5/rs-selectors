@@ -9,4 +9,5 @@ export interface LevelInfo {
         case1: string;
         case2: string;
     };
+    boardMarkup: string;
 }
