@@ -59,6 +59,7 @@ class LevelSelectorLayout {
             this.currentLevelIndex += 1;
             this.changeProgressState();
             this.populateLevelData();
+            this.appendLevelMarkup();
         }
     };
 
@@ -67,6 +68,7 @@ class LevelSelectorLayout {
             this.currentLevelIndex -= 1;
             this.changeProgressState();
             this.populateLevelData();
+            this.appendLevelMarkup();
         }
     };
 
@@ -104,6 +106,11 @@ class LevelSelectorLayout {
         });
     }
 
+    private appendLevelMarkup(): void {
+        const container = DOMHelpers.getElement('.view_level-markup');
+        container.innerText = this.levels[this.currentLevelIndex].boardMarkup;
+    }
+
     public init(): void {
         this.appendElements();
         this.assignEventListeners();
@@ -115,6 +122,7 @@ class LevelSelectorLayout {
         });
         this.populateLevelData();
         this.resetButtonClick();
+        this.appendLevelMarkup();
     }
 }
 
