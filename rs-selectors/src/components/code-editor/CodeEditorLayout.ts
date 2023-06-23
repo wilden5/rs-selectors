@@ -24,6 +24,7 @@ class CodeEditorLayout {
         this.codeEditorElements.htmlFileWindow.appendChild(this.codeEditorElements.htmlLineNumbers);
         this.codeEditorElements.htmlFileWindow.appendChild(this.codeEditorElements.htmlLineMarkup);
         this.codeEditorElements.htmlLineMarkup.appendChild(this.codeEditorElements.markupCodeWrapper);
+        this.codeEditorElements.htmlLineMarkup.appendChild(this.codeEditorElements.levelMarkup);
         this.codeEditorElements.editorInput.appendChild(this.codeEditorElements.editorHeader);
         this.codeEditorElements.editorHeader.appendChild(this.codeEditorElements.editorFileName);
         this.codeEditorElements.editorInput.appendChild(this.codeEditorElements.inputFileWindow);
@@ -72,8 +73,8 @@ class CodeEditorLayout {
         this.appendImages();
         this.assignCodeEditorEventListeners();
         this.populateCodeEditorData();
-        this.generateLineNumbers(15, '.table__line-numbers', true);
-        this.generateLineNumbers(15, '.input__line-numbers', false);
+        this.generateLineNumbers(20, '.table__line-numbers', true);
+        this.generateLineNumbers(20, '.input__line-numbers', false);
         this.setUserInputProperties();
     }
 }

@@ -50,6 +50,8 @@ class CodeEditorElements {
 
     public enterButton: HTMLElement;
 
+    public levelMarkup: HTMLElement;
+
     public constructor() {
         this.codeEditorContainer = DOMHelpers.createElement('div', ['code-editor-container']);
         this.header = DOMHelpers.createElement('div', ['header'], "Wilden's CSS Diner");
@@ -75,6 +77,7 @@ class CodeEditorElements {
         this.inputMarkup = DOMHelpers.createElement('div', ['input__markup']);
         this.userInputSkipLevel = DOMHelpers.createElement('div', ['input__skipLevel']);
         this.enterButton = DOMHelpers.createElement('div', ['input__enter-button'], 'enter');
+        this.levelMarkup = DOMHelpers.createElement('pre', ['view_level-markup']);
     }
 
     public static getInstance(): CodeEditorElements {
