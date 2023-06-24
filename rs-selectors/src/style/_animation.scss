@@ -29,3 +29,21 @@
     transform: perspective(50px) rotateX(-10deg) translateX(0);
   }
 }
+
+@keyframes slide-down {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 15%;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    top: 50%;
+  }
+  to {
+    top: -30%;
+  }
+}
