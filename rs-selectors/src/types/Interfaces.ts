@@ -12,3 +12,11 @@ export interface LevelInfo {
     };
     boardMarkup: string;
 }
+
+export interface ModalWindowContent {
+    title: string;
+    greeting: string;
+    codeTitle: string;
+    code: string;
+    description: string;
+}
