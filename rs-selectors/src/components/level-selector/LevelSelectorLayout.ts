@@ -40,6 +40,7 @@ class LevelSelectorLayout {
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorHint);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleTitle);
         this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleCase);
+        this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleCaseSecond);
     }
 
     private assignEventListeners(): void {
@@ -81,9 +82,8 @@ class LevelSelectorLayout {
         this.levelElements.selectorSyntax.innerText = this.levels[this.currentLevelIndex].selectorSyntax;
         this.levelElements.selectorHint.innerText = this.levels[this.currentLevelIndex].hint;
         this.levelElements.exampleTitle.innerText = this.levels[this.currentLevelIndex].example.title;
-        this.levelElements.exampleCase.innerText = `${this.levels[this.currentLevelIndex].example.case1} \n ${
-            this.levels[this.currentLevelIndex].example.case2
-        }`;
+        this.levelElements.exampleCase.innerText = this.levels[this.currentLevelIndex].example.case1;
+        this.levelElements.exampleCaseSecond.innerText = this.levels[this.currentLevelIndex].example.case2;
         this.highlightSelectedLevelInBurgerMenu();
     }
 

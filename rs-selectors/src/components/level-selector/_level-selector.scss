@@ -106,9 +106,21 @@
 
 .level-information__selector-hint,
 .level-information__example-title,
-.level-information__example-case {
+.level-information__example-case,
+.level-information__example-case-2 {
   font-size: 1.5rem;
   color: $text-color-whiter;
+}
+
+.level-information__example-case-2,
+.level-information__example-case {
+  line-height: 150%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.level-information__example-case {
+  border-bottom: 0.1rem solid $text-color;
 }
 
 .level-information__selector-hint {
@@ -117,4 +129,5 @@
 
 .level-information__example-title {
   font-weight: 600;
+  margin-bottom: 1rem;
 }

@@ -30,6 +30,8 @@ class LevelSelectorElements {
 
     public exampleCase: HTMLElement;
 
+    public exampleCaseSecond: HTMLElement;
+
     public navCheckmark: HTMLElement;
 
     public constructor() {
@@ -48,6 +50,7 @@ class LevelSelectorElements {
         this.exampleTitle = DOMHelpers.createElement('h4', ['level-information__example-title']);
         this.exampleCase = DOMHelpers.createElement('div', ['level-information__example-case']);
         this.navCheckmark = DOMHelpers.createElement('span', ['nav__checkmark']);
+        this.exampleCaseSecond = DOMHelpers.createElement('div', ['level-information__example-case-2']);
     }
 
     public static getInstance(): LevelSelectorElements {
