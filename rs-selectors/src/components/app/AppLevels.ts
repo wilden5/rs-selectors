@@ -2,6 +2,7 @@ import { LevelInfo } from '../../types/Interfaces';
 
 const GAME_LEVELS: LevelInfo[] = [
     {
+        doThis: 'Select the plates',
         levelIndicator: 'Level 1',
         selectorType: 'Type Selector',
         selectorTitle: 'Select elements by their type',
@@ -18,6 +19,7 @@ const GAME_LEVELS: LevelInfo[] = [
 <plate />`,
     },
     {
+        doThis: 'Select the fancy plate',
         levelIndicator: 'Level 2',
         selectorType: 'ID Selector',
         selectorTitle: 'Select elements with an ID',
@@ -33,6 +35,7 @@ const GAME_LEVELS: LevelInfo[] = [
 <bento />`,
     },
     {
+        doThis: 'Select the apple on the plate',
         levelIndicator: 'Level 3',
         selectorType: 'Descendant Selector',
         selectorTitle: 'Select an element inside another element',
@@ -50,6 +53,7 @@ const GAME_LEVELS: LevelInfo[] = [
 <apple />`,
     },
     {
+        doThis: 'Select the small apples',
         levelIndicator: 'Level 4',
         selectorType: 'Class Selector',
         selectorTitle: 'Select elements by their class',
@@ -70,6 +74,7 @@ const GAME_LEVELS: LevelInfo[] = [
 <plate />`,
     },
     {
+        doThis: 'Select all the plates and bentos',
         levelIndicator: 'Level 5',
         selectorType: 'Comma Combinator',
         selectorTitle: 'Combine, selectors, with... commas!',
@@ -97,6 +102,7 @@ const GAME_LEVELS: LevelInfo[] = [
 <pickle class="small" />`,
     },
     {
+        doThis: 'Select all the things!',
         levelIndicator: 'Level 6',
         selectorType: 'The Universal Selector',
         selectorTitle: 'You can select everything!',
@@ -118,6 +124,7 @@ const GAME_LEVELS: LevelInfo[] = [
 <plate id="fancy" />`,
     },
     {
+        doThis: 'Select the pickles beside the bento',
         levelIndicator: 'Level 7',
         selectorType: 'General Sibling Selector',
         selectorTitle: 'Select elements that follows another element',
@@ -144,6 +151,7 @@ const GAME_LEVELS: LevelInfo[] = [
 </plate>`,
     },
     {
+        doThis: 'Select the apple directly on a plate',
         levelIndicator: 'Level 8',
         selectorType: 'Child Selector',
         selectorTitle: 'Select direct children of an element',
@@ -170,6 +178,7 @@ const GAME_LEVELS: LevelInfo[] = [
 <apple class="small" />`,
     },
     {
+        doThis: 'Select the top orange',
         levelIndicator: 'Level 9',
         selectorType: 'First Child Pseudo-selector',
         selectorTitle: 'Select a first child element inside of another element',
@@ -192,6 +201,7 @@ const GAME_LEVELS: LevelInfo[] = [
 <pickle class="small" />`,
     },
     {
+        doThis: 'Select the small apple and the pickle',
         levelIndicator: 'Level 10',
         selectorType: 'Last Child Pseudo-selector',
         selectorTitle: 'Select the last element inside of another element',

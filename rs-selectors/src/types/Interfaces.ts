@@ -1,4 +1,5 @@
 export interface LevelInfo {
+    doThis: string;
     levelIndicator: string;
     selectorType: string;
     selectorTitle: string;

@@ -74,6 +74,7 @@ class LevelSelectorLayout {
     };
 
     private populateLevelData(): void {
+        const globalHeader = DOMHelpers.getElement('.global-header');
         this.levelElements.navLevelNumber.innerText = `${this.levels[this.currentLevelIndex].levelIndicator} of ${
             this.levels.length
         }`;
@@ -84,6 +85,7 @@ class LevelSelectorLayout {
         this.levelElements.exampleTitle.innerText = this.levels[this.currentLevelIndex].example.title;
         this.levelElements.exampleCase.innerText = this.levels[this.currentLevelIndex].example.case1;
         this.levelElements.exampleCaseSecond.innerText = this.levels[this.currentLevelIndex].example.case2;
+        globalHeader.innerText = this.levels[this.currentLevelIndex].doThis;
         this.highlightSelectedLevelInBurgerMenu();
     }
 
