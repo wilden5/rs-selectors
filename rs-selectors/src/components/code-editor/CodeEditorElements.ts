@@ -54,6 +54,8 @@ class CodeEditorElements {
 
     public globalHeader: HTMLElement;
 
+    public modalButton: HTMLElement;
+
     public constructor() {
         this.codeEditorContainer = DOMHelpers.createElement('div', ['code-editor-container']);
         this.header = DOMHelpers.createElement('div', ['header'], "Wilden's CSS Diner");
@@ -81,6 +83,7 @@ class CodeEditorElements {
         this.enterButton = DOMHelpers.createElement('div', ['input__enter-button'], 'enter');
         this.levelMarkup = DOMHelpers.createElement('pre', ['view_level-markup']);
         this.globalHeader = DOMHelpers.createElement('h2', ['global-header']);
+        this.modalButton = DOMHelpers.createElement('button', ['modal-button'], "Help, I'm stuck!");
     }
 
     public static getInstance(): CodeEditorElements {

@@ -2,6 +2,8 @@
 @import "src/style/animation";
 
 .code-editor-container {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background-color: rgb(46, 42, 35);
   color: $text-color-whiter;
@@ -165,4 +167,30 @@
   font-weight: 400;
   font-size: 4.5rem;
   text-align: center;
+}
+
+.modal-button {
+  align-self: center;
+  width: 12.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 1rem;
+  background: rgba(0,0,0,.2);
+  border-radius: 2rem;
+  transition: background-color 0.3s, transform 0.3s;
+  border: none;
+  color: $text-color-whiter;
+
+  &:hover {
+    transform: perspective(5rem) rotateX(0);
+    animation: shake 0.3s ease-in-out;
+  }
+
+  &:active {
+    transform: perspective(5rem) rotateX(-10deg);
+    animation: shake 0.3s ease-in-out;  }
+}
+
+.modal-button--hided {
+  display: none;
 }

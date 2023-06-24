@@ -12,6 +12,7 @@ class CodeEditorLayout {
         document.body.appendChild(this.codeEditorElements.codeEditorContainer);
         this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.header);
         this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.globalHeader);
+        this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.modalButton);
         this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.editor);
         this.codeEditorElements.header.appendChild(this.codeEditorElements.socials);
         this.codeEditorElements.socials.appendChild(this.codeEditorElements.emailLink);
@@ -65,7 +66,12 @@ class CodeEditorLayout {
             '/* <br> Type a number to skip to a level.<br>Ex → "5" for level 5<br>*/';
     }
 
-    private assignCodeEditorEventListeners(): void {}
+    private assignCodeEditorEventListeners(): void {
+        this.codeEditorElements.modalButton.addEventListener('click', () => {
+            DOMHelpers.getElement('.modal').classList.add('modal--opened');
+            this.codeEditorElements.modalButton.classList.add('modal-button--hided');
+        });
+    }
 
     private populateCodeEditorData(): void {}
 
