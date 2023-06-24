@@ -119,6 +119,7 @@ class LevelSelectorLayout {
             this.populateLevelData(); // recall populateLevelData to update the level info
             this.changeProgressState();
             this.highlightSelectedLevelInBurgerMenu();
+            this.appendLevelMarkup();
         });
         this.populateLevelData();
         this.resetButtonClick();

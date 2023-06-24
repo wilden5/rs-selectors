@@ -3,10 +3,15 @@
 
 .code-editor-container {
   flex: 1;
+  background-color: rgb(46, 42, 35);
+  color: $text-color-whiter;
 }
 
 .editor {
   display: flex;
+  margin: 1rem;
+  border: solid 1rem rgba(0,0,0,.35);
+  border-radius: 0.5rem;
 }
 
 .editor__table {
@@ -18,6 +23,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 2rem;
+  margin: 1rem;
 }
 
 .header__socials {
@@ -40,11 +46,22 @@
   justify-content: space-between;
   font-size: 1.4rem;
   padding: 1rem;
+  background-color: rgb(56, 52, 45);
+  border: 0.1rem solid $text-color;
 }
 
 .input__file-window,
 .view__file-window {
   display: flex;
+  border: 0.1rem solid $text-color;
+}
+
+.view__file-window {
+  background-color: rgb(36, 32, 25);
+}
+
+.input__file-window {
+  background-color: white;
 }
 
 .input__line-numbers,
@@ -52,6 +69,21 @@
   display: flex;
   padding: 1rem;
   font-size: 1.4rem;
+}
+
+.table__line-numbers {
+  border: 0.1rem solid $text-color;
+  opacity: 0.5;
+}
+
+.input__line-numbers {
+  background-color: #DDD;
+  color: #999;
+}
+
+.input__file-name,
+.view__file-name{
+  opacity: 0.5;
 }
 
 .input__skipLevel,
