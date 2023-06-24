@@ -11,6 +11,7 @@ class CodeEditorLayout {
     private appendCodeEditorElements(): void {
         document.body.appendChild(this.codeEditorElements.codeEditorContainer);
         this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.header);
+        this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.globalHeader);
         this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.editor);
         this.codeEditorElements.header.appendChild(this.codeEditorElements.socials);
         this.codeEditorElements.socials.appendChild(this.codeEditorElements.emailLink);

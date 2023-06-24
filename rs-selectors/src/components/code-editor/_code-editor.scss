@@ -12,6 +12,7 @@
   margin: 1rem;
   border: solid 1rem rgba(0,0,0,.35);
   border-radius: 0.5rem;
+  min-width: 42.5rem;
 }
 
 .editor__table {
@@ -157,4 +158,11 @@
   &:active {
     transform: perspective(5rem) rotateX(-10deg);
     animation: shake 0.3s ease-in-out;  }
+}
+
+.global-header {
+  margin: 1rem;
+  font-weight: 400;
+  font-size: 4.5rem;
+  text-align: center;
 }
