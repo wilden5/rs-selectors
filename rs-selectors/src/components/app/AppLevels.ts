@@ -8,15 +8,14 @@ const GAME_LEVELS: LevelInfo[] = [
         selectorTitle: 'Select elements by their type',
         selectorSyntax: 'A',
         hint:
-            `Selects all elements of type <strong>A</strong>. ` +
+            'Selects all elements of type <strong>A</strong>.' +
             'Type refers to the type of tag, so <strong>&lt;div&gt;</strong>, <strong>&lt;p&gt;</strong> and <strong>&lt;ul&gt;</strong> are all different element types.',
         example: {
             title: 'Examples',
-            case1: `<strong>div</strong> selects all <strong>&lt;div&gt;</strong> elements.`,
-            case2: `<strong>p</strong> selects all <strong>&lt;p&gt;</strong> elements.`,
+            case1: '<strong>div</strong> selects all <strong>&lt;div&gt;</strong> elements.',
+            case2: '<strong>p</strong> selects all <strong>&lt;p&gt;</strong> elements.',
         },
-        boardMarkup: `<plate />
-<plate />`,
+        boardMarkup: '<plate />,<plate />',
     },
     {
         doThis: 'Select the fancy plate',
@@ -32,9 +31,7 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: '<strong>#cool</strong> selects any element with <strong>id="cool"</strong>',
             case2: '<strong>ul#long</strong> selects <strong>&lt;ul id="long"&gt;</strong>',
         },
-        boardMarkup: `<plate id="fancy" />
-<plate />
-<bento />`,
+        boardMarkup: '<plate id="fancy" />,<plate />,<bento />',
     },
     {
         doThis: 'Select the apple on the plate',
@@ -54,11 +51,7 @@ const GAME_LEVELS: LevelInfo[] = [
                 '<strong>#fancy span</strong> selects any <strong>&lt;span&gt;</strong> elements ' +
                 'that are inside of the element with <strong>id="fancy"</strong>',
         },
-        boardMarkup: `<bento />
-<plate>
-    <apple />
-</plate>
-<apple />`,
+        boardMarkup: '<bento />,<plate>,<apple />,</plate>,<apple />',
     },
     {
         doThis: 'Select the small apples',
@@ -74,12 +67,7 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: '<strong>.neato</strong> selects all elements with <strong>class="neato"</strong>',
             case2: '',
         },
-        boardMarkup: `<apple />
-<apple class="small" />
-<plate>
-    <apple class="small" />
-</plate>
-<plate />`,
+        boardMarkup: '<apple />,<apple class="small" />,<plate>,<apple class="small" />,</plate>,<plate />',
     },
     {
         doThis: 'Select all the plates and bentos',
@@ -99,19 +87,8 @@ const GAME_LEVELS: LevelInfo[] = [
                 '<strong>a, p, div</strong> selects all <strong>&lt;a&gt;</strong>, <strong>&lt;p&gt;</strong> ' +
                 'and <strong>&lt;div&gt;</strong> elements',
         },
-        boardMarkup: `<pickle class="small" />
-<pickle />
-<plate>
-    <pickle />
-</plate>
-<bento>
-    <pickle />
-</bento>
-<plate>
-    <pickle />
-</plate>
-<pickle />
-<pickle class="small" />`,
+        boardMarkup:
+            '<pickle class="small" />,<pickle />,<plate>,<pickle />,</plate>,<bento>,<pickle />,</bento>,<plate>,<pickle />,</plate>,<pickle />,<pickle class="small" />',
     },
     {
         doThis: 'Select all the things!',
@@ -125,15 +102,8 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: '<strong>p *</strong> selects any element inside all <strong>&lt;p&gt;</strong> elements.',
             case2: '',
         },
-        boardMarkup: `<apple />
-<plate>
-    <orange class="small" />
-</plate>
-<bento />
-<bento>
-    <orange />
-</bento>
-<plate id="fancy" />`,
+        boardMarkup:
+            '<apple />,<plate>,<orange class="small" />,</plate>,<bento />,<bento>,<orange />,</bento>,<plate id="fancy" />',
     },
     {
         doThis: 'Select the pickles beside the bento',
@@ -149,98 +119,57 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: '<strong>A ~ B</strong> selects all <strong>B</strong> that follow a <strong>A</strong>',
             case2: '',
         },
-        boardMarkup: `<pickle />
-<bento>
-    <orange class="small" />
-</bento>
-<pickle class="small" />
-<pickle />
-<plate>
-    <pickle />
-</plate>
-<plate>
-    <pickle class="small" />
-</plate>`,
+        boardMarkup:
+            '<pickle />,<bento>,<orange class="small" />,</bento>,<pickle class="small" />,<pickle />,<plate>,<pickle />,</plate>,<plate>,<pickle class="small" />,</plate>',
     },
     {
-        doThis: 'Select the apple directly on a plate',
+        doThis: 'Select the 3rd plate',
         levelIndicator: 'Level 8',
-        selectorType: 'Child Selector',
-        selectorTitle: 'Select direct children of an element',
-        selectorSyntax: 'A > B',
-        hint:
-            'You can select elements that are direct children of other elements. ' +
-            'A child element is any element that is nested directly in another element.' +
-            'Elements that are nested deeper than that are called descendant elements.',
+        selectorType: 'Nth Child Pseudo-selector',
+        selectorTitle: 'Select an element by its order in another element',
+        selectorSyntax: ':nth-child(A)',
+        hint: 'Selects the <strong>nth</strong> (Ex: 1st, 3rd, 12th etc.) child element in another element.',
         example: {
             title: 'Examples',
-            case1:
-                '<strong>A > B</strong> selects all <strong>B</strong> that are ' +
-                'a direct children <strong>A</strong>',
+            case1: '<strong>:nth-child(8)</strong> selects every element that is the 8th child of another element.',
+            case2:
+                '<strong>div p:nth-child(2)</strong> selects the second <strong>p</strong> ' +
+                'in every <strong>div</strong>',
+        },
+        boardMarkup: '<plate />,<plate />,<plate />,<plate id="fancy" />',
+    },
+    {
+        doThis: 'Select the last apple and orange',
+        levelIndicator: 'Level 9',
+        selectorType: 'Last of Type Selector',
+        selectorTitle: 'Select the last element of a specific type',
+        selectorSyntax: ':last-of-type',
+        hint:
+            'Selects each last element of that type within another element. Remember type refers the kind of tag, so <strong&lt;>p&gt;</strong> and <strong>&lt;span&gt;</strong> are different types.' +
+            'I wonder if this is how the last dinosaur was selected before it went extinct.',
+        example: {
+            title: 'Examples',
+            case1: '<strong>div:last-of-type</strong> selects the last <strong>&lt;div&gt;</strong> in every element.',
+            case2:
+                '<strong>p span:last-of-type</strong> selects the last <strong>&lt;span&gt;</strong> ' +
+                'in every <strong>&lt;p&gt;</strong>.',
+        },
+        boardMarkup:
+            '<orange class="small" />,<orange class="small" />,<pickle />,<pickle />,<apple class="small" />,<apple class="small" />',
+    },
+    {
+        doThis: 'Select the empty bentos',
+        levelIndicator: 'Level 10',
+        selectorType: 'Empty Selector',
+        selectorTitle: "Select elements that don't have children",
+        selectorSyntax: ':empty',
+        hint: "Selects elements that don't have any other elements inside of them.",
+        example: {
+            title: 'Examples',
+            case1: '<strong>div:empty</strong> selects all empty <strong>&lt;div&gt;</strong> elements.',
             case2: '',
         },
-        boardMarkup: `<plate>
-    <bento>
-        <apple />
-    </bento>
-</plate>
-<plate>
-    <apple />
-</plate>
-<plate />
-<apple />
-<apple class="small" />`,
-    },
-    {
-        doThis: 'Select the top orange',
-        levelIndicator: 'Level 9',
-        selectorType: 'First Child Pseudo-selector',
-        selectorTitle: 'Select a first child element inside of another element',
-        selectorSyntax: ':first-child',
-        hint:
-            'You can select the first child element. A child element is any element that is directly nested in another element. ' +
-            'You can combine this pseudo-selector with other selectors.',
-        example: {
-            title: 'Examples',
-            case1: '<strong>p:first-child</strong> selects all first child <strong>&lt;p&gt;</strong> elements.',
-            case2:
-                '<strong>div p:first-child</strong> selects all first child <strong>&lt;p&gt;</strong> elements ' +
-                'that are in a <strong>&lt;div&gt;</strong>.',
-        },
-        boardMarkup: `<bento />
-<plate />
-<plate>
-    <orange />
-    <orange />
-    <orange />
-</plate>
-<pickle class="small" />`,
-    },
-    {
-        doThis: 'Select the small apple and the pickle',
-        levelIndicator: 'Level 10',
-        selectorType: 'Last Child Pseudo-selector',
-        selectorTitle: 'Select the last element inside of another element',
-        selectorSyntax: ':last-child',
-        hint:
-            'You can use this selector to select an element that is ' +
-            'the last child element inside of another element.',
-        example: {
-            title: 'Examples',
-            case1: '<strong>span:last-child</strong> selects all last-child <strong>&lt;span&gt;</strong> elements.',
-            case2:
-                '<strong>ul li:last-child</strong> selects the last <strong>&lt;li&gt;</strong> elements inside ' +
-                'of any <strong>&lt;ul&gt;</strong>',
-        },
-        boardMarkup: `<plate id="fancy">
-    <apple class="small" />
-</plate>
-<plate />
-<plate>
-    <orange class="small" />
-    <orange>
-</plate>
-<pickle class="small" />`,
+        boardMarkup: '<bento />,<bento>,<pickle class="small" />,</bento>,<plate />,<bento />',
     },
 ];
 
