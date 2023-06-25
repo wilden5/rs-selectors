@@ -119,7 +119,7 @@ class LevelSelectorLayout {
             const div = DOMHelpers.createElement('div', [`item-${index}`, 'item'], `${item}`);
             container.appendChild(div);
             if (item.includes('/') && !item.includes(' /') && previousElement) {
-                previousElement.className += ' item-nested';
+                previousElement.className += ` item-nested-${index}`;
                 container.childNodes.forEach((childNode) => {
                     if (childNode.textContent === item.replace('</', '<')) {
                         (childNode as HTMLElement).classList.add(`item-${index}`);
@@ -128,6 +128,12 @@ class LevelSelectorLayout {
             }
             previousElement = div;
         }
+        container.childNodes.forEach((childNode: ChildNode) => {
+            if (childNode instanceof HTMLElement && childNode.classList.length > 3) {
+                const fourthClass: string = childNode.classList.item(3) as string;
+                childNode.classList.remove(fourthClass);
+            }
+        });
     }
 
     public init(): void {
