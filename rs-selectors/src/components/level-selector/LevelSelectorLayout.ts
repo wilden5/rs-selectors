@@ -4,6 +4,7 @@ import LevelSelectorElements from './LevelSelectorElements';
 import { barProgressStateMap } from '../../types/Types';
 import DOMHelpers from '../utils/DOMHelpers';
 import BurgerMenuElements from './burger-menu/BurgerMenuElements';
+import CodeEditorLayout from '../code-editor/CodeEditorLayout';
 
 class LevelSelectorLayout {
     private levels: LevelInfo[];
@@ -16,12 +17,15 @@ class LevelSelectorLayout {
 
     private burgerMenuElements: BurgerMenuElements;
 
+    private codeEditorLayout: CodeEditorLayout;
+
     constructor(levels: LevelInfo[]) {
         this.levels = levels;
         this.currentLevelIndex = 0;
         this.levelElements = LevelSelectorElements.getInstance();
         this.burgerMenuLayout = new BurgerMenuLayout(levels);
         this.burgerMenuElements = BurgerMenuElements.getInstance();
+        this.codeEditorLayout = new CodeEditorLayout();
     }
 
     private appendElements(): void {
@@ -61,6 +65,7 @@ class LevelSelectorLayout {
             this.changeProgressState();
             this.populateLevelData();
             this.appendLevelMarkup();
+            this.codeEditorLayout.highlightElementsWithSameClass();
         }
     };
 
@@ -70,6 +75,7 @@ class LevelSelectorLayout {
             this.changeProgressState();
             this.populateLevelData();
             this.appendLevelMarkup();
+            this.codeEditorLayout.highlightElementsWithSameClass();
         }
     };
 
@@ -145,6 +151,7 @@ class LevelSelectorLayout {
             this.changeProgressState();
             this.highlightSelectedLevelInBurgerMenu();
             this.appendLevelMarkup();
+            this.codeEditorLayout.highlightElementsWithSameClass();
         });
         this.populateLevelData();
         this.resetButtonClick();

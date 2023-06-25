@@ -204,6 +204,12 @@
   }
 }
 
-.item-nested {
+[class*="item-nested-"] {
   padding-left: 3rem;
+}
+
+
+.highlighted {
+  color: white;
+  opacity: 1;
 }
