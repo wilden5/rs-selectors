@@ -194,3 +194,16 @@
 .modal-button--hided {
   display: none;
 }
+
+.item {
+  opacity: 0.5;
+
+  &:hover {
+    color: white;
+    opacity: 1;
+  }
+}
+
+.item-nested {
+  padding-left: 3rem;
+}

@@ -110,7 +110,24 @@ class LevelSelectorLayout {
 
     private appendLevelMarkup(): void {
         const container = DOMHelpers.getElement('.view_level-markup');
-        container.innerText = this.levels[this.currentLevelIndex].boardMarkup;
+        container.innerHTML = '';
+        const arrayMarkup: string[] = this.levels[this.currentLevelIndex].boardMarkup.split(',');
+        let previousElement: HTMLElement | null = null;
+
+        for (let index = 0; index < arrayMarkup.length; index += 1) {
+            const item = arrayMarkup[index];
+            const div = DOMHelpers.createElement('div', [`item-${index}`, 'item'], `${item}`);
+            container.appendChild(div);
+            if (item.includes('/') && !item.includes(' /') && previousElement) {
+                previousElement.className += ' item-nested';
+                container.childNodes.forEach((childNode) => {
+                    if (childNode.textContent === item.replace('</', '<')) {
+                        (childNode as HTMLElement).classList.add(`item-${index}`);
+                    }
+                });
+            }
+            previousElement = div;
+        }
     }
 
     public init(): void {
