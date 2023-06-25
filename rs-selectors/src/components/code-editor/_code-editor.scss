@@ -34,6 +34,7 @@
   gap: 0.5rem;
 }
 
+.header__title img,
 .socials__email img,
 .socials__facebook img,
 .socials__twitter img {
@@ -41,6 +42,16 @@
   height: 20px;
   padding-right: 0.5rem;
   padding-top: 0.5rem;
+}
+
+.header__title {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  & img {
+    padding-top: 0;
+  }
 }
 
 .input__header,

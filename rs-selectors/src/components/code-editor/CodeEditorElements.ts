@@ -4,6 +4,8 @@ import DOMHelpers from '../utils/DOMHelpers';
 class CodeEditorElements {
     public header: HTMLElement;
 
+    public headerTitle: HTMLElement;
+
     public codeEditorContainer: HTMLElement;
 
     public socials: HTMLElement;
@@ -58,7 +60,8 @@ class CodeEditorElements {
 
     public constructor() {
         this.codeEditorContainer = DOMHelpers.createElement('div', ['code-editor-container']);
-        this.header = DOMHelpers.createElement('div', ['header'], "Wilden's CSS Diner");
+        this.header = DOMHelpers.createElement('div', ['header']);
+        this.headerTitle = DOMHelpers.createElement('div', ['header__title'], "Wilden's CSS Diner");
         this.socials = DOMHelpers.createElement('div', ['header__socials'], 'Share');
         this.emailLink = DOMHelpers.createElement('a', ['socials__email']);
         this.facebookLink = DOMHelpers.createElement('a', ['socials__facebook']);

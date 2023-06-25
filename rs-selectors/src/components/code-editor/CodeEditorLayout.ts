@@ -14,6 +14,7 @@ class CodeEditorLayout {
         this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.globalHeader);
         this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.modalButton);
         this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.editor);
+        this.codeEditorElements.header.appendChild(this.codeEditorElements.headerTitle);
         this.codeEditorElements.header.appendChild(this.codeEditorElements.socials);
         this.codeEditorElements.socials.appendChild(this.codeEditorElements.emailLink);
         this.codeEditorElements.socials.appendChild(this.codeEditorElements.facebookLink);
@@ -39,6 +40,7 @@ class CodeEditorLayout {
     }
 
     private appendImages(): void {
+        DOMHelpers.appendImage(this.codeEditorElements.headerTitle, '../../assets/img/dish.png');
         DOMHelpers.appendImage(this.codeEditorElements.emailLink, '../../assets/img/email.png');
         DOMHelpers.appendImage(this.codeEditorElements.facebookLink, '../../assets/img/facebook.png');
         DOMHelpers.appendImage(this.codeEditorElements.twitterLink, '../../assets/img/twitter.png');
