@@ -1,5 +1,11 @@
 @import "../../style/_var.scss";
 
+strong {
+  background: rgba(255,255,255,.05);
+  padding: 0.2rem 0.5rem;
+  font-weight: 400;
+}
+
 .level-selector-container {
   flex: 1;
   background: rgb(31, 29, 24);
@@ -102,6 +108,9 @@
 .level-information__selector-syntax {
   font-size: 2.4rem;
   color: $text-color;
+  background: rgba(255,255,255,.05);
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
 }
 
 .level-information__selector-hint,
@@ -125,6 +134,7 @@
 
 .level-information__selector-hint {
   margin-bottom: 4.5rem;
+  line-height: 160%;
 }
 
 .level-information__example-title {

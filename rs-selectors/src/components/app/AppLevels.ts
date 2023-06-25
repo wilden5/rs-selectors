@@ -8,12 +8,12 @@ const GAME_LEVELS: LevelInfo[] = [
         selectorTitle: 'Select elements by their type',
         selectorSyntax: 'A',
         hint:
-            'Selects all elements of type A. ' +
-            'Type refers to the type of tag, so div, p and ul are all different element types.',
+            `Selects all elements of type <strong>A</strong>. ` +
+            'Type refers to the type of tag, so <strong>&lt;div&gt;</strong>, <strong>&lt;p&gt;</strong> and <strong>&lt;ul&gt;</strong> are all different element types.',
         example: {
             title: 'Examples',
-            case1: 'div selects all div elements.',
-            case2: 'p selects all p elements.',
+            case1: `<strong>div</strong> selects all <strong>&lt;div&gt;</strong> elements.`,
+            case2: `<strong>p</strong> selects all <strong>&lt;p&gt;</strong> elements.`,
         },
         boardMarkup: `<plate />
 <plate />`,
@@ -24,11 +24,13 @@ const GAME_LEVELS: LevelInfo[] = [
         selectorType: 'ID Selector',
         selectorTitle: 'Select elements with an ID',
         selectorSyntax: '#id',
-        hint: 'Selects the element with a specific id. You can also combine the ID selector with the type selector.',
+        hint:
+            'Selects the element with a specific <strong>id</strong>. ' +
+            'You can also combine the ID selector with the type selector.',
         example: {
             title: 'Examples',
-            case1: '#cool selects any element with id="cool"',
-            case2: 'ul#long selects ul id="long"',
+            case1: '<strong>#cool</strong> selects any element with <strong>id="cool"</strong>',
+            case2: '<strong>ul#long</strong> selects <strong>&lt;ul id="long"&gt;</strong>',
         },
         boardMarkup: `<plate id="fancy" />
 <plate />
@@ -40,11 +42,17 @@ const GAME_LEVELS: LevelInfo[] = [
         selectorType: 'Descendant Selector',
         selectorTitle: 'Select an element inside another element',
         selectorSyntax: 'A B',
-        hint: 'Selects all B inside of A. B is called a descendant because it is inside of another element.',
+        hint:
+            'Selects all <strong>B</strong> inside of <strong>A</strong>. <strong>B</strong> is called ' +
+            'a descendant because it is inside of another element.',
         example: {
             title: 'Examples',
-            case1: 'p strong selects all strong elements that are inside of any p',
-            case2: '#fancy span selects any span elements that are inside of the element with id="fancy"',
+            case1:
+                '<strong>p strong</strong> selects all <strong>&lt;strong&gt;</strong> elements that ' +
+                'are inside of any <strong>&lt;p&gt;</strong>',
+            case2:
+                '<strong>#fancy span</strong> selects any <strong>&lt;span&gt;</strong> elements ' +
+                'that are inside of the element with <strong>id="fancy"</strong>',
         },
         boardMarkup: `<bento />
 <plate>
@@ -63,7 +71,7 @@ const GAME_LEVELS: LevelInfo[] = [
             'Elements can only have one ID, but many classes.',
         example: {
             title: 'Examples',
-            case1: '.neato selects all elements with class="neato"',
+            case1: '<strong>.neato</strong> selects all elements with <strong>class="neato"</strong>',
             case2: '',
         },
         boardMarkup: `<apple />
@@ -80,12 +88,16 @@ const GAME_LEVELS: LevelInfo[] = [
         selectorTitle: 'Combine, selectors, with... commas!',
         selectorSyntax: 'A, B',
         hint:
-            'Thanks to Shatner technology, this selects all A and B elements. ' +
+            'Thanks to Shatner technology, this selects all <strong>A</strong> and <strong>B</strong> elements. ' +
             'You can combine any selectors this way, and you can specify more than two.',
         example: {
             title: 'Examples',
-            case1: 'p, .fun selects all p elements as well as all elements with class="fun"',
-            case2: 'a, p, div selects all a, p and div elements',
+            case1:
+                '<strong>p, .fun</strong> selects all <strong>&lt;p&gt;</strong> elements as ' +
+                'well as all elements with <strong>class="fun"</strong>',
+            case2:
+                '<strong>a, p, div</strong> selects all <strong>&lt;a&gt;</strong>, <strong>&lt;p&gt;</strong> ' +
+                'and <strong>&lt;div&gt;</strong> elements',
         },
         boardMarkup: `<pickle class="small" />
 <pickle />
@@ -110,7 +122,7 @@ const GAME_LEVELS: LevelInfo[] = [
         hint: 'You can select all elements with the universal selector!',
         example: {
             title: 'Examples',
-            case1: 'p * selects any element inside all p elements.',
+            case1: '<strong>p *</strong> selects any element inside all <strong>&lt;p&gt;</strong> elements.',
             case2: '',
         },
         boardMarkup: `<apple />
@@ -134,7 +146,7 @@ const GAME_LEVELS: LevelInfo[] = [
             'This is like the Adjacent Selector (A + B) except it gets all of the following elements instead of one.',
         example: {
             title: 'Examples',
-            case1: 'A ~ B selects all B that follow a A',
+            case1: '<strong>A ~ B</strong> selects all <strong>B</strong> that follow a <strong>A</strong>',
             case2: '',
         },
         boardMarkup: `<pickle />
@@ -162,7 +174,9 @@ const GAME_LEVELS: LevelInfo[] = [
             'Elements that are nested deeper than that are called descendant elements.',
         example: {
             title: 'Examples',
-            case1: 'A > B selects all B that are a direct children A',
+            case1:
+                '<strong>A > B</strong> selects all <strong>B</strong> that are ' +
+                'a direct children <strong>A</strong>',
             case2: '',
         },
         boardMarkup: `<plate>
@@ -188,8 +202,10 @@ const GAME_LEVELS: LevelInfo[] = [
             'You can combine this pseudo-selector with other selectors.',
         example: {
             title: 'Examples',
-            case1: 'p:first-child selects all first child p elements.',
-            case2: 'div p:first-child selects all first child p elements that are in a div.',
+            case1: '<strong>p:first-child</strong> selects all first child <strong>&lt;p&gt;</strong> elements.',
+            case2:
+                '<strong>div p:first-child</strong> selects all first child <strong>&lt;p&gt;</strong> elements ' +
+                'that are in a <strong>&lt;div&gt;</strong>.',
         },
         boardMarkup: `<bento />
 <plate />
@@ -211,8 +227,10 @@ const GAME_LEVELS: LevelInfo[] = [
             'the last child element inside of another element.',
         example: {
             title: 'Examples',
-            case1: 'span:last-child selects all last-child span elements.',
-            case2: 'ul li:last-child selects the last li elements inside of any ul',
+            case1: '<strong>span:last-child</strong> selects all last-child <strong>&lt;span&gt;</strong> elements.',
+            case2:
+                '<strong>ul li:last-child</strong> selects the last <strong>&lt;li&gt;</strong> elements inside ' +
+                'of any <strong>&lt;ul&gt;</strong>',
         },
         boardMarkup: `<plate id="fancy">
     <apple class="small" />

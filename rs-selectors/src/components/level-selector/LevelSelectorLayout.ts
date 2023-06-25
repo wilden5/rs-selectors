@@ -81,10 +81,10 @@ class LevelSelectorLayout {
         this.levelElements.selectorType.innerText = this.levels[this.currentLevelIndex].selectorType;
         this.levelElements.selectorTitle.innerText = this.levels[this.currentLevelIndex].selectorTitle;
         this.levelElements.selectorSyntax.innerText = this.levels[this.currentLevelIndex].selectorSyntax;
-        this.levelElements.selectorHint.innerText = this.levels[this.currentLevelIndex].hint;
+        this.levelElements.selectorHint.innerHTML = this.levels[this.currentLevelIndex].hint;
         this.levelElements.exampleTitle.innerText = this.levels[this.currentLevelIndex].example.title;
-        this.levelElements.exampleCase.innerText = this.levels[this.currentLevelIndex].example.case1;
-        this.levelElements.exampleCaseSecond.innerText = this.levels[this.currentLevelIndex].example.case2;
+        this.levelElements.exampleCase.innerHTML = this.levels[this.currentLevelIndex].example.case1;
+        this.levelElements.exampleCaseSecond.innerHTML = this.levels[this.currentLevelIndex].example.case2;
         globalHeader.innerText = this.levels[this.currentLevelIndex].doThis;
         this.highlightSelectedLevelInBurgerMenu();
     }
