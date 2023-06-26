@@ -1,8 +1,8 @@
 import FooterElements from './FooterElements';
 import DOMHelpers from '../utils/DOMHelpers';
-import { ProjectModule } from '../../types/Interfaces';
+import { ProjectComponent } from '../../types/Interfaces';
 
-class FooterLayout implements ProjectModule {
+class FooterLayout implements ProjectComponent {
     private footerElements: FooterElements;
 
     constructor() {

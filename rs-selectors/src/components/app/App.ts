@@ -4,10 +4,10 @@ import GAME_LEVELS from './AppLevels';
 import ModalWindowLayout from '../code-editor/modal-window/ModalWindowLayout';
 import GameLayout from '../code-editor/game/GameLayout';
 import FooterLayout from '../footer/FooterLayout';
-import { ProjectModule } from '../../types/Interfaces';
+import { ProjectComponent } from '../../types/Interfaces';
 
 class App {
-    private PROJECT_MODULES: ProjectModule[];
+    private PROJECT_COMPONENTS: ProjectComponent[];
 
     private readonly CODE_EDITOR: CodeEditorLayout;
 
@@ -26,11 +26,11 @@ class App {
         this.GAME = new GameLayout();
         this.FOOTER = new FooterLayout();
 
-        this.PROJECT_MODULES = [this.CODE_EDITOR, this.LEVEL_SELECTOR, this.MODAL_WINDOW, this.GAME, this.FOOTER];
+        this.PROJECT_COMPONENTS = [this.CODE_EDITOR, this.LEVEL_SELECTOR, this.MODAL_WINDOW, this.GAME, this.FOOTER];
     }
 
     public start(): void {
-        this.PROJECT_MODULES.forEach((module) => {
+        this.PROJECT_COMPONENTS.forEach((module) => {
             module.init();
         });
     }

@@ -1,8 +1,8 @@
 import GameElements from './GameElements';
 import DOMHelpers from '../../utils/DOMHelpers';
-import { ProjectModule } from '../../../types/Interfaces';
+import { ProjectComponent } from '../../../types/Interfaces';
 
-class GameLayout implements ProjectModule {
+class GameLayout implements ProjectComponent {
     private gameElements: GameElements;
 
     constructor() {

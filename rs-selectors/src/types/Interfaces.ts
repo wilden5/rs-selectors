@@ -21,6 +21,6 @@ export interface ModalWindowContent {
     description: string;
 }
 
-export interface ProjectModule {
+export interface ProjectComponent {
     init(): void;
 }

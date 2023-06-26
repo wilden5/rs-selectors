@@ -1,4 +1,4 @@
-import { LevelInfo, ProjectModule } from '../../types/Interfaces';
+import { LevelInfo, ProjectComponent } from '../../types/Interfaces';
 import BurgerMenuLayout from './burger-menu/BurgerMenuLayout';
 import LevelSelectorElements from './LevelSelectorElements';
 import { barProgressStateMap } from '../../types/Types';
@@ -6,7 +6,7 @@ import DOMHelpers from '../utils/DOMHelpers';
 import BurgerMenuElements from './burger-menu/BurgerMenuElements';
 import CodeEditorLayout from '../code-editor/CodeEditorLayout';
 
-class LevelSelectorLayout implements ProjectModule {
+class LevelSelectorLayout implements ProjectComponent {
     private levels: LevelInfo[];
 
     private currentLevelIndex: number;
