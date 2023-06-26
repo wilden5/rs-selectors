@@ -3,28 +3,36 @@ import CodeEditorLayout from '../code-editor/CodeEditorLayout';
 import GAME_LEVELS from './AppLevels';
 import ModalWindowLayout from '../code-editor/modal-window/ModalWindowLayout';
 import GameLayout from '../code-editor/game/GameLayout';
+import FooterLayout from '../footer/FooterLayout';
+import { ProjectModule } from '../../types/Interfaces';
 
 class App {
-    private codeEditorLayout: CodeEditorLayout;
+    private PROJECT_MODULES: ProjectModule[];
 
-    private levelSelectorLayout: LevelSelectorLayout;
+    private readonly CODE_EDITOR: CodeEditorLayout;
 
-    private modalWindowLayout: ModalWindowLayout;
+    private readonly LEVEL_SELECTOR: LevelSelectorLayout;
 
-    private gameLayout: GameLayout;
+    private readonly MODAL_WINDOW: ModalWindowLayout;
+
+    private readonly GAME: GameLayout;
+
+    private readonly FOOTER: FooterLayout;
 
     constructor() {
-        this.codeEditorLayout = new CodeEditorLayout();
-        this.levelSelectorLayout = new LevelSelectorLayout(GAME_LEVELS);
-        this.modalWindowLayout = new ModalWindowLayout();
-        this.gameLayout = new GameLayout();
+        this.CODE_EDITOR = new CodeEditorLayout();
+        this.LEVEL_SELECTOR = new LevelSelectorLayout(GAME_LEVELS);
+        this.MODAL_WINDOW = new ModalWindowLayout();
+        this.GAME = new GameLayout();
+        this.FOOTER = new FooterLayout();
+
+        this.PROJECT_MODULES = [this.CODE_EDITOR, this.LEVEL_SELECTOR, this.MODAL_WINDOW, this.GAME, this.FOOTER];
     }
 
     public start(): void {
-        this.codeEditorLayout.init();
-        this.levelSelectorLayout.init();
-        this.modalWindowLayout.init();
-        this.gameLayout.init();
+        this.PROJECT_MODULES.forEach((module) => {
+            module.init();
+        });
     }
 }
 
