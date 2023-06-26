@@ -9,11 +9,10 @@ class GameLayout {
     }
 
     private appendGameLayoutElements(): void {
-        const codeEditorContainer = DOMHelpers.getElement('.code-editor-container');
-        codeEditorContainer.appendChild(this.gameElements.gameWrapper);
-        this.gameElements.gameWrapper.appendChild(this.gameElements.tableWrapper);
-        this.gameElements.tableWrapper.appendChild(this.gameElements.tableArea);
-        this.gameElements.tableArea.appendChild(this.gameElements.tableTop);
+        DOMHelpers.appendChildToElement(DOMHelpers.getElement('.code-editor-container'), this.gameElements.gameWrapper);
+        DOMHelpers.appendChildToElement(this.gameElements.gameWrapper, this.gameElements.tableWrapper);
+        DOMHelpers.appendChildToElement(this.gameElements.tableWrapper, this.gameElements.tableArea);
+        DOMHelpers.appendChildToElement(this.gameElements.tableArea, this.gameElements.tableTop);
     }
 
     public init(): void {
