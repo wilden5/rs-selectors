@@ -2,6 +2,7 @@
 @import "src/style/animation";
 
 .modal {
+  z-index: 9999;
   display: none;
   position: fixed;
   top: -100%;
