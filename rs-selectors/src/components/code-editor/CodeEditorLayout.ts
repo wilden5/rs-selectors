@@ -9,34 +9,53 @@ class CodeEditorLayout {
     }
 
     private appendCodeEditorElements(): void {
-        document.body.appendChild(this.codeEditorElements.codeEditorContainer);
-        this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.header);
-        this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.globalHeader);
-        this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.modalButton);
-        this.codeEditorElements.codeEditorContainer.appendChild(this.codeEditorElements.editor);
-        this.codeEditorElements.header.appendChild(this.codeEditorElements.headerTitle);
-        this.codeEditorElements.header.appendChild(this.codeEditorElements.socials);
-        this.codeEditorElements.socials.appendChild(this.codeEditorElements.emailLink);
-        this.codeEditorElements.socials.appendChild(this.codeEditorElements.facebookLink);
-        this.codeEditorElements.socials.appendChild(this.codeEditorElements.twitterLink);
-        this.codeEditorElements.editor.appendChild(this.codeEditorElements.editorInput);
-        this.codeEditorElements.editor.appendChild(this.codeEditorElements.editorHtmlView);
-        this.codeEditorElements.editorHtmlView.appendChild(this.codeEditorElements.htmlViewHeader);
-        this.codeEditorElements.htmlViewHeader.appendChild(this.codeEditorElements.htmlFileName);
-        this.codeEditorElements.editorHtmlView.appendChild(this.codeEditorElements.htmlFileWindow);
-        this.codeEditorElements.htmlFileWindow.appendChild(this.codeEditorElements.htmlLineNumbers);
-        this.codeEditorElements.htmlFileWindow.appendChild(this.codeEditorElements.htmlLineMarkup);
-        this.codeEditorElements.htmlLineMarkup.appendChild(this.codeEditorElements.markupCodeWrapper);
-        this.codeEditorElements.htmlLineMarkup.appendChild(this.codeEditorElements.levelMarkup);
-        this.codeEditorElements.editorInput.appendChild(this.codeEditorElements.editorHeader);
-        this.codeEditorElements.editorHeader.appendChild(this.codeEditorElements.editorFileName);
-        this.codeEditorElements.editorInput.appendChild(this.codeEditorElements.inputFileWindow);
-        this.codeEditorElements.inputFileWindow.appendChild(this.codeEditorElements.inputLineNumbers);
-        this.codeEditorElements.inputFileWindow.appendChild(this.codeEditorElements.inputMarkup);
-        this.codeEditorElements.inputMarkup.appendChild(this.codeEditorElements.userInputField);
-        this.codeEditorElements.inputMarkup.appendChild(this.codeEditorElements.enterButton);
-        this.codeEditorElements.inputMarkup.appendChild(this.codeEditorElements.userInputHint);
-        this.codeEditorElements.inputMarkup.appendChild(this.codeEditorElements.userInputSkipLevel);
+        DOMHelpers.appendChildToElement(document.body, this.codeEditorElements.codeEditorContainer);
+
+        DOMHelpers.appendChildToElement(this.codeEditorElements.codeEditorContainer, this.codeEditorElements.header);
+        DOMHelpers.appendChildToElement(
+            this.codeEditorElements.codeEditorContainer,
+            this.codeEditorElements.globalHeader
+        );
+        DOMHelpers.appendChildToElement(
+            this.codeEditorElements.codeEditorContainer,
+            this.codeEditorElements.modalButton
+        );
+        DOMHelpers.appendChildToElement(this.codeEditorElements.codeEditorContainer, this.codeEditorElements.editor);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.header, this.codeEditorElements.headerTitle);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.header, this.codeEditorElements.socials);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.socials, this.codeEditorElements.emailLink);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.socials, this.codeEditorElements.facebookLink);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.socials, this.codeEditorElements.twitterLink);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.editor, this.codeEditorElements.editorInput);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.editor, this.codeEditorElements.editorHtmlView);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.editorHtmlView, this.codeEditorElements.htmlViewHeader);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.htmlViewHeader, this.codeEditorElements.htmlFileName);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.editorHtmlView, this.codeEditorElements.htmlFileWindow);
+        DOMHelpers.appendChildToElement(
+            this.codeEditorElements.htmlFileWindow,
+            this.codeEditorElements.htmlLineNumbers
+        );
+        DOMHelpers.appendChildToElement(this.codeEditorElements.htmlFileWindow, this.codeEditorElements.htmlLineMarkup);
+        DOMHelpers.appendChildToElement(
+            this.codeEditorElements.htmlLineMarkup,
+            this.codeEditorElements.markupCodeWrapper
+        );
+        DOMHelpers.appendChildToElement(this.codeEditorElements.htmlLineMarkup, this.codeEditorElements.levelMarkup);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.editorInput, this.codeEditorElements.editorHeader);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.editorHeader, this.codeEditorElements.editorFileName);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.editorInput, this.codeEditorElements.inputFileWindow);
+        DOMHelpers.appendChildToElement(
+            this.codeEditorElements.inputFileWindow,
+            this.codeEditorElements.inputLineNumbers
+        );
+        DOMHelpers.appendChildToElement(this.codeEditorElements.inputFileWindow, this.codeEditorElements.inputMarkup);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.inputMarkup, this.codeEditorElements.userInputField);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.inputMarkup, this.codeEditorElements.enterButton);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.inputMarkup, this.codeEditorElements.userInputHint);
+        DOMHelpers.appendChildToElement(
+            this.codeEditorElements.inputMarkup,
+            this.codeEditorElements.userInputSkipLevel
+        );
     }
 
     private appendImages(): void {
