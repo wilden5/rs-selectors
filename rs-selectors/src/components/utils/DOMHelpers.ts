@@ -29,6 +29,10 @@ class DOMHelpers {
         image.src = path;
         element.appendChild(image);
     }
+
+    static appendChildToElement<T extends HTMLElement>(parent: HTMLElement, child: T): void {
+        parent.appendChild(child);
+    }
 }
 
 export default DOMHelpers;
