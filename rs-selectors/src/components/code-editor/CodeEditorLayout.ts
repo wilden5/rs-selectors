@@ -1,7 +1,8 @@
 import CodeEditorElements from './CodeEditorElements';
 import DOMHelpers from '../utils/DOMHelpers';
+import { ProjectModule } from '../../types/Interfaces';
 
-class CodeEditorLayout {
+class CodeEditorLayout implements ProjectModule {
     private codeEditorElements: CodeEditorElements;
 
     constructor() {

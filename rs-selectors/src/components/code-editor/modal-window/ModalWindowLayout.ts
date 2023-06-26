@@ -1,8 +1,9 @@
 import ModalWindowElements from './ModalWindowElements';
 import DOMHelpers from '../../utils/DOMHelpers';
 import modalWindowContent from './ModalWindowContent';
+import { ProjectModule } from '../../../types/Interfaces';
 
-class ModalWindowLayout {
+class ModalWindowLayout implements ProjectModule {
     private modalWindowElements: ModalWindowElements;
 
     constructor() {
