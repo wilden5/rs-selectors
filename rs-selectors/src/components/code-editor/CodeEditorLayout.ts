@@ -91,6 +91,18 @@ class CodeEditorLayout {
             DOMHelpers.getElement('.modal').classList.add('modal--opened');
             this.codeEditorElements.modalButton.classList.add('modal-button--hided');
         });
+
+        this.codeEditorElements.emailLink.addEventListener('click', () => {
+            window.location.href = 'mailto:your.email@example.com';
+        });
+
+        this.codeEditorElements.facebookLink.addEventListener('click', () => {
+            window.open('https://www.facebook.com', '_blank');
+        });
+
+        this.codeEditorElements.twitterLink.addEventListener('click', () => {
+            window.open('https://twitter.com', '_blank');
+        });
     }
 
     public highlightElementsWithSameClass(): void {
