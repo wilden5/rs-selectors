@@ -10,7 +10,6 @@ class CodeEditorLayout {
 
     private appendCodeEditorElements(): void {
         DOMHelpers.appendChildToElement(document.body, this.codeEditorElements.codeEditorContainer);
-
         DOMHelpers.appendChildToElement(this.codeEditorElements.codeEditorContainer, this.codeEditorElements.header);
         DOMHelpers.appendChildToElement(
             this.codeEditorElements.codeEditorContainer,

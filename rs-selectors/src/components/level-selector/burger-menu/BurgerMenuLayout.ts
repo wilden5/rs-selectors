@@ -17,11 +17,14 @@ class BurgerMenuLayout {
     }
 
     private appendBurgerMenuElements(): void {
-        this.levelSelectorElements.levelSelectorContainer.appendChild(this.burgerMenuElements.burgerMenu);
-        this.levelSelectorElements.levelSelectorNav.appendChild(this.burgerMenuElements.navBurger);
-        this.burgerMenuElements.navBurger.appendChild(this.burgerMenuElements.burgerLine);
-        this.burgerMenuElements.burgerMenu.appendChild(this.burgerMenuElements.burgerHeader);
-        this.burgerMenuElements.burgerMenu.appendChild(this.burgerMenuElements.burgerLevels);
+        DOMHelpers.appendChildToElement(
+            this.levelSelectorElements.levelSelectorContainer,
+            this.burgerMenuElements.burgerMenu
+        );
+        DOMHelpers.appendChildToElement(this.levelSelectorElements.levelSelectorNav, this.burgerMenuElements.navBurger);
+        DOMHelpers.appendChildToElement(this.burgerMenuElements.navBurger, this.burgerMenuElements.burgerLine);
+        DOMHelpers.appendChildToElement(this.burgerMenuElements.burgerMenu, this.burgerMenuElements.burgerHeader);
+        DOMHelpers.appendChildToElement(this.burgerMenuElements.burgerMenu, this.burgerMenuElements.burgerLevels);
     }
 
     private assignBurgerMenuEventListeners(): void {
