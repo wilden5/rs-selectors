@@ -9,7 +9,7 @@ class ModalWindowLayout {
         this.modalWindowElements = ModalWindowElements.getInstance();
     }
 
-    private appendModalWindowElements(): void {
+    private appendCodeEditorElements(): void {
         const codeEditorContainer = DOMHelpers.getElement('.code-editor-container');
         codeEditorContainer.appendChild(this.modalWindowElements.modal);
         this.modalWindowElements.modal.appendChild(this.modalWindowElements.modalTitle);
@@ -36,7 +36,7 @@ class ModalWindowLayout {
     }
 
     public init(): void {
-        this.appendModalWindowElements();
+        this.appendCodeEditorElements();
         this.populateModalData();
         this.assignCodeEditorEventListeners();
     }

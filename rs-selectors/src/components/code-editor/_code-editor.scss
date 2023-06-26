@@ -12,9 +12,8 @@
 .editor {
   order: 4;
   display: flex;
-  margin: 1rem;
+  margin: 1rem 1rem 0;
   border: solid 1rem rgba(0,0,0,.35);
-  border-radius: 0.5rem;
   min-width: 42.5rem;
 }
 
@@ -230,4 +229,10 @@
 .highlighted {
   color: white;
   opacity: 1;
+}
+
+@media screen and (max-width: 1000px) {
+  .global-header {
+    font-size: 3rem;
+  }
 }
