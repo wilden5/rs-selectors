@@ -29,22 +29,31 @@ class LevelSelectorLayout {
     }
 
     private appendElements(): void {
-        document.body.appendChild(this.levelElements.levelSelectorContainer);
-        this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelSelectorNav);
-        this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelProgress);
-        this.levelElements.levelProgress.appendChild(this.levelElements.levelProgressState);
-        this.levelElements.levelSelectorContainer.appendChild(this.levelElements.levelInformationContainer);
-        this.levelElements.levelSelectorNav.appendChild(this.levelElements.navLevelNumber);
-        this.levelElements.levelSelectorNav.appendChild(this.levelElements.navCheckmark);
-        this.levelElements.levelSelectorNav.appendChild(this.levelElements.navPrevLevel);
-        this.levelElements.levelSelectorNav.appendChild(this.levelElements.navNextLevel);
-        this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorType);
-        this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorTitle);
-        this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorSyntax);
-        this.levelElements.levelInformationContainer.appendChild(this.levelElements.selectorHint);
-        this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleTitle);
-        this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleCase);
-        this.levelElements.levelInformationContainer.appendChild(this.levelElements.exampleCaseSecond);
+        DOMHelpers.appendChildToElement(document.body, this.levelElements.levelSelectorContainer);
+        DOMHelpers.appendChildToElement(this.levelElements.levelSelectorContainer, this.levelElements.levelSelectorNav);
+        DOMHelpers.appendChildToElement(this.levelElements.levelSelectorContainer, this.levelElements.levelProgress);
+        DOMHelpers.appendChildToElement(this.levelElements.levelProgress, this.levelElements.levelProgressState);
+        DOMHelpers.appendChildToElement(
+            this.levelElements.levelSelectorContainer,
+            this.levelElements.levelInformationContainer
+        );
+        DOMHelpers.appendChildToElement(this.levelElements.levelSelectorNav, this.levelElements.navLevelNumber);
+        DOMHelpers.appendChildToElement(this.levelElements.levelSelectorNav, this.levelElements.navCheckmark);
+        DOMHelpers.appendChildToElement(this.levelElements.levelSelectorNav, this.levelElements.navPrevLevel);
+        DOMHelpers.appendChildToElement(this.levelElements.levelSelectorNav, this.levelElements.navNextLevel);
+        DOMHelpers.appendChildToElement(this.levelElements.levelInformationContainer, this.levelElements.selectorType);
+        DOMHelpers.appendChildToElement(this.levelElements.levelInformationContainer, this.levelElements.selectorTitle);
+        DOMHelpers.appendChildToElement(
+            this.levelElements.levelInformationContainer,
+            this.levelElements.selectorSyntax
+        );
+        DOMHelpers.appendChildToElement(this.levelElements.levelInformationContainer, this.levelElements.selectorHint);
+        DOMHelpers.appendChildToElement(this.levelElements.levelInformationContainer, this.levelElements.exampleTitle);
+        DOMHelpers.appendChildToElement(this.levelElements.levelInformationContainer, this.levelElements.exampleCase);
+        DOMHelpers.appendChildToElement(
+            this.levelElements.levelInformationContainer,
+            this.levelElements.exampleCaseSecond
+        );
     }
 
     private assignEventListeners(): void {
