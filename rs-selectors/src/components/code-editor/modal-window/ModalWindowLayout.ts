@@ -9,18 +9,20 @@ class ModalWindowLayout {
         this.modalWindowElements = ModalWindowElements.getInstance();
     }
 
-    private appendCodeEditorElements(): void {
-        const codeEditorContainer = DOMHelpers.getElement('.code-editor-container');
-        codeEditorContainer.appendChild(this.modalWindowElements.modal);
-        this.modalWindowElements.modal.appendChild(this.modalWindowElements.modalTitle);
-        this.modalWindowElements.modal.appendChild(this.modalWindowElements.modalGreeting);
-        this.modalWindowElements.modal.appendChild(this.modalWindowElements.modalCodeTitle);
-        this.modalWindowElements.modal.appendChild(this.modalWindowElements.modalCode);
-        this.modalWindowElements.modal.appendChild(this.modalWindowElements.modalDescription);
-        this.modalWindowElements.modal.appendChild(this.modalWindowElements.modalCloseButton);
+    private appendModalWindowElements(): void {
+        DOMHelpers.appendChildToElement(
+            DOMHelpers.getElement('.code-editor-container'),
+            this.modalWindowElements.modalBody
+        );
+        DOMHelpers.appendChildToElement(this.modalWindowElements.modalBody, this.modalWindowElements.modalTitle);
+        DOMHelpers.appendChildToElement(this.modalWindowElements.modalBody, this.modalWindowElements.modalGreeting);
+        DOMHelpers.appendChildToElement(this.modalWindowElements.modalBody, this.modalWindowElements.modalCodeTitle);
+        DOMHelpers.appendChildToElement(this.modalWindowElements.modalBody, this.modalWindowElements.modalCode);
+        DOMHelpers.appendChildToElement(this.modalWindowElements.modalBody, this.modalWindowElements.modalDescription);
+        DOMHelpers.appendChildToElement(this.modalWindowElements.modalBody, this.modalWindowElements.modalCloseButton);
     }
 
-    private populateModalData(): void {
+    private populateModalWindowData(): void {
         this.modalWindowElements.modalTitle.innerText = modalWindowContent.title;
         this.modalWindowElements.modalGreeting.innerText = modalWindowContent.greeting;
         this.modalWindowElements.modalCodeTitle.innerText = modalWindowContent.codeTitle;
@@ -28,17 +30,17 @@ class ModalWindowLayout {
         this.modalWindowElements.modalDescription.innerText = modalWindowContent.description;
     }
 
-    private assignCodeEditorEventListeners(): void {
+    private assignModalWindowEventListeners(): void {
         this.modalWindowElements.modalCloseButton.addEventListener('click', () => {
-            this.modalWindowElements.modal.classList.remove('modal--opened');
+            this.modalWindowElements.modalBody.classList.remove('modal--opened');
             DOMHelpers.getElement('.modal-button').classList.remove('modal-button--hided');
         });
     }
 
     public init(): void {
-        this.appendCodeEditorElements();
-        this.populateModalData();
-        this.assignCodeEditorEventListeners();
+        this.appendModalWindowElements();
+        this.populateModalWindowData();
+        this.assignModalWindowEventListeners();
     }
 }
 

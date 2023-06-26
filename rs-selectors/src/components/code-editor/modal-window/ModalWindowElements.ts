@@ -2,7 +2,7 @@ import Singleton from '../../utils/Singleton';
 import DOMHelpers from '../../utils/DOMHelpers';
 
 class ModalWindowElements {
-    public modal: HTMLElement;
+    public modalBody: HTMLElement;
 
     public modalTitle: HTMLElement;
 
@@ -17,7 +17,7 @@ class ModalWindowElements {
     public modalCloseButton: HTMLElement;
 
     public constructor() {
-        this.modal = DOMHelpers.createElement('div', ['modal']);
+        this.modalBody = DOMHelpers.createElement('div', ['modal']);
         this.modalTitle = DOMHelpers.createElement('h3', ['modal__title']);
         this.modalGreeting = DOMHelpers.createElement('p', ['modal__greeting']);
         this.modalCodeTitle = DOMHelpers.createElement('h4', ['modal__code-title']);
