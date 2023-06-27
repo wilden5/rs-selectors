@@ -74,6 +74,7 @@ class LevelSelectorLayout implements ProjectComponent {
             this.changeProgressState();
             this.populateLevelData();
             this.appendLevelMarkup();
+            this.codeEditorLayout.setUserInputState(true);
             this.codeEditorLayout.highlightElementsWithSameClass();
         }
     };
@@ -85,6 +86,7 @@ class LevelSelectorLayout implements ProjectComponent {
             this.changeProgressState();
             this.populateLevelData();
             this.appendLevelMarkup();
+            this.codeEditorLayout.setUserInputState(true);
             this.codeEditorLayout.highlightElementsWithSameClass();
         }
     };

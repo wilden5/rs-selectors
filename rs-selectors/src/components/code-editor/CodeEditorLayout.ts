@@ -124,13 +124,29 @@ class CodeEditorLayout implements ProjectComponent {
         this.codeEditorElements.enterButton.addEventListener('click', () => {
             const value: string = this.codeEditorInput.getInputValue();
             this.codeEditorInput.checkUserAnswer(value);
+            this.setUserInputState();
         });
 
         this.codeEditorElements.helpSelectorButton.addEventListener('click', () => {
-            this.codeEditorElements.userInputField.classList.add('input-animation');
             (this.codeEditorElements.userInputField as HTMLInputElement).value =
                 GAME_LEVELS[getCurrentLevelIndex()].correctAnswer;
+            this.setUserInputState();
         });
+    }
+
+    public setUserInputState(isLevelSelector?: boolean): void {
+        if (isLevelSelector) {
+            DOMHelpers.getElement('.input__user-input').classList.remove('input-animation');
+            (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).disabled = false;
+            (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value = '';
+        }
+        if (this.codeEditorElements.userInputField.classList.contains('input-animation')) {
+            this.codeEditorElements.userInputField.classList.remove('input-animation');
+            (this.codeEditorElements.userInputField as HTMLInputElement).disabled = false;
+        } else {
+            this.codeEditorElements.userInputField.classList.add('input-animation');
+            (this.codeEditorElements.userInputField as HTMLInputElement).disabled = true;
+        }
     }
 
     public highlightElementsWithSameClass(): void {
