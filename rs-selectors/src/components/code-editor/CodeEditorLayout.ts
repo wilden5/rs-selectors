@@ -2,6 +2,8 @@ import CodeEditorElements from './CodeEditorElements';
 import DOMHelpers from '../utils/DOMHelpers';
 import { ProjectComponent } from '../../types/Interfaces';
 import CodeEditorInput from './CodeEditorInput';
+import GAME_LEVELS from '../app/AppLevels';
+import { getCurrentLevelIndex } from '../utils/GlobalVariables';
 
 class CodeEditorLayout implements ProjectComponent {
     private codeEditorElements: CodeEditorElements;
@@ -115,7 +117,16 @@ class CodeEditorLayout implements ProjectComponent {
 
         this.codeEditorElements.userInputField.addEventListener('keydown', this.codeEditorInput.handleEnterButtonPress);
 
-        this.codeEditorElements.enterButton.addEventListener('click', this.codeEditorInput.getInputValue);
+        this.codeEditorElements.enterButton.addEventListener('click', () => {
+            const value: string = this.codeEditorInput.getInputValue();
+            this.codeEditorInput.checkUserAnswer(value);
+        });
+
+        this.codeEditorElements.helpSelectorButton.addEventListener('click', () => {
+            this.codeEditorElements.userInputField.classList.add('input-animation');
+            (this.codeEditorElements.userInputField as HTMLInputElement).value =
+                GAME_LEVELS[getCurrentLevelIndex()].correctAnswer;
+        });
     }
 
     public highlightElementsWithSameClass(): void {

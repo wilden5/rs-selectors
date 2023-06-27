@@ -4,9 +4,7 @@ import { getCurrentLevelIndex } from '../utils/GlobalVariables';
 
 class CodeEditorInput {
     public getInputValue(): string {
-        const value: string = (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value.trim();
-        console.log(value);
-        return value;
+        return (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value.trim();
     }
 
     public handleEnterButtonPress = (event: KeyboardEvent): void => {
@@ -23,6 +21,7 @@ class CodeEditorInput {
     public checkUserAnswer(value: string): void {
         if (value === GAME_LEVELS[getCurrentLevelIndex()].correctAnswer) {
             console.log('es');
+            (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value = '';
         } else {
             console.log('no');
         }
