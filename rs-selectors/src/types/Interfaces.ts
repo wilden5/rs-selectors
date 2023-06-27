@@ -11,6 +11,7 @@ export interface LevelInfo {
         case2: string;
     };
     boardMarkup: string;
+    correctAnswer: string;
 }
 
 export interface ModalWindowContent {

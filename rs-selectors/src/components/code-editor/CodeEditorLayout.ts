@@ -51,6 +51,10 @@ class CodeEditorLayout implements ProjectComponent {
         DOMHelpers.appendChildToElement(this.codeEditorElements.inputFileWindow, this.codeEditorElements.inputMarkup);
         DOMHelpers.appendChildToElement(this.codeEditorElements.inputMarkup, this.codeEditorElements.userInputField);
         DOMHelpers.appendChildToElement(this.codeEditorElements.inputMarkup, this.codeEditorElements.enterButton);
+        DOMHelpers.appendChildToElement(
+            this.codeEditorElements.inputMarkup,
+            this.codeEditorElements.helpSelectorButton
+        );
         DOMHelpers.appendChildToElement(this.codeEditorElements.inputMarkup, this.codeEditorElements.userInputHint);
         DOMHelpers.appendChildToElement(
             this.codeEditorElements.inputMarkup,

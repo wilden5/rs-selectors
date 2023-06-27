@@ -58,6 +58,8 @@ class CodeEditorElements {
 
     public modalButton: HTMLElement;
 
+    public helpSelectorButton: HTMLElement;
+
     public constructor() {
         this.codeEditorContainer = DOMHelpers.createElement('div', ['code-editor-container']);
         this.header = DOMHelpers.createElement('div', ['header']);
@@ -87,6 +89,7 @@ class CodeEditorElements {
         this.levelMarkup = DOMHelpers.createElement('pre', ['view_level-markup']);
         this.globalHeader = DOMHelpers.createElement('h2', ['global-header']);
         this.modalButton = DOMHelpers.createElement('button', ['modal-button'], "Help, I'm stuck!");
+        this.helpSelectorButton = DOMHelpers.createElement('div', ['input__help-button'], 'help');
     }
 
     public static getInstance(): CodeEditorElements {

@@ -140,6 +140,7 @@
   animation: flashBackground 1s infinite;
 }
 
+.input__help-button,
 .input__enter-button {
   top: 0.5rem;
   position: relative;
@@ -177,6 +178,14 @@
   &:active {
     transform: perspective(5rem) rotateX(-10deg);
     animation: shake 0.3s ease-in-out;  }
+}
+
+.input__enter-button {
+  margin-right: 2rem;
+}
+
+.input__help-button {
+  background-color: #ecd7d7;
 }
 
 .global-header {
@@ -229,6 +238,12 @@
 .highlighted {
   color: white;
   opacity: 1;
+}
+
+@media screen and (max-width: 1025px) {
+  .input__enter-button {
+    margin-left: 3rem;
+  }
 }
 
 @media screen and (max-width: 1000px) {

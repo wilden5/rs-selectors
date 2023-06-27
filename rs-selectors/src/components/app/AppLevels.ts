@@ -16,6 +16,7 @@ const GAME_LEVELS: LevelInfo[] = [
             case2: '<strong>p</strong> selects all <strong>&lt;p&gt;</strong> elements.',
         },
         boardMarkup: '<plate />,<plate />',
+        correctAnswer: 'plate',
     },
     {
         doThis: 'Select the fancy plate',
@@ -32,6 +33,7 @@ const GAME_LEVELS: LevelInfo[] = [
             case2: '<strong>ul#long</strong> selects <strong>&lt;ul id="long"&gt;</strong>',
         },
         boardMarkup: '<plate id="fancy" />,<plate />,<bento />',
+        correctAnswer: '#fancy',
     },
     {
         doThis: 'Select the apple on the plate',
@@ -52,6 +54,7 @@ const GAME_LEVELS: LevelInfo[] = [
                 'that are inside of the element with <strong>id="fancy"</strong>',
         },
         boardMarkup: '<bento />,<plate>,<apple />,</plate>,<apple />',
+        correctAnswer: 'plate apple',
     },
     {
         doThis: 'Select the small apples',
@@ -68,6 +71,7 @@ const GAME_LEVELS: LevelInfo[] = [
             case2: '',
         },
         boardMarkup: '<apple />,<apple class="small" />,<plate>,<apple class="small" />,</plate>,<plate />',
+        correctAnswer: '.small',
     },
     {
         doThis: 'Select all the plates and bentos',
@@ -89,6 +93,7 @@ const GAME_LEVELS: LevelInfo[] = [
         },
         boardMarkup:
             '<pickle class="small" />,<pickle />,<plate>,<pickle />,</plate>,<bento>,<pickle />,</bento>,<plate>,<pickle />,</plate>,<pickle />,<pickle class="small" />',
+        correctAnswer: 'plate, bento',
     },
     {
         doThis: 'Select all the things!',
@@ -104,6 +109,7 @@ const GAME_LEVELS: LevelInfo[] = [
         },
         boardMarkup:
             '<apple />,<plate>,<orange class="small" />,</plate>,<bento />,<bento>,<orange />,</bento>,<plate id="fancy" />',
+        correctAnswer: '*',
     },
     {
         doThis: 'Select the pickles beside the bento',
@@ -121,6 +127,7 @@ const GAME_LEVELS: LevelInfo[] = [
         },
         boardMarkup:
             '<pickle />,<bento>,<orange class="small" />,</bento>,<pickle class="small" />,<pickle />,<plate>,<pickle />,</plate>,<plate>,<pickle class="small" />,</plate>',
+        correctAnswer: 'bento ~ pickle',
     },
     {
         doThis: 'Select the 3rd plate',
@@ -137,6 +144,7 @@ const GAME_LEVELS: LevelInfo[] = [
                 'in every <strong>div</strong>',
         },
         boardMarkup: '<plate />,<plate />,<plate />,<plate id="fancy" />',
+        correctAnswer: 'plate:nth-child(3)',
     },
     {
         doThis: 'Select the last apple and orange',
@@ -156,6 +164,7 @@ const GAME_LEVELS: LevelInfo[] = [
         },
         boardMarkup:
             '<orange class="small" />,<orange class="small" />,<pickle />,<pickle />,<apple class="small" />,<apple class="small" />',
+        correctAnswer: '.small:last-of-type',
     },
     {
         doThis: 'Select the empty bentos',
@@ -170,6 +179,7 @@ const GAME_LEVELS: LevelInfo[] = [
             case2: '',
         },
         boardMarkup: '<bento />,<bento>,<pickle class="small" />,</bento>,<plate />,<bento />',
+        correctAnswer: 'bento:empty',
     },
 ];
 
