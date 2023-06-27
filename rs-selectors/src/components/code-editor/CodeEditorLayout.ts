@@ -1,12 +1,16 @@
 import CodeEditorElements from './CodeEditorElements';
 import DOMHelpers from '../utils/DOMHelpers';
 import { ProjectComponent } from '../../types/Interfaces';
+import CodeEditorInput from './CodeEditorInput';
 
 class CodeEditorLayout implements ProjectComponent {
     private codeEditorElements: CodeEditorElements;
 
+    private codeEditorInput: CodeEditorInput;
+
     constructor() {
         this.codeEditorElements = new CodeEditorElements();
+        this.codeEditorInput = new CodeEditorInput();
     }
 
     private appendCodeEditorElements(): void {
@@ -108,6 +112,10 @@ class CodeEditorLayout implements ProjectComponent {
         this.codeEditorElements.twitterLink.addEventListener('click', () => {
             window.open('https://twitter.com', '_blank');
         });
+
+        this.codeEditorElements.userInputField.addEventListener('keydown', this.codeEditorInput.handleEnterButtonPress);
+
+        this.codeEditorElements.enterButton.addEventListener('click', this.codeEditorInput.getInputValue);
     }
 
     public highlightElementsWithSameClass(): void {

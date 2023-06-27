@@ -178,6 +178,11 @@
   &:active {
     transform: perspective(5rem) rotateX(-10deg);
     animation: shake 0.3s ease-in-out;  }
+
+  &.input__enter-button.active {
+    transform: perspective(5rem) rotateX(-10deg);
+    animation: shake 0.3s ease-in-out;
+  }
 }
 
 .input__enter-button {
