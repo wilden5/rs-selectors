@@ -55,7 +55,11 @@ class CodeEditorLayout implements ProjectComponent {
             this.codeEditorElements.inputLineNumbers
         );
         DOMHelpers.appendChildToElement(this.codeEditorElements.inputFileWindow, this.codeEditorElements.inputMarkup);
-        DOMHelpers.appendChildToElement(this.codeEditorElements.inputMarkup, this.codeEditorElements.userInputField);
+        DOMHelpers.appendChildToElement(this.codeEditorElements.inputMarkup, this.codeEditorElements.userInputWrapper);
+        DOMHelpers.appendChildToElement(
+            this.codeEditorElements.userInputWrapper,
+            this.codeEditorElements.userInputField
+        );
         DOMHelpers.appendChildToElement(this.codeEditorElements.inputMarkup, this.codeEditorElements.enterButton);
         DOMHelpers.appendChildToElement(
             this.codeEditorElements.inputMarkup,
