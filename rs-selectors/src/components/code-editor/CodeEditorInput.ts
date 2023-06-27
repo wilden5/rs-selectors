@@ -20,6 +20,7 @@ class CodeEditorInput {
 
     public checkUserAnswer(value: string): void {
         if (value === GAME_LEVELS[getCurrentLevelIndex()].correctAnswer) {
+            GAME_LEVELS[getCurrentLevelIndex()].status = true; // for localStorage
             console.log('es');
             (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value = '';
         } else {
