@@ -13,6 +13,7 @@ export interface LevelInfo {
     boardMarkup: string;
     correctAnswer: string;
     status: boolean;
+    isHintUsed: boolean;
 }
 
 export interface ModalWindowContent {
