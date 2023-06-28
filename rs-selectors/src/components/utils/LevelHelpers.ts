@@ -12,7 +12,25 @@ export function getCurrentLevelIndex(): number {
     return currentLevelIndex;
 }
 
-export function populateLevelData(): void {
+function updateLevelProgressBar(): void {
+    DOMHelpers.getElement('.state-progress__completed').style.setProperty(
+        'width',
+        `${barProgressStateMap[getCurrentLevelIndex()]}px`
+    );
+}
+
+function highlightSelectedLevelInMenu(): void {
+    DOMHelpers.getElements('.burger-content__level').forEach((item) => {
+        const secondClass = Number(item.classList[1].split('-')[1]);
+        if (getCurrentLevelIndex() === secondClass - 1) {
+            item.classList.add('level--selected');
+        } else {
+            item.classList.remove('level--selected');
+        }
+    });
+}
+
+export function updateLevelData(): void {
     const globalHeader = DOMHelpers.getElement('.global-header');
     DOMHelpers.getElement('.nav__level-number').innerText = `${GAME_LEVELS[getCurrentLevelIndex()].levelIndicator} of ${
         GAME_LEVELS.length
@@ -31,22 +49,6 @@ export function populateLevelData(): void {
     DOMHelpers.getElement('.level-information__example-case-2').innerHTML =
         GAME_LEVELS[getCurrentLevelIndex()].example.case2;
     globalHeader.innerText = GAME_LEVELS[getCurrentLevelIndex()].doThis;
-}
-
-export function updateLevelProgressBar(): void {
-    DOMHelpers.getElement('.state-progress__completed').style.setProperty(
-        'width',
-        `${barProgressStateMap[getCurrentLevelIndex()]}px`
-    );
-}
-
-export function highlightSelectedLevelInMenu(): void {
-    DOMHelpers.getElements('.burger-content__level').forEach((item) => {
-        const secondClass = Number(item.classList[1].split('-')[1]);
-        if (getCurrentLevelIndex() === secondClass - 1) {
-            item.classList.add('level--selected');
-        } else {
-            item.classList.remove('level--selected');
-        }
-    });
+    updateLevelProgressBar();
+    highlightSelectedLevelInMenu();
 }

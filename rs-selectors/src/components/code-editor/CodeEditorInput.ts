@@ -1,12 +1,6 @@
 import DOMHelpers from '../utils/DOMHelpers';
 import GAME_LEVELS from '../app/AppLevels';
-import {
-    getCurrentLevelIndex,
-    highlightSelectedLevelInMenu,
-    populateLevelData,
-    setCurrentLevelIndex,
-    updateLevelProgressBar,
-} from '../utils/LevelHelpers';
+import { getCurrentLevelIndex, updateLevelData, setCurrentLevelIndex } from '../utils/LevelHelpers';
 
 class CodeEditorInput {
     public getInputValue(): string {
@@ -29,10 +23,8 @@ class CodeEditorInput {
             GAME_LEVELS[getCurrentLevelIndex()].status = true; // for localStorage
             (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value = '';
             setCurrentLevelIndex(getCurrentLevelIndex() + 1);
-            populateLevelData();
-            updateLevelProgressBar();
             this.setLevelStatus();
-            highlightSelectedLevelInMenu();
+            updateLevelData();
             console.log('es');
         } else {
             console.log('no');
