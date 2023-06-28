@@ -6,6 +6,7 @@ import DOMHelpers from '../utils/DOMHelpers';
 import BurgerMenuElements from './burger-menu/BurgerMenuElements';
 import CodeEditorLayout from '../code-editor/CodeEditorLayout';
 import { getCurrentLevelIndex, setCurrentLevelIndex } from '../utils/GlobalVariables';
+import CodeEditorInput from '../code-editor/CodeEditorInput';
 
 class LevelSelectorLayout implements ProjectComponent {
     private levels: LevelInfo[];
@@ -18,6 +19,8 @@ class LevelSelectorLayout implements ProjectComponent {
 
     private codeEditorLayout: CodeEditorLayout;
 
+    private codeEditorInput: CodeEditorInput;
+
     constructor(levels: LevelInfo[]) {
         this.levels = levels;
         setCurrentLevelIndex(0);
@@ -25,6 +28,7 @@ class LevelSelectorLayout implements ProjectComponent {
         this.burgerMenuLayout = new BurgerMenuLayout(levels);
         this.burgerMenuElements = BurgerMenuElements.getInstance();
         this.codeEditorLayout = new CodeEditorLayout();
+        this.codeEditorInput = new CodeEditorInput();
     }
 
     private appendElements(): void {
@@ -76,6 +80,7 @@ class LevelSelectorLayout implements ProjectComponent {
             this.appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
             this.codeEditorLayout.highlightElementsWithSameClass();
+            this.codeEditorInput.syncLevelStatusCheckmark();
         }
     };
 
@@ -88,6 +93,7 @@ class LevelSelectorLayout implements ProjectComponent {
             this.appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
             this.codeEditorLayout.highlightElementsWithSameClass();
+            this.codeEditorInput.syncLevelStatusCheckmark();
         }
     };
 
@@ -164,6 +170,7 @@ class LevelSelectorLayout implements ProjectComponent {
             this.highlightSelectedLevelInBurgerMenu();
             this.appendLevelMarkup();
             this.codeEditorLayout.highlightElementsWithSameClass();
+            this.codeEditorInput.syncLevelStatusCheckmark();
         });
         this.populateLevelData();
         this.resetButtonClick();

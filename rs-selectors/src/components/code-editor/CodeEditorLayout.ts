@@ -130,6 +130,7 @@ class CodeEditorLayout implements ProjectComponent {
         this.codeEditorElements.helpSelectorButton.addEventListener('click', () => {
             (this.codeEditorElements.userInputField as HTMLInputElement).value =
                 GAME_LEVELS[getCurrentLevelIndex()].correctAnswer;
+            GAME_LEVELS[getCurrentLevelIndex()].isHintUsed = true;
             this.setUserInputState();
         });
     }

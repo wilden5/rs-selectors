@@ -21,10 +21,42 @@ class CodeEditorInput {
     public checkUserAnswer(value: string): void {
         if (value === GAME_LEVELS[getCurrentLevelIndex()].correctAnswer) {
             GAME_LEVELS[getCurrentLevelIndex()].status = true; // for localStorage
-            console.log('es');
+            this.setLevelStatus();
             (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value = '';
+            console.log('es');
         } else {
             console.log('no');
+        }
+    }
+
+    public setLevelStatus(): void {
+        GAME_LEVELS.forEach((level) => {
+            if (level.status && level.isHintUsed) {
+                DOMHelpers.getElement(`.${level.levelIndicator.replace(' ', '-').toLowerCase()}`).classList.add(
+                    'level-passed-hint'
+                );
+                this.syncLevelStatusCheckmark();
+            }
+            if (level.status && !level.isHintUsed) {
+                DOMHelpers.getElement(`.${level.levelIndicator.replace(' ', '-').toLowerCase()}`).classList.add(
+                    'level-passed'
+                );
+                this.syncLevelStatusCheckmark();
+            }
+        });
+    }
+
+    public syncLevelStatusCheckmark(): void {
+        if (GAME_LEVELS[getCurrentLevelIndex()].status && !GAME_LEVELS[getCurrentLevelIndex()].isHintUsed) {
+            DOMHelpers.getElement('.nav__checkmark').style.borderColor = '#35ff00';
+        }
+
+        if (GAME_LEVELS[getCurrentLevelIndex()].status && GAME_LEVELS[getCurrentLevelIndex()].isHintUsed) {
+            DOMHelpers.getElement('.nav__checkmark').style.borderColor = '#faf102';
+        }
+
+        if (!GAME_LEVELS[getCurrentLevelIndex()].status && !GAME_LEVELS[getCurrentLevelIndex()].isHintUsed) {
+            DOMHelpers.getElement('.nav__checkmark').style.borderColor = '#fff';
         }
     }
 }

@@ -43,6 +43,22 @@ strong {
   opacity: 0.2;
 }
 
+.level-passed {
+  border-color: #35ff00;
+
+  .level__checkmark-s{
+    border-color: #35ff00;
+  }
+}
+
+.level-passed-hint {
+  border-color: #faf102;
+
+  .level__checkmark-s{
+    border-color: #faf102;
+  }
+}
+
 .nav__next-level,
 .nav__prev-level {
   padding: 0;
