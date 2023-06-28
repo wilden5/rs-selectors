@@ -3,7 +3,7 @@ import DOMHelpers from '../utils/DOMHelpers';
 import { ProjectComponent } from '../../types/Interfaces';
 import CodeEditorInput from './CodeEditorInput';
 import GAME_LEVELS from '../app/AppLevels';
-import { getCurrentLevelIndex } from '../utils/GlobalVariables';
+import { getCurrentLevelIndex } from '../utils/LevelHelpers';
 
 class CodeEditorLayout implements ProjectComponent {
     private codeEditorElements: CodeEditorElements;

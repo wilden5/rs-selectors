@@ -1,11 +1,16 @@
 import { LevelInfo, ProjectComponent } from '../../types/Interfaces';
 import BurgerMenuLayout from './burger-menu/BurgerMenuLayout';
 import LevelSelectorElements from './LevelSelectorElements';
-import { barProgressStateMap } from '../../types/Types';
 import DOMHelpers from '../utils/DOMHelpers';
 import BurgerMenuElements from './burger-menu/BurgerMenuElements';
 import CodeEditorLayout from '../code-editor/CodeEditorLayout';
-import { getCurrentLevelIndex, setCurrentLevelIndex } from '../utils/GlobalVariables';
+import {
+    getCurrentLevelIndex,
+    highlightSelectedLevelInMenu,
+    populateLevelData,
+    setCurrentLevelIndex,
+    updateLevelProgressBar,
+} from '../utils/LevelHelpers';
 import CodeEditorInput from '../code-editor/CodeEditorInput';
 
 class LevelSelectorLayout implements ProjectComponent {
@@ -64,19 +69,12 @@ class LevelSelectorLayout implements ProjectComponent {
         this.levelElements.navPrevLevel.addEventListener('click', this.handlePrevLevel);
     }
 
-    private changeProgressState(): void {
-        this.levelElements.levelProgressState.style.setProperty(
-            'width',
-            `${barProgressStateMap[getCurrentLevelIndex()]}px`
-        );
-    }
-
     private handleNextLevel = (): void => {
         const currentLevelIndex = getCurrentLevelIndex();
         if (getCurrentLevelIndex() < this.levels.length - 1) {
             setCurrentLevelIndex(currentLevelIndex + 1);
-            this.changeProgressState();
-            this.populateLevelData();
+            updateLevelProgressBar();
+            populateLevelData();
             this.appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
             this.codeEditorLayout.highlightElementsWithSameClass();
@@ -88,41 +86,15 @@ class LevelSelectorLayout implements ProjectComponent {
         const currentLevelIndex = getCurrentLevelIndex();
         if (getCurrentLevelIndex() > 0) {
             setCurrentLevelIndex(currentLevelIndex - 1);
-            this.changeProgressState();
-            this.populateLevelData();
+            updateLevelProgressBar();
+            populateLevelData();
+            highlightSelectedLevelInMenu();
             this.appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
             this.codeEditorLayout.highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
         }
     };
-
-    private populateLevelData(): void {
-        const globalHeader = DOMHelpers.getElement('.global-header');
-        this.levelElements.navLevelNumber.innerText = `${this.levels[getCurrentLevelIndex()].levelIndicator} of ${
-            this.levels.length
-        }`;
-        this.levelElements.selectorType.innerText = this.levels[getCurrentLevelIndex()].selectorType;
-        this.levelElements.selectorTitle.innerText = this.levels[getCurrentLevelIndex()].selectorTitle;
-        this.levelElements.selectorSyntax.innerText = this.levels[getCurrentLevelIndex()].selectorSyntax;
-        this.levelElements.selectorHint.innerHTML = this.levels[getCurrentLevelIndex()].hint;
-        this.levelElements.exampleTitle.innerText = this.levels[getCurrentLevelIndex()].example.title;
-        this.levelElements.exampleCase.innerHTML = this.levels[getCurrentLevelIndex()].example.case1;
-        this.levelElements.exampleCaseSecond.innerHTML = this.levels[getCurrentLevelIndex()].example.case2;
-        globalHeader.innerText = this.levels[getCurrentLevelIndex()].doThis;
-        this.highlightSelectedLevelInBurgerMenu();
-    }
-
-    private highlightSelectedLevelInBurgerMenu(): void {
-        DOMHelpers.getElements('.burger-content__level').forEach((item) => {
-            const secondClass = Number(item.classList[1].split('-')[1]);
-            if (getCurrentLevelIndex() === secondClass - 1) {
-                item.classList.add('level--selected');
-            } else {
-                item.classList.remove('level--selected');
-            }
-        });
-    }
 
     private resetButtonClick(): void {
         this.burgerMenuElements.burgerResetLevelButton.addEventListener('click', () => {
@@ -167,14 +139,15 @@ class LevelSelectorLayout implements ProjectComponent {
         this.assignEventListeners();
         this.burgerMenuLayout.init((levelIndex: number) => {
             setCurrentLevelIndex(levelIndex); // updating the currentLevelIndex with index from clickBurgerMenuLevel
-            this.populateLevelData(); // recall populateLevelData to update the level info
-            this.changeProgressState();
-            this.highlightSelectedLevelInBurgerMenu();
+            populateLevelData(); // recall populateLevelData to update the level info
+            updateLevelProgressBar();
+            highlightSelectedLevelInMenu();
             this.appendLevelMarkup();
             this.codeEditorLayout.highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
         });
-        this.populateLevelData();
+        populateLevelData();
+        highlightSelectedLevelInMenu();
         this.resetButtonClick();
         this.appendLevelMarkup();
     }
