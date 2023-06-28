@@ -129,6 +129,8 @@ class LevelSelectorLayout implements ProjectComponent {
             setCurrentLevelIndex(0);
             this.burgerMenuElements.navBurger.classList.remove('burger--open');
             this.burgerMenuElements.burgerMenu.classList.remove('burger-menu--open');
+            localStorage.clear();
+            window.location.reload();
         });
     }
 
