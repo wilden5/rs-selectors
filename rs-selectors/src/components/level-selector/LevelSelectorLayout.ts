@@ -113,8 +113,10 @@ class LevelSelectorLayout implements ProjectComponent {
             if (item.includes('/') && !item.includes(' /') && previousElement) {
                 previousElement.className += ` item-nested-${index}`;
                 container.childNodes.forEach((childNode) => {
-                    if (childNode.textContent === item.replace('</', '<')) {
-                        (childNode as HTMLElement).classList.add(`item-${index}`);
+                    if (childNode.textContent === item) {
+                        const element = childNode as HTMLElement;
+                        element.className = '';
+                        element.classList.add(`item-${index - 2}`, 'item');
                     }
                 });
             }
