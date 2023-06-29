@@ -1,0 +1,55 @@
+@import "src/style/var";
+
+@mixin common-props-elements {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 1rem;
+  position: relative;
+  box-shadow: 0 0.8rem 0 rgba(0,0,0,.1);
+}
+
+@mixin hover-on-element {
+  &.highlighted,
+  &:hover {
+    border: solid 0.3rem red;
+  }
+}
+
+plate {
+  @include common-props-elements;
+  border-bottom: solid 0.5rem #DDD;
+  background: white;
+  border-radius: 10rem;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: calc(50% - 3.2rem);
+    top: calc(50% - 3.2rem);
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 6rem;
+    border-top: solid 0.6rem #CCC;
+    opacity: .7;
+    background: rgba(255,255,255,1);
+  }
+
+  @include hover-on-element;
+}
+
+bento {
+  @include common-props-elements;
+  background: brown;
+  border: solid 0.3rem #711c12;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: calc(82%);
+    top: 0;
+    left: 0;
+    border: 1rem solid rgba(0, 0, 0, 0.1);
+  }
+
+  @include hover-on-element;
+}
