@@ -1,6 +1,35 @@
 @import "src/style/var";
 @import "src/style/animation";
 
+plate {
+  border-bottom: solid 0.5rem #DDD;
+  background: white;
+  border-radius: 10rem;
+  box-shadow: 0 0.8rem 0 rgba(0,0,0,.1);
+  width: 10rem;
+  height: 10rem;
+  margin: 0 1rem;
+  position: relative;
+  animation: rocking 2s ease-in-out infinite;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: calc(50% - 3.2rem);
+    top: calc(50% - 3.2rem);
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 6rem;
+    border-top: solid 0.6rem #CCC;
+    opacity: .7;
+    background: rgba(255,255,255,1);
+  }
+
+  &:hover {
+    border: solid 0.3rem red;
+  }
+}
+
 .table-wrapper {
   display: flex;
   justify-content: center;
@@ -16,6 +45,10 @@
 }
 
 .table-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   position: relative;
@@ -34,6 +67,12 @@
     background-color: #94673c;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
   }
+}
+
+.plate {
+  border-bottom: solid 5px #DDD;
+  background: white;
+  border-radius: 100px;
 }
 
 @media screen and (max-width: 1000px) {

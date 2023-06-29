@@ -23,7 +23,7 @@ class App {
         this.CODE_EDITOR = new CodeEditorLayout();
         this.LEVEL_SELECTOR = new LevelSelectorLayout(GAME_LEVELS);
         this.MODAL_WINDOW = new ModalWindowLayout();
-        this.GAME = new GameLayout();
+        this.GAME = new GameLayout(GAME_LEVELS);
         this.FOOTER = new FooterLayout();
 
         this.PROJECT_COMPONENTS = [this.CODE_EDITOR, this.LEVEL_SELECTOR, this.MODAL_WINDOW, this.GAME, this.FOOTER];

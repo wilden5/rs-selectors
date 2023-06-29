@@ -1,12 +1,16 @@
 import GameElements from './GameElements';
 import DOMHelpers from '../../utils/DOMHelpers';
-import { ProjectComponent } from '../../../types/Interfaces';
+import { LevelInfo, ProjectComponent } from '../../../types/Interfaces';
+import { getCurrentLevelIndex } from '../../utils/LevelHelpers';
 
 class GameLayout implements ProjectComponent {
     private gameElements: GameElements;
 
-    constructor() {
+    private levels: LevelInfo[];
+
+    constructor(levels: LevelInfo[]) {
         this.gameElements = GameElements.getInstance();
+        this.levels = levels;
     }
 
     private appendGameLayoutElements(): void {
@@ -16,8 +20,23 @@ class GameLayout implements ProjectComponent {
         DOMHelpers.appendChildToElement(this.gameElements.tableArea, this.gameElements.tableTop);
     }
 
+    public generateElementsOnTable(): void {
+        const boardElementArray = this.levels[getCurrentLevelIndex()].boardElement;
+        if (boardElementArray) {
+            for (let i = 0; i < this.levels.length; i += 1) {
+                if (getCurrentLevelIndex() === Number(this.levels[i].levelIndicator.split(' ')[1]) - 1) {
+                    boardElementArray.type.forEach((elem, index) => {
+                        const createElem = DOMHelpers.createElement(`${elem}`, [`${boardElementArray.class[index]}`]);
+                        this.gameElements.tableTop.appendChild(createElem);
+                    });
+                }
+            }
+        }
+    }
+
     public init(): void {
         this.appendGameLayoutElements();
+        this.generateElementsOnTable();
     }
 }
 
