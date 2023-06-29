@@ -25,26 +25,30 @@ class GameLayout implements ProjectComponent {
     }
 
     public generateElementsOnTable(): void {
+        this.gameElements.tableTop.innerHTML = '';
         const boardElementArray = this.levels[getCurrentLevelIndex()].boardElement;
         if (boardElementArray) {
             for (let i = 0; i < this.levels.length; i += 1) {
                 if (getCurrentLevelIndex() === Number(this.levels[i].levelIndicator.split(' ')[1]) - 1) {
                     boardElementArray.type.forEach((elem, index) => {
-                        const createElem = DOMHelpers.createElement(`${elem}`, [
+                        const createElem = DOMHelpers.createElement(`${elem.split('-')[0]}`, [
                             `${boardElementArray.class[index]}`,
                             'item',
                         ]);
+                        if (elem.split('-')[1] === 'target') {
+                            createElem.classList.add(`${elem.split('-')[1]}`, `${elem.split('-')[2]}`);
+                        }
                         this.gameElements.tableTop.appendChild(createElem);
                     });
                 }
             }
         }
+        this.codeEditorLayout.highlightElementsWithSameClass();
     }
 
     public init(): void {
         this.appendGameLayoutElements();
         this.generateElementsOnTable();
-        this.codeEditorLayout.highlightElementsWithSameClass();
     }
 }
 

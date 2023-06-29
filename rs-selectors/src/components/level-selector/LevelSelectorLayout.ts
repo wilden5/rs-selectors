@@ -6,6 +6,7 @@ import BurgerMenuElements from './burger-menu/BurgerMenuElements';
 import CodeEditorLayout from '../code-editor/CodeEditorLayout';
 import { getCurrentLevelIndex, updateLevelData, setCurrentLevelIndex } from '../utils/LevelHelpers';
 import CodeEditorInput from '../code-editor/CodeEditorInput';
+import GameLayout from '../code-editor/game/GameLayout';
 
 class LevelSelectorLayout implements ProjectComponent {
     private levels: LevelInfo[];
@@ -20,6 +21,8 @@ class LevelSelectorLayout implements ProjectComponent {
 
     private codeEditorInput: CodeEditorInput;
 
+    private gameLayout: GameLayout;
+
     constructor(levels: LevelInfo[]) {
         this.levels = levels;
         setCurrentLevelIndex(0);
@@ -28,6 +31,7 @@ class LevelSelectorLayout implements ProjectComponent {
         this.burgerMenuElements = BurgerMenuElements.getInstance();
         this.codeEditorLayout = new CodeEditorLayout();
         this.codeEditorInput = new CodeEditorInput();
+        this.gameLayout = new GameLayout(levels);
     }
 
     private appendElements(): void {
@@ -79,6 +83,7 @@ class LevelSelectorLayout implements ProjectComponent {
             this.codeEditorLayout.setUserInputState(true);
             this.codeEditorLayout.highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
+            this.gameLayout.generateElementsOnTable();
         }
     };
 
@@ -91,6 +96,7 @@ class LevelSelectorLayout implements ProjectComponent {
             this.codeEditorLayout.setUserInputState(true);
             this.codeEditorLayout.highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
+            this.gameLayout.generateElementsOnTable();
         }
     };
 
