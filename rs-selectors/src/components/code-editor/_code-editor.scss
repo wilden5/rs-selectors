@@ -124,6 +124,10 @@
   margin: 0;
 }
 
+.view_level-markup > * {
+  opacity: 0.5;
+}
+
 .div {
   padding-top: 0;
 }
@@ -233,7 +237,6 @@
 }
 
 .item {
-  opacity: 0.5;
 
   &:hover {
     color: white;

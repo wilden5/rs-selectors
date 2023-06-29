@@ -25,6 +25,7 @@ plate {
     background: rgba(255,255,255,1);
   }
 
+  &.highlighted,
   &:hover {
     border: solid 0.3rem red;
   }
