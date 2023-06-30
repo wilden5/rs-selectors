@@ -28,6 +28,7 @@ class GameLayout implements ProjectComponent {
         this.gameElements.tableTop.innerHTML = '';
         const boardElementArray = this.levels[getCurrentLevelIndex()].boardElement;
         if (boardElementArray) {
+            this.gameElements.tableArea.style.width = `${this.levels[getCurrentLevelIndex()].tableWidth}`;
             for (let i = 0; i < this.levels.length; i += 1) {
                 let previousElem: HTMLElement | null = null;
                 if (getCurrentLevelIndex() === Number(this.levels[i].levelIndicator.split(' ')[1]) - 1) {
@@ -38,6 +39,9 @@ class GameLayout implements ProjectComponent {
                         ]);
                         if (elem.split('-')[1] === 'target') {
                             createElem.classList.add(`${elem.split('-')[1]}`, `${elem.split('-')[2]}`);
+                        }
+                        if (elem.split('-')[1] === 'fancy') {
+                            createElem.classList.add('fancy');
                         }
 
                         if (elem.split('-')[2] === 'nested') {
