@@ -124,7 +124,6 @@ class CodeEditorLayout implements ProjectComponent {
         this.codeEditorElements.enterButton.addEventListener('click', () => {
             const value: string = this.codeEditorInput.getInputValue();
             this.codeEditorInput.checkUserAnswer(value);
-            this.setUserInputState();
         });
 
         this.codeEditorElements.helpSelectorButton.addEventListener('click', () => {

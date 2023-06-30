@@ -7,6 +7,7 @@ import {
     generateElementsOnTable,
     userIncorrectSelector,
     userCorrectSelector,
+    appendLevelMarkup,
 } from '../utils/LevelHelpers';
 
 class CodeEditorInput {
@@ -28,12 +29,21 @@ class CodeEditorInput {
     public checkUserAnswer(value: string): void {
         if (value === GAME_LEVELS[getCurrentLevelIndex()].correctAnswer) {
             userCorrectSelector();
+            const userInput: HTMLElement = DOMHelpers.getElement('.input__user-input');
+            userInput.classList.remove('input-animation');
+            (userInput as HTMLInputElement).disabled = false;
             setTimeout(() => {
                 GAME_LEVELS[getCurrentLevelIndex()].status = true; // for localStorage
                 (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value = '';
-                setCurrentLevelIndex(getCurrentLevelIndex() + 1);
+                if (getCurrentLevelIndex() === GAME_LEVELS.length - 1) {
+                    // eslint-disable-next-line no-alert
+                    alert('GG BRO YOU DID IT!');
+                } else {
+                    setCurrentLevelIndex(getCurrentLevelIndex() + 1);
+                }
                 this.setLevelStatus();
                 updateLevelData();
+                appendLevelMarkup();
                 generateElementsOnTable();
             }, 500);
         } else {

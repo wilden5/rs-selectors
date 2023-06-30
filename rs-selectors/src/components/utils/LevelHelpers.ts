@@ -99,6 +99,36 @@ export function generateElementsOnTable(): void {
     highlightElementsWithSameClass();
 }
 
+export function appendLevelMarkup(): void {
+    const container = DOMHelpers.getElement('.view_level-markup');
+    container.innerHTML = '';
+    const arrayMarkup: string[] = levels[getCurrentLevelIndex()].boardMarkup.split(',');
+    let previousElement: HTMLElement | null = null;
+
+    for (let index = 0; index < arrayMarkup.length; index += 1) {
+        const item = arrayMarkup[index];
+        const div = DOMHelpers.createElement('div', [`item-${index}`, 'item'], `${item}`);
+        container.appendChild(div);
+        if (item.includes('/') && !item.includes(' /') && previousElement) {
+            previousElement.className += ` item-nested-${index}`;
+            container.childNodes.forEach((childNode) => {
+                if (childNode.textContent === item) {
+                    const element = childNode as HTMLElement;
+                    element.className = '';
+                    element.classList.add(`item-${index - 2}`, 'item');
+                }
+            });
+        }
+        previousElement = div;
+    }
+    container.childNodes.forEach((childNode: ChildNode) => {
+        if (childNode instanceof HTMLElement && childNode.classList.length > 3) {
+            const fourthClass: string = childNode.classList.item(3) as string;
+            childNode.classList.remove(fourthClass);
+        }
+    });
+}
+
 export function updateLevelData(): void {
     const globalHeader = DOMHelpers.getElement('.global-header');
     DOMHelpers.getElement('.nav__level-number').innerText = `${levels[getCurrentLevelIndex()].levelIndicator} of ${

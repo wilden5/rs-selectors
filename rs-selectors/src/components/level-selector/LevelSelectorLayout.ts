@@ -10,6 +10,7 @@ import {
     setCurrentLevelIndex,
     generateElementsOnTable,
     highlightElementsWithSameClass,
+    appendLevelMarkup,
 } from '../utils/LevelHelpers';
 import CodeEditorInput from '../code-editor/CodeEditorInput';
 import GameLayout from '../code-editor/game/GameLayout';
@@ -85,7 +86,7 @@ class LevelSelectorLayout implements ProjectComponent {
         if (getCurrentLevelIndex() < this.levels.length - 1) {
             setCurrentLevelIndex(currentLevelIndex + 1);
             updateLevelData();
-            this.appendLevelMarkup();
+            appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
             highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
@@ -98,7 +99,7 @@ class LevelSelectorLayout implements ProjectComponent {
         if (getCurrentLevelIndex() > 0) {
             setCurrentLevelIndex(currentLevelIndex - 1);
             updateLevelData();
-            this.appendLevelMarkup();
+            appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
             highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
@@ -106,49 +107,19 @@ class LevelSelectorLayout implements ProjectComponent {
         }
     };
 
-    private appendLevelMarkup(): void {
-        const container = DOMHelpers.getElement('.view_level-markup');
-        container.innerHTML = '';
-        const arrayMarkup: string[] = this.levels[getCurrentLevelIndex()].boardMarkup.split(',');
-        let previousElement: HTMLElement | null = null;
-
-        for (let index = 0; index < arrayMarkup.length; index += 1) {
-            const item = arrayMarkup[index];
-            const div = DOMHelpers.createElement('div', [`item-${index}`, 'item'], `${item}`);
-            container.appendChild(div);
-            if (item.includes('/') && !item.includes(' /') && previousElement) {
-                previousElement.className += ` item-nested-${index}`;
-                container.childNodes.forEach((childNode) => {
-                    if (childNode.textContent === item) {
-                        const element = childNode as HTMLElement;
-                        element.className = '';
-                        element.classList.add(`item-${index - 2}`, 'item');
-                    }
-                });
-            }
-            previousElement = div;
-        }
-        container.childNodes.forEach((childNode: ChildNode) => {
-            if (childNode instanceof HTMLElement && childNode.classList.length > 3) {
-                const fourthClass: string = childNode.classList.item(3) as string;
-                childNode.classList.remove(fourthClass);
-            }
-        });
-    }
-
     public init(): void {
         this.appendElements();
         this.assignEventListeners();
         this.burgerMenuLayout.init((levelIndex: number) => {
             setCurrentLevelIndex(levelIndex); // updating the currentLevelIndex with index from clickBurgerMenuLevel
             updateLevelData(); // recall populateLevelData to update the level info
-            this.appendLevelMarkup();
+            appendLevelMarkup();
             highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
             generateElementsOnTable();
         });
         updateLevelData();
-        this.appendLevelMarkup();
+        appendLevelMarkup();
     }
 }
 

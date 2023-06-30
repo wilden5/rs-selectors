@@ -34,7 +34,7 @@
     height: 30%;
     width: 30%;
     top: 0;
-    left: calc(50% - 15%);
+    left: 35%;
     border-radius: 10rem;
   }
 
@@ -67,8 +67,6 @@ plate {
   &:before {
     content: "";
     position: absolute;
-    left: calc(50% - 3.2rem);
-    top: calc(50% - 3.2rem);
     height: 6.5rem;
     width: 6.5rem;
     border-radius: 6rem;
@@ -90,7 +88,7 @@ bento {
   &:before {
     content: "";
     position: absolute;
-    width: calc(82%);
+    width: 82%;
     top: 0;
     left: 0;
     border: 1rem solid rgba(0, 0, 0, 0.1);
