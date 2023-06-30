@@ -118,3 +118,18 @@ export function updateLevelData(): void {
     updateLevelProgressBar();
     highlightSelectedLevelInMenu();
 }
+
+export function userIncorrectSelector(): void {
+    const editor: HTMLElement = DOMHelpers.getElement('.editor');
+    editor.classList.add('editor--blocked');
+    setTimeout(() => {
+        editor.classList.remove('editor--blocked');
+    }, 300);
+}
+
+export function userCorrectSelector(): void {
+    const targets: HTMLElement[] = DOMHelpers.getElements('.target');
+    targets.forEach((element) => {
+        element.classList.add('correct-answer');
+    });
+}

@@ -5,6 +5,8 @@ import {
     updateLevelData,
     setCurrentLevelIndex,
     generateElementsOnTable,
+    userIncorrectSelector,
+    userCorrectSelector,
 } from '../utils/LevelHelpers';
 
 class CodeEditorInput {
@@ -25,15 +27,17 @@ class CodeEditorInput {
 
     public checkUserAnswer(value: string): void {
         if (value === GAME_LEVELS[getCurrentLevelIndex()].correctAnswer) {
-            GAME_LEVELS[getCurrentLevelIndex()].status = true; // for localStorage
-            (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value = '';
-            setCurrentLevelIndex(getCurrentLevelIndex() + 1);
-            this.setLevelStatus();
-            updateLevelData();
-            generateElementsOnTable();
-            console.log('es');
+            userCorrectSelector();
+            setTimeout(() => {
+                GAME_LEVELS[getCurrentLevelIndex()].status = true; // for localStorage
+                (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value = '';
+                setCurrentLevelIndex(getCurrentLevelIndex() + 1);
+                this.setLevelStatus();
+                updateLevelData();
+                generateElementsOnTable();
+            }, 500);
         } else {
-            console.log('no');
+            userIncorrectSelector();
         }
     }
 

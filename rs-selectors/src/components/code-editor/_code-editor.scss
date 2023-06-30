@@ -17,6 +17,10 @@
   min-width: 42.5rem;
 }
 
+.editor--blocked {
+  animation: shake-editor 0.5s ease-in-out;
+}
+
 .editor__table {
   flex-grow: 1;
   flex-basis: 50%;
