@@ -150,35 +150,6 @@ class CodeEditorLayout implements ProjectComponent {
         }
     }
 
-    public highlightElementsWithSameClass(): void {
-        const items: HTMLElement[] = DOMHelpers.getElements('.item');
-        items.forEach((item) => {
-            item.addEventListener('mouseover', () => {
-                item.classList.forEach((className) => {
-                    if (className.startsWith('item-')) {
-                        const classNumber: string = className.replace('item-', '');
-                        const itemsToHighlight: HTMLElement[] = DOMHelpers.getElements(`.item-${classNumber}`);
-                        itemsToHighlight.forEach((itemToHighlight) => {
-                            itemToHighlight.classList.add('highlighted');
-                        });
-                    }
-                });
-            });
-
-            item.addEventListener('mouseout', () => {
-                item.classList.forEach((className) => {
-                    if (className.startsWith('item-')) {
-                        const classNumber: string = className.replace('item-', '');
-                        const itemsToHighlight: HTMLElement[] = DOMHelpers.getElements(`.item-${classNumber}`);
-                        itemsToHighlight.forEach((itemToHighlight) => {
-                            itemToHighlight.classList.remove('highlighted');
-                        });
-                    }
-                });
-            });
-        });
-    }
-
     public init(): void {
         this.appendCodeEditorElements();
         this.appendImages();

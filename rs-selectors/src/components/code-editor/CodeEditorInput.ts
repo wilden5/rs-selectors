@@ -1,6 +1,11 @@
 import DOMHelpers from '../utils/DOMHelpers';
 import GAME_LEVELS from '../app/AppLevels';
-import { getCurrentLevelIndex, updateLevelData, setCurrentLevelIndex } from '../utils/LevelHelpers';
+import {
+    getCurrentLevelIndex,
+    updateLevelData,
+    setCurrentLevelIndex,
+    generateElementsOnTable,
+} from '../utils/LevelHelpers';
 
 class CodeEditorInput {
     public getInputValue(): string {
@@ -25,6 +30,7 @@ class CodeEditorInput {
             setCurrentLevelIndex(getCurrentLevelIndex() + 1);
             this.setLevelStatus();
             updateLevelData();
+            generateElementsOnTable();
             console.log('es');
         } else {
             console.log('no');

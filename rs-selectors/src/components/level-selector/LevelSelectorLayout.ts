@@ -4,7 +4,13 @@ import LevelSelectorElements from './LevelSelectorElements';
 import DOMHelpers from '../utils/DOMHelpers';
 import BurgerMenuElements from './burger-menu/BurgerMenuElements';
 import CodeEditorLayout from '../code-editor/CodeEditorLayout';
-import { getCurrentLevelIndex, updateLevelData, setCurrentLevelIndex } from '../utils/LevelHelpers';
+import {
+    getCurrentLevelIndex,
+    updateLevelData,
+    setCurrentLevelIndex,
+    generateElementsOnTable,
+    highlightElementsWithSameClass,
+} from '../utils/LevelHelpers';
 import CodeEditorInput from '../code-editor/CodeEditorInput';
 import GameLayout from '../code-editor/game/GameLayout';
 
@@ -31,7 +37,7 @@ class LevelSelectorLayout implements ProjectComponent {
         this.burgerMenuElements = BurgerMenuElements.getInstance();
         this.codeEditorLayout = new CodeEditorLayout();
         this.codeEditorInput = new CodeEditorInput();
-        this.gameLayout = new GameLayout(levels);
+        this.gameLayout = new GameLayout();
     }
 
     private appendElements(): void {
@@ -81,9 +87,9 @@ class LevelSelectorLayout implements ProjectComponent {
             updateLevelData();
             this.appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
-            this.codeEditorLayout.highlightElementsWithSameClass();
+            highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
-            this.gameLayout.generateElementsOnTable();
+            generateElementsOnTable();
         }
     };
 
@@ -94,9 +100,9 @@ class LevelSelectorLayout implements ProjectComponent {
             updateLevelData();
             this.appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
-            this.codeEditorLayout.highlightElementsWithSameClass();
+            highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
-            this.gameLayout.generateElementsOnTable();
+            generateElementsOnTable();
         }
     };
 
@@ -137,8 +143,9 @@ class LevelSelectorLayout implements ProjectComponent {
             setCurrentLevelIndex(levelIndex); // updating the currentLevelIndex with index from clickBurgerMenuLevel
             updateLevelData(); // recall populateLevelData to update the level info
             this.appendLevelMarkup();
-            this.codeEditorLayout.highlightElementsWithSameClass();
+            highlightElementsWithSameClass();
             this.codeEditorInput.syncLevelStatusCheckmark();
+            generateElementsOnTable();
         });
         updateLevelData();
         this.appendLevelMarkup();

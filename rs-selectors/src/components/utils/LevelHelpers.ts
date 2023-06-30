@@ -1,8 +1,11 @@
 import DOMHelpers from './DOMHelpers';
 import GAME_LEVELS from '../app/AppLevels';
 import { barProgressStateMap } from '../../types/Types';
+import { LevelInfo } from '../../types/Interfaces';
 
 let currentLevelIndex = 0;
+
+const levels: LevelInfo[] = GAME_LEVELS;
 
 export function setCurrentLevelIndex(index: number): void {
     currentLevelIndex = index;
@@ -30,25 +33,88 @@ function highlightSelectedLevelInMenu(): void {
     });
 }
 
+export function highlightElementsWithSameClass(): void {
+    const items: HTMLElement[] = DOMHelpers.getElements('.item');
+    items.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            item.classList.forEach((className) => {
+                if (className.startsWith('item-')) {
+                    const classNumber: string = className.replace('item-', '');
+                    const itemsToHighlight: HTMLElement[] = DOMHelpers.getElements(`.item-${classNumber}`);
+                    itemsToHighlight.forEach((itemToHighlight) => {
+                        itemToHighlight.classList.add('highlighted');
+                    });
+                }
+            });
+        });
+
+        item.addEventListener('mouseout', () => {
+            item.classList.forEach((className) => {
+                if (className.startsWith('item-')) {
+                    const classNumber: string = className.replace('item-', '');
+                    const itemsToHighlight: HTMLElement[] = DOMHelpers.getElements(`.item-${classNumber}`);
+                    itemsToHighlight.forEach((itemToHighlight) => {
+                        itemToHighlight.classList.remove('highlighted');
+                    });
+                }
+            });
+        });
+    });
+}
+
+export function generateElementsOnTable(): void {
+    const tableArea: HTMLElement = DOMHelpers.getElement('.table-area');
+    const tableTop: HTMLElement = DOMHelpers.getElement('.table-top');
+    tableTop.innerHTML = '';
+    const boardElementArray = levels[getCurrentLevelIndex()].boardElement;
+    if (boardElementArray) {
+        tableArea.style.width = `${levels[getCurrentLevelIndex()].tableWidth}`;
+        for (let i = 0; i < levels.length; i += 1) {
+            let previousElem: HTMLElement | null = null;
+            if (getCurrentLevelIndex() === Number(levels[i].levelIndicator.split(' ')[1]) - 1) {
+                boardElementArray.type.forEach((elem, index) => {
+                    const createElem = DOMHelpers.createElement(`${elem.split('-')[0]}`, [
+                        `${boardElementArray.class[index]}`,
+                        'item',
+                    ]);
+                    if (elem.split('-')[1] === 'target') {
+                        createElem.classList.add(`${elem.split('-')[1]}`, `${elem.split('-')[2]}`);
+                    }
+                    if (elem.split('-')[1] === 'fancy') {
+                        createElem.classList.add('fancy');
+                    }
+
+                    if (elem.split('-')[2] === 'nested') {
+                        if (previousElem) {
+                            previousElem.appendChild(createElem);
+                        }
+                    } else {
+                        tableTop.appendChild(createElem);
+                    }
+                    previousElem = createElem;
+                });
+            }
+        }
+    }
+    highlightElementsWithSameClass();
+}
+
 export function updateLevelData(): void {
     const globalHeader = DOMHelpers.getElement('.global-header');
-    DOMHelpers.getElement('.nav__level-number').innerText = `${GAME_LEVELS[getCurrentLevelIndex()].levelIndicator} of ${
-        GAME_LEVELS.length
+    DOMHelpers.getElement('.nav__level-number').innerText = `${levels[getCurrentLevelIndex()].levelIndicator} of ${
+        levels.length
     }`;
-    DOMHelpers.getElement('.level-information__selector-type').innerText =
-        GAME_LEVELS[getCurrentLevelIndex()].selectorType;
+    DOMHelpers.getElement('.level-information__selector-type').innerText = levels[getCurrentLevelIndex()].selectorType;
     DOMHelpers.getElement('.level-information__selector-title').innerText =
-        GAME_LEVELS[getCurrentLevelIndex()].selectorTitle;
+        levels[getCurrentLevelIndex()].selectorTitle;
     DOMHelpers.getElement('.level-information__selector-syntax').innerText =
-        GAME_LEVELS[getCurrentLevelIndex()].selectorSyntax;
-    DOMHelpers.getElement('.level-information__selector-hint').innerHTML = GAME_LEVELS[getCurrentLevelIndex()].hint;
-    DOMHelpers.getElement('.level-information__example-title').innerText =
-        GAME_LEVELS[getCurrentLevelIndex()].example.title;
-    DOMHelpers.getElement('.level-information__example-case').innerHTML =
-        GAME_LEVELS[getCurrentLevelIndex()].example.case1;
+        levels[getCurrentLevelIndex()].selectorSyntax;
+    DOMHelpers.getElement('.level-information__selector-hint').innerHTML = levels[getCurrentLevelIndex()].hint;
+    DOMHelpers.getElement('.level-information__example-title').innerText = levels[getCurrentLevelIndex()].example.title;
+    DOMHelpers.getElement('.level-information__example-case').innerHTML = levels[getCurrentLevelIndex()].example.case1;
     DOMHelpers.getElement('.level-information__example-case-2').innerHTML =
-        GAME_LEVELS[getCurrentLevelIndex()].example.case2;
-    globalHeader.innerText = GAME_LEVELS[getCurrentLevelIndex()].doThis;
+        levels[getCurrentLevelIndex()].example.case2;
+    globalHeader.innerText = levels[getCurrentLevelIndex()].doThis;
     updateLevelProgressBar();
     highlightSelectedLevelInMenu();
 }
