@@ -14,6 +14,11 @@ export interface LevelInfo {
     correctAnswer: string;
     status: boolean;
     isHintUsed: boolean;
+    boardElement: {
+        type: string[];
+        class: string[];
+    };
+    tableWidth: string;
 }
 
 export interface ModalWindowContent {

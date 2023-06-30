@@ -19,6 +19,11 @@ const GAME_LEVELS: LevelInfo[] = [
         correctAnswer: 'plate',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['plate-target', 'plate-target'],
+            class: ['item-0', 'item-1'],
+        },
+        tableWidth: '40rem',
     },
     {
         doThis: 'Select the fancy plate',
@@ -38,6 +43,11 @@ const GAME_LEVELS: LevelInfo[] = [
         correctAnswer: '#fancy',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['plate-target-fancy', 'plate', 'bento'],
+            class: ['item-0', 'item-1', 'item-2'],
+        },
+        tableWidth: '40rem',
     },
     {
         doThis: 'Select the apple on the plate',
@@ -57,10 +67,15 @@ const GAME_LEVELS: LevelInfo[] = [
                 '<strong>#fancy span</strong> selects any <strong>&lt;span&gt;</strong> elements ' +
                 'that are inside of the element with <strong>id="fancy"</strong>',
         },
-        boardMarkup: '<bento />,<plate>,<apple />,</plate>,<apple />',
+        boardMarkup: '<bento />,<apple />,<plate>,<apple />,</plate>',
         correctAnswer: 'plate apple',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['bento', 'apple', 'plate', 'apple-target-nested'],
+            class: ['item-0', 'item-1', 'item-2', 'item-3'],
+        },
+        tableWidth: '40rem',
     },
     {
         doThis: 'Select the small apples',
@@ -76,34 +91,39 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: '<strong>.neato</strong> selects all elements with <strong>class="neato"</strong>',
             case2: '',
         },
-        boardMarkup: '<apple />,<apple class="small" />,<plate>,<apple class="small" />,</plate>,<plate />',
+        boardMarkup: '<apple />,<apple class="small" />,<plate />,<plate>,<apple class="small" />,</plate>',
         correctAnswer: '.small',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['apple', 'applesmall-target', 'plate', 'plate', 'applesmall-target-nested'],
+            class: ['item-0', 'item-1', 'item-2', 'item-3', 'item-4'],
+        },
+        tableWidth: '40rem',
     },
     {
-        doThis: 'Select all the plates and bentos',
+        doThis: 'Select the bento boxes',
         levelIndicator: 'Level 5',
-        selectorType: 'Comma Combinator',
-        selectorTitle: 'Combine, selectors, with... commas!',
-        selectorSyntax: 'A, B',
+        selectorType: 'Type Selector',
+        selectorTitle: 'Select elements by their type',
+        selectorSyntax: 'A',
         hint:
-            'Thanks to Shatner technology, this selects all <strong>A</strong> and <strong>B</strong> elements. ' +
-            'You can combine any selectors this way, and you can specify more than two.',
+            'Selects all elements of type <strong>A</strong>. Type refers to the type of tag, ' +
+            'so <strong>&lt;div&gt;</strong>, <strong>&lt;p&gt;</strong> and <strong>&lt;ul&gt;</strong> are all different element types.',
         example: {
             title: 'Examples',
-            case1:
-                '<strong>p, .fun</strong> selects all <strong>&lt;p&gt;</strong> elements as ' +
-                'well as all elements with <strong>class="fun"</strong>',
-            case2:
-                '<strong>a, p, div</strong> selects all <strong>&lt;a&gt;</strong>, <strong>&lt;p&gt;</strong> ' +
-                'and <strong>&lt;div&gt;</strong> elements',
+            case1: '<strong>div</strong> selects all <strong>&lt;div&gt;</strong> elements.',
+            case2: '<strong>p</strong> selects all <strong>&lt;p&gt;</strong> elements.',
         },
-        boardMarkup:
-            '<pickle class="small" />,<pickle />,<plate>,<pickle />,</plate>,<bento>,<pickle />,</bento>,<plate>,<pickle />,</plate>,<pickle />,<pickle class="small" />',
-        correctAnswer: 'plate, bento',
+        boardMarkup: '<bento />,<plate />,<bento />',
+        correctAnswer: 'bento',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['bento-target', 'plate', 'bento-target'],
+            class: ['item-0', 'item-1', 'item-2'],
+        },
+        tableWidth: '40rem',
     },
     {
         doThis: 'Select all the things!',
@@ -117,11 +137,15 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: '<strong>p *</strong> selects any element inside all <strong>&lt;p&gt;</strong> elements.',
             case2: '',
         },
-        boardMarkup:
-            '<apple />,<plate>,<orange class="small" />,</plate>,<bento />,<bento>,<orange />,</bento>,<plate id="fancy" />',
+        boardMarkup: '<apple />,<plate />,<bento />,<plate id="fancy">,<orange class="small" />,</plate>',
         correctAnswer: '*',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['apple-target', 'plate-target', 'bento-target', 'plate-target-fancy', 'orangesmall-target-nested'],
+            class: ['item-0', 'item-1', 'item-2', 'item-3', 'item-4'],
+        },
+        tableWidth: '47rem',
     },
     {
         doThis: 'Select the pickles beside the bento',
@@ -138,10 +162,15 @@ const GAME_LEVELS: LevelInfo[] = [
             case2: '',
         },
         boardMarkup:
-            '<pickle />,<bento>,<orange class="small" />,</bento>,<pickle class="small" />,<pickle />,<plate>,<pickle />,</plate>,<plate>,<pickle class="small" />,</plate>',
+            '<pickle />,<bento />,<pickle class="small" />,<pickle />,<plate>,<pickle class="small" />,</plate>',
         correctAnswer: 'bento ~ pickle',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['pickle', 'bento', 'picklesmall-target', 'pickle-target', 'plate', 'pickle-a-nested'],
+            class: ['item-0', 'item-1', 'item-2', 'item-3', 'item-4', 'item-5'],
+        },
+        tableWidth: '40rem',
     },
     {
         doThis: 'Select the 3rd plate',
@@ -161,6 +190,11 @@ const GAME_LEVELS: LevelInfo[] = [
         correctAnswer: 'plate:nth-child(3)',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['plate', 'plate', 'plate-target', 'plate-fancy'],
+            class: ['item-0', 'item-1', 'item-2', 'item-3'],
+        },
+        tableWidth: '50rem',
     },
     {
         doThis: 'Select the last apple and orange',
@@ -183,6 +217,11 @@ const GAME_LEVELS: LevelInfo[] = [
         correctAnswer: '.small:last-of-type',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['orangesmall', 'orangesmall-target', 'pickle', 'pickle', 'applesmall', 'applesmall-target'],
+            class: ['item-0', 'item-1', 'item-2', 'item-3', 'item-4', 'item-5'],
+        },
+        tableWidth: '35rem',
     },
     {
         doThis: 'Select the empty bentos',
@@ -196,10 +235,15 @@ const GAME_LEVELS: LevelInfo[] = [
             case1: '<strong>div:empty</strong> selects all empty <strong>&lt;div&gt;</strong> elements.',
             case2: '',
         },
-        boardMarkup: '<bento />,<bento>,<pickle class="small" />,</bento>,<plate />,<bento />',
+        boardMarkup: '<bento />,<plate />,<bento />,<bento>,<pickle class="small" />,</bento>',
         correctAnswer: 'bento:empty',
         status: false,
         isHintUsed: false,
+        boardElement: {
+            type: ['bento-target', 'plate', 'bento-target', 'bento', 'pickle-a-nested'],
+            class: ['item-0', 'item-1', 'item-2', 'item-3', 'item-4'],
+        },
+        tableWidth: '52rem',
     },
 ];
 
