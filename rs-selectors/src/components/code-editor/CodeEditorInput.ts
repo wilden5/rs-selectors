@@ -8,7 +8,9 @@ import {
     userIncorrectSelector,
     userCorrectSelector,
     appendLevelMarkup,
+    setLevelStatus,
 } from '../utils/LevelHelpers';
+import { setLocalStorageCurrentLevel, setLocalStorageLevelStatuses } from '../utils/LocalStorage';
 
 class CodeEditorInput {
     public getInputValue(): string {
@@ -40,45 +42,16 @@ class CodeEditorInput {
                     alert('GG BRO YOU DID IT!');
                 } else {
                     setCurrentLevelIndex(getCurrentLevelIndex() + 1);
+                    setLocalStorageCurrentLevel();
                 }
-                this.setLevelStatus();
+                setLocalStorageLevelStatuses();
+                setLevelStatus();
                 updateLevelData();
                 appendLevelMarkup();
                 generateElementsOnTable();
             }, 500);
         } else {
             userIncorrectSelector();
-        }
-    }
-
-    public setLevelStatus(): void {
-        GAME_LEVELS.forEach((level) => {
-            if (level.status && level.isHintUsed) {
-                DOMHelpers.getElement(`.${level.levelIndicator.replace(' ', '-').toLowerCase()}`).classList.add(
-                    'level-passed-hint'
-                );
-                this.syncLevelStatusCheckmark();
-            }
-            if (level.status && !level.isHintUsed) {
-                DOMHelpers.getElement(`.${level.levelIndicator.replace(' ', '-').toLowerCase()}`).classList.add(
-                    'level-passed'
-                );
-                this.syncLevelStatusCheckmark();
-            }
-        });
-    }
-
-    public syncLevelStatusCheckmark(): void {
-        if (GAME_LEVELS[getCurrentLevelIndex()].status && !GAME_LEVELS[getCurrentLevelIndex()].isHintUsed) {
-            DOMHelpers.getElement('.nav__checkmark').style.borderColor = '#35ff00';
-        }
-
-        if (GAME_LEVELS[getCurrentLevelIndex()].status && GAME_LEVELS[getCurrentLevelIndex()].isHintUsed) {
-            DOMHelpers.getElement('.nav__checkmark').style.borderColor = '#faf102';
-        }
-
-        if (!GAME_LEVELS[getCurrentLevelIndex()].status && !GAME_LEVELS[getCurrentLevelIndex()].isHintUsed) {
-            DOMHelpers.getElement('.nav__checkmark').style.borderColor = '#fff';
         }
     }
 }

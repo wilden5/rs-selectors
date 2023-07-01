@@ -11,9 +11,11 @@ import {
     generateElementsOnTable,
     highlightElementsWithSameClass,
     appendLevelMarkup,
+    syncLevelStatusCheckmark,
 } from '../utils/LevelHelpers';
 import CodeEditorInput from '../code-editor/CodeEditorInput';
 import GameLayout from '../code-editor/game/GameLayout';
+import { setLocalStorageCurrentLevel } from '../utils/LocalStorage';
 
 class LevelSelectorLayout implements ProjectComponent {
     private levels: LevelInfo[];
@@ -89,8 +91,9 @@ class LevelSelectorLayout implements ProjectComponent {
             appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
             highlightElementsWithSameClass();
-            this.codeEditorInput.syncLevelStatusCheckmark();
+            syncLevelStatusCheckmark();
             generateElementsOnTable();
+            setLocalStorageCurrentLevel();
         }
     };
 
@@ -102,8 +105,9 @@ class LevelSelectorLayout implements ProjectComponent {
             appendLevelMarkup();
             this.codeEditorLayout.setUserInputState(true);
             highlightElementsWithSameClass();
-            this.codeEditorInput.syncLevelStatusCheckmark();
+            syncLevelStatusCheckmark();
             generateElementsOnTable();
+            setLocalStorageCurrentLevel();
         }
     };
 
@@ -115,8 +119,9 @@ class LevelSelectorLayout implements ProjectComponent {
             updateLevelData(); // recall populateLevelData to update the level info
             appendLevelMarkup();
             highlightElementsWithSameClass();
-            this.codeEditorInput.syncLevelStatusCheckmark();
+            syncLevelStatusCheckmark();
             generateElementsOnTable();
+            setLocalStorageCurrentLevel();
         });
         updateLevelData();
         appendLevelMarkup();

@@ -163,3 +163,34 @@ export function userCorrectSelector(): void {
         element.classList.add('correct-answer');
     });
 }
+
+export function syncLevelStatusCheckmark(): void {
+    if (GAME_LEVELS[getCurrentLevelIndex()].status && !GAME_LEVELS[getCurrentLevelIndex()].isHintUsed) {
+        DOMHelpers.getElement('.nav__checkmark').style.borderColor = '#35ff00';
+    }
+
+    if (GAME_LEVELS[getCurrentLevelIndex()].status && GAME_LEVELS[getCurrentLevelIndex()].isHintUsed) {
+        DOMHelpers.getElement('.nav__checkmark').style.borderColor = '#faf102';
+    }
+
+    if (!GAME_LEVELS[getCurrentLevelIndex()].status && !GAME_LEVELS[getCurrentLevelIndex()].isHintUsed) {
+        DOMHelpers.getElement('.nav__checkmark').style.borderColor = '#fff';
+    }
+}
+
+export function setLevelStatus(): void {
+    GAME_LEVELS.forEach((level) => {
+        if (level.status && level.isHintUsed) {
+            DOMHelpers.getElement(`.${level.levelIndicator.replace(' ', '-').toLowerCase()}`).classList.add(
+                'level-passed-hint'
+            );
+            syncLevelStatusCheckmark();
+        }
+        if (level.status && !level.isHintUsed) {
+            DOMHelpers.getElement(`.${level.levelIndicator.replace(' ', '-').toLowerCase()}`).classList.add(
+                'level-passed'
+            );
+            syncLevelStatusCheckmark();
+        }
+    });
+}

@@ -5,6 +5,7 @@ import ModalWindowLayout from '../code-editor/modal-window/ModalWindowLayout';
 import GameLayout from '../code-editor/game/GameLayout';
 import FooterLayout from '../footer/FooterLayout';
 import { ProjectComponent } from '../../types/Interfaces';
+import { synchronizeWithLocalStorage } from '../utils/LocalStorage';
 
 class App {
     private PROJECT_COMPONENTS: ProjectComponent[];
@@ -33,6 +34,9 @@ class App {
         this.PROJECT_COMPONENTS.forEach((module) => {
             module.init();
         });
+        if (localStorage.length > 0) {
+            synchronizeWithLocalStorage();
+        }
     }
 }
 
