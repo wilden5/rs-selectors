@@ -16,7 +16,7 @@ class CodeEditorLayout implements ProjectComponent {
     }
 
     private appendCodeEditorElements(): void {
-        DOMHelpers.appendChildToElement(document.body, this.codeEditorElements.codeEditorContainer);
+        DOMHelpers.appendChildToElement(DOMHelpers.getElement('.wrapper'), this.codeEditorElements.codeEditorContainer);
         DOMHelpers.appendChildToElement(this.codeEditorElements.codeEditorContainer, this.codeEditorElements.header);
         DOMHelpers.appendChildToElement(
             this.codeEditorElements.codeEditorContainer,
@@ -98,7 +98,7 @@ class CodeEditorLayout implements ProjectComponent {
     private generateInputHint(): void {
         this.codeEditorElements.userInputHint.innerHTML = '{<br>/* Styles would go here. */<br>}';
         this.codeEditorElements.userInputSkipLevel.innerHTML =
-            '/* <br> Type a number to skip to a level.<br>Ex → "5" for level 5<br>*/';
+            '/* <br> Click on the HELP button to skip to a level.<br>HELP button disables input until the next level.<br>*/';
     }
 
     private assignCodeEditorEventListeners(): void {

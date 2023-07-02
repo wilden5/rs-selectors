@@ -44,7 +44,7 @@ class LevelSelectorLayout implements ProjectComponent {
     }
 
     private appendElements(): void {
-        DOMHelpers.appendChildToElement(document.body, this.levelElements.levelSelectorContainer);
+        DOMHelpers.appendChildToElement(DOMHelpers.getElement('.wrapper'), this.levelElements.levelSelectorContainer);
         DOMHelpers.appendChildToElement(this.levelElements.levelSelectorContainer, this.levelElements.levelSelectorNav);
         DOMHelpers.appendChildToElement(this.levelElements.levelSelectorContainer, this.levelElements.levelProgress);
         DOMHelpers.appendChildToElement(this.levelElements.levelProgress, this.levelElements.levelProgressState);

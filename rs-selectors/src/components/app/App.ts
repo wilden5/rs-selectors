@@ -6,6 +6,7 @@ import GameLayout from '../code-editor/game/GameLayout';
 import FooterLayout from '../footer/FooterLayout';
 import { ProjectComponent } from '../../types/Interfaces';
 import { synchronizeWithLocalStorage } from '../utils/LocalStorage';
+import DOMHelpers from '../utils/DOMHelpers';
 
 class App {
     private PROJECT_COMPONENTS: ProjectComponent[];
@@ -31,6 +32,7 @@ class App {
     }
 
     public start(): void {
+        DOMHelpers.appendChildToElement(DOMHelpers.getElement('body'), DOMHelpers.createElement('div', ['wrapper']));
         this.PROJECT_COMPONENTS.forEach((module) => {
             module.init();
         });
