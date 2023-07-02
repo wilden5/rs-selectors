@@ -14,7 +14,7 @@ import { setLocalStorageCurrentLevel, setLocalStorageLevelStatuses } from '../ut
 
 class CodeEditorInput {
     public getInputValue(): string {
-        return (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value.trim();
+        return (DOMHelpers.getElement('.input__user-input') as HTMLInputElement).value.replace(/\s+/g, ' ').trim();
     }
 
     public handleEnterButtonPress = (event: KeyboardEvent): void => {
