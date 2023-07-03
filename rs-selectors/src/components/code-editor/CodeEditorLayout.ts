@@ -26,6 +26,10 @@ class CodeEditorLayout implements ProjectComponent {
             this.codeEditorElements.codeEditorContainer,
             this.codeEditorElements.modalButton
         );
+        DOMHelpers.appendChildToElement(
+            this.codeEditorElements.codeEditorContainer,
+            this.codeEditorElements.codeEditorOverlay
+        );
         DOMHelpers.appendChildToElement(this.codeEditorElements.codeEditorContainer, this.codeEditorElements.editor);
         DOMHelpers.appendChildToElement(this.codeEditorElements.header, this.codeEditorElements.headerTitle);
         DOMHelpers.appendChildToElement(this.codeEditorElements.header, this.codeEditorElements.socials);

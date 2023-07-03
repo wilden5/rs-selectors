@@ -62,6 +62,27 @@ export function highlightElementsWithSameClass(): void {
     });
 }
 
+export function populateOverlay(): void {
+    const overlay = DOMHelpers.getElement('.overlay');
+    const items = DOMHelpers.getElements('.item');
+
+    items.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            if (item.innerText === '') {
+                overlay.textContent = DOMHelpers.getElement(`.${item.classList[0]}`).innerText;
+                overlay.classList.add('overlay--active');
+            } else {
+                overlay.textContent = item.innerText;
+                overlay.classList.add('overlay--active');
+            }
+        });
+
+        item.addEventListener('mouseout', () => {
+            overlay.classList.remove('overlay--active');
+        });
+    });
+}
+
 export function generateElementsOnTable(): void {
     const tableArea: HTMLElement = DOMHelpers.getElement('.table-area');
     const tableTop: HTMLElement = DOMHelpers.getElement('.table-top');
@@ -97,6 +118,7 @@ export function generateElementsOnTable(): void {
         }
     }
     highlightElementsWithSameClass();
+    populateOverlay();
 }
 
 export function appendLevelMarkup(): void {
