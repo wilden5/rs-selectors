@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.base.config.js",
   "scripts": {
-    "start-rs": "webpack serve --open --config webpack.config.js --env mode=dev ",
+    "start-rs": "webpack serve --open --config webpack.config.js --env mode=dev",
     "build-rs": "webpack --config webpack.config.js --env mode=prod",
     "deploy-rs": "npx gh-pages -d dist -e rs-selectors",
     "test": "jest"

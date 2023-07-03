@@ -77,10 +77,10 @@ class CodeEditorLayout implements ProjectComponent {
     }
 
     private appendImages(): void {
-        DOMHelpers.appendImage(this.codeEditorElements.headerTitle, '../../assets/img/dish.png');
-        DOMHelpers.appendImage(this.codeEditorElements.emailLink, '../../assets/img/email.png');
-        DOMHelpers.appendImage(this.codeEditorElements.facebookLink, '../../assets/img/facebook.png');
-        DOMHelpers.appendImage(this.codeEditorElements.twitterLink, '../../assets/img/twitter.png');
+        DOMHelpers.appendImage(this.codeEditorElements.headerTitle, './assets/img/dish.png');
+        DOMHelpers.appendImage(this.codeEditorElements.emailLink, './assets/img/email.png');
+        DOMHelpers.appendImage(this.codeEditorElements.facebookLink, './assets/img/facebook.png');
+        DOMHelpers.appendImage(this.codeEditorElements.twitterLink, './assets/img/twitter.png');
     }
 
     private setUserInputProperties(): void {
