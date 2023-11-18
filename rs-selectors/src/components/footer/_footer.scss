@@ -1,0 +1,34 @@
+@import "../../style/_var.scss";
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-container,
+.footer__year,
+.footer__author {
+  font-size: 2rem;
+  color: $text-color-whiter;
+}
+
+.footer__year {
+  margin-right: 1rem;
+}
+
+.footer__author {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    color: $text-color;
+  }
+}
+
+.footer__school {
+  width: 5rem;
+  cursor: pointer;
+}

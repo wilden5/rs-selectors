@@ -1,0 +1,154 @@
+@import "../../../style/_var.scss";
+
+.nav__burger {
+  cursor: pointer;
+  transition: ease all 1s;
+  z-index: 3;
+}
+
+.burger__burger-line {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 0.25rem;
+  background-color: $text-color;
+  margin: 0.6rem 0;
+  border: none;
+  line-height: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.25rem;
+    background-color: $text-color;
+  }
+
+  &::before {
+    top: -1rem;
+  }
+
+  &::after {
+    bottom: -1rem;
+  }
+
+  &:hover,
+  &:hover:before,
+  &:hover:after,{
+    background-color: white;
+  }
+}
+
+.burger--open {
+  transform: rotate(90deg);
+  transition: ease all 1s;
+}
+
+.level-selector__burger-menu {
+  background: rgb(31, 29, 24);
+  position: absolute;
+  padding: 2rem;
+  top: 0;
+  right: 0;
+  width: 35rem;
+  height: 100%;
+  display: none;
+  z-index: 2;
+}
+
+.burger-menu--open {
+  display: block;
+}
+
+.burger-menu__burger-header {
+  padding-top: 1.5rem;
+  padding-left: 0.5rem;
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: $text-color-whiter;
+}
+
+.burger-menu__burger-content {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.level__number {
+  opacity: 0.5;
+  font-size: 1.8rem;
+  color: $text-color-whiter;
+  margin-right: 2rem;
+}
+
+.level__checkmark-s {
+  margin-left: 0.5rem;
+  margin-right: 2rem;
+  width: 0.6rem;
+  height: 1rem;
+  position: relative;
+  display: inline-block;
+  top: -0.3rem;
+  transform: rotate(40deg);
+  border-width: 0 0.4rem 0.4rem 0;
+  border-style: solid;
+  border-color: white;
+  opacity: 0.2;
+}
+
+.level__checkmark-s-passed {
+  border-color: #35ff00;
+}
+
+.level__syntax {
+  font-size: 1.8rem;
+  color: $text-color-whiter;
+}
+
+.burger-content__level {
+  position: relative;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(141, 130, 130, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.level--selected {
+  &:before {
+    opacity: 1;
+  }
+}
+
+.burger-menu__reset-button {
+  font-family: "Exo 2", serif;
+  font-size: 2rem;
+  cursor: pointer;
+  height: 4rem;
+  margin-top: 2rem;
+  background-color: transparent;
+  color: $text-color-whiter;
+  border: 0.1rem solid #c4bcbc;
+
+  &:hover {
+    background-color: rgba(141, 130, 130, 0.2);
+  }
+}

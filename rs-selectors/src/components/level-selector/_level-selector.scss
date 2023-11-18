@@ -1,0 +1,159 @@
+@import "../../style/_var.scss";
+
+strong {
+  background: rgba(255,255,255,.05);
+  padding: 0.2rem 0.5rem;
+  font-weight: 400;
+}
+
+.level-selector-container {
+  flex: 1;
+  background: rgb(31, 29, 24);
+  display: flex;
+  flex-direction: column;
+  max-width: 35rem;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.level-selector__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $text-color-whiter;
+}
+
+.nav__level-number {
+  font-size: 3rem;
+  min-width: 18rem;
+}
+
+.nav__checkmark {
+  margin-right: 3rem;
+  position: relative;
+  display: inline-block;
+  width: 1.2rem;
+  height: 2rem;
+  top: -0.3rem;
+  transform: rotate(40deg);
+  border-width: 0 0.4rem 0.4rem 0;
+  border-style: solid;
+  border-color: white;
+  opacity: 0.2;
+}
+
+.level-passed {
+  border-color: #35ff00;
+
+  .level__checkmark-s{
+    border-color: #35ff00;
+  }
+}
+
+.level-passed-hint {
+  border-color: #faf102;
+
+  .level__checkmark-s{
+    border-color: #faf102;
+  }
+}
+
+.nav__next-level,
+.nav__prev-level {
+  padding: 0;
+  cursor: pointer;
+  font-size: 5rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: $text-color;
+  transition: transform 0.2s;
+
+  &:hover {
+    color: white;
+  }
+
+  &:active {
+    transform: scale(1.2);
+  }
+}
+
+.level-selector__state-progress {
+  width: 35rem;
+  height: 0.2rem;
+  background-color: black;
+  margin: 0.6rem 0;
+  border: none;
+  line-height: 0;
+  position: relative;
+}
+
+.state-progress__completed {
+  background-color: white;
+  width: 3.5rem;
+  height: 0.2rem;
+  position: relative;
+  z-index: 2;
+
+  &:after {
+    content: "";
+    position: absolute;
+    right: -0.6rem;
+    top: -0.3rem;
+    height: 0.4rem;
+    width: 0.4rem;
+    border: solid 0.2rem #2a231d;
+    background-color: red;
+    border-radius: 50%;
+    z-index: -1;
+  }
+}
+
+.level-information__selector-type,
+.level-information__selector-title {
+  font-size: 1.8rem;
+  color: $text-color-whiter;
+  font-weight: 600;
+}
+
+.level-information__selector-title {
+  font-weight: 300;
+}
+
+.level-information__selector-syntax {
+  font-size: 2.4rem;
+  color: $text-color;
+  background: rgba(255,255,255,.05);
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+}
+
+.level-information__selector-hint,
+.level-information__example-title,
+.level-information__example-case,
+.level-information__example-case-2 {
+  font-size: 1.5rem;
+  color: $text-color-whiter;
+}
+
+.level-information__example-case-2,
+.level-information__example-case {
+  line-height: 150%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.level-information__example-case {
+  border-bottom: 0.1rem solid $text-color;
+}
+
+.level-information__selector-hint {
+  margin-bottom: 4.5rem;
+  line-height: 160%;
+}
+
+.level-information__example-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}

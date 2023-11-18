@@ -1,0 +1,19 @@
+@import "var";
+
+html {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+  background-color: rgb(46, 42, 35);
+}
+
+.wrapper {
+  display: flex;
+}

@@ -1,0 +1,93 @@
+@import "var";
+
+@keyframes flashBackground {
+  0% {
+    background-color: rgba(62, 203, 255, .3);
+  }
+  50% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(62, 203, 255, .3);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: perspective(50px) rotateX(-10deg) translateX(0);
+  }
+  25% {
+    transform: perspective(50px) rotateX(-10deg) translateX(-3px);
+  }
+  50% {
+    transform: perspective(50px) rotateX(-10deg) translateX(0);
+  }
+  75% {
+    transform: perspective(50px) rotateX(-10deg) translateX(3px);
+  }
+  100% {
+    transform: perspective(50px) rotateX(-10deg) translateX(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 15%;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    top: 50%;
+  }
+  to {
+    top: -30%;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes rocking {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shake-editor {
+  0% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-0.25rem);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(0.25rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fly-away {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}

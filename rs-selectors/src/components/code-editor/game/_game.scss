@@ -1,0 +1,58 @@
+@import "src/style/var";
+@import "src/style/animation";
+
+.target {
+  animation: rocking 2s ease-in-out infinite;
+}
+
+.fancy {
+  background: lightblue;
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.table-area {
+  width: 40rem;
+  height: 15rem;
+  perspective: 35rem;
+  position: relative;
+}
+
+.table-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #dd992d;
+  border-radius: 1rem;
+  overflow: hidden;
+  transform: rotateX(30deg);
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    left: -1rem;
+    right: -1rem;
+    height: 2rem;
+    background-color: #94673c;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  }
+}
+
+.plate {
+  border-bottom: solid 0.5rem #DDD;
+  background: white;
+  border-radius: 10rem;
+}
+
+.correct-answer {
+  animation: fly-away 0.5s ease-in-out;
+}

@@ -1,0 +1,122 @@
+@import "src/style/var";
+
+@mixin common-props-elements {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 1rem;
+  position: relative;
+  box-shadow: 0 0.8rem 0 rgba(0,0,0,.1);
+}
+
+@mixin hover-on-element {
+  &.highlighted,
+  &:hover {
+    border: solid 0.3rem rebeccapurple;
+  }
+}
+
+@mixin round-fruit($color, $border-color, $width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 10rem;
+  border-style: solid;
+  display: inline-block;
+  position: relative;
+  margin: 2rem 1rem;
+  background: $color;
+  border-color: $border-color;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, .3);
+    height: 30%;
+    width: 30%;
+    top: 0;
+    left: 35%;
+    border-radius: 10rem;
+  }
+
+  @include hover-on-element;
+}
+
+@mixin green-pickle($width, $height) {
+  width: $width;
+  height: $height;
+  background: #179837;
+  border-radius: 3rem;
+  display: inline-block;
+  position: relative;
+  border: solid #025a18;
+  border-width: 0.2rem 0.2rem 0.9rem 0.2rem;
+  margin: 2rem 1rem;
+
+  @include hover-on-element;
+}
+
+plate {
+  @include common-props-elements;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 0.5rem #DDD;
+  background: white;
+  border-radius: 10rem;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 6rem;
+    border-top: solid 0.6rem #CCC;
+    opacity: .7;
+    background: rgba(255,255,255,1);
+  }
+
+  @include hover-on-element;
+}
+
+bento {
+  @include common-props-elements;
+  background: brown;
+  border: solid 0.3rem #711c12;
+  display: flex;
+  justify-content: center;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 82%;
+    top: 0;
+    left: 0;
+    border: 1rem solid rgba(0, 0, 0, 0.1);
+  }
+
+  @include hover-on-element;
+}
+
+apple {
+  @include round-fruit(#e41919, #ab1212, 6rem, 6rem);
+}
+
+applesmall {
+  @include round-fruit(#e41919, #ab1212, 3rem, 3rem);
+}
+
+pickle {
+  @include green-pickle(2.5rem, 4.5rem);
+}
+
+picklesmall {
+  @include green-pickle(1.5rem, 2.5rem);
+}
+
+orange {
+  @include round-fruit(orange, #bd6e07, 6rem, 6rem);
+}
+
+orangesmall {
+  @include round-fruit(orange, #bd6e07, 3rem, 3rem);
+}

@@ -1,0 +1,63 @@
+@import "src/style/var";
+@import "src/style/animation";
+
+.modal {
+  z-index: 9999;
+  display: none;
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  animation: slide-down 0.3s ease-out forwards;
+}
+
+.modal--opened {
+  display: block;
+}
+
+.modal__title, {
+  margin-top: 0;
+  color: #444;
+  font-size: 2rem;
+}
+
+.modal__greeting,
+.modal__code-title,
+.modal__description {
+  font-size: 1.5rem;
+  color: $text-color;
+  font-weight: 400;
+}
+
+.modal__code-title {
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.modal__code {
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #6b6a6a;
+  background-color: #DDD;
+}
+
+.modal__close-button {
+  background-color: lightblue;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: dodgerblue;
+  }
+}
